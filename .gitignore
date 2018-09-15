@@ -1,0 +1,7 @@
+﻿################################################################################
+# Este archivo .gitignore ha sido creado automáticamente por Microsoft(R) Visual Studio.
+################################################################################
+
+/DeliverEats/Producto/Web/Codigo Fuente/.vs/config
+/DeliverEats/Producto/Web/Codigo Fuente/DeliverEat/.vs
+/DeliverEats/Producto/Web/Codigo Fuente/DeliverEat/obj/Debug
