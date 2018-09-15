@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html><head>
+  <meta http-equiv="Content-Security-Policy" content="default-src chrome:; img-src *; media-src *">
+  <meta content="text/html; charset=UTF-8" http-equiv="content-type">
+  <meta name="viewport" content="width=device-width; user-scalable=0">
+  <link rel="stylesheet" href="Convenciones%20de%20c%C3%B3digo%20de%20C%23_archivos/aboutReader.css" type="text/css">
+  <script type="text/javascript" src="Convenciones%20de%20c%C3%B3digo%20de%20C%23_archivos/aboutReader.js"></script>
+<link rel="stylesheet" href="Convenciones%20de%20c%C3%B3digo%20de%20C%23_archivos/narrate.css"><title>Convenciones de código de C# (Guía de programación de C#)</title></head>
+
+<body class="light sans-serif loaded">
+  <div class="container font-size5 content-width3">
+    <div class="header reader-header reader-show-element" dir="ltr">
+      <a class="domain reader-domain" href="https://docs.microsoft.com/es-es/dotnet/csharp/programming-guide/inside-a-program/coding-conventions">docs.microsoft.com</a>
+      <div class="domain-border"></div>
+      <h1 class="reader-title">Convenciones de código de C# (Guía de programación de C#)</h1>
+      <div class="credits reader-credits">dotnet-bot</div>
+      <div class="meta-data">
+        <div class="reader-estimated-time" dir="ltr" style="text-align: left;">17-22 minutos</div>
+      </div>
+    </div>
+
+    <hr>
+
+    <div class="content">
+      <div class="moz-reader-content line-height4 reader-show-element" dir="ltr"><div id="readability-page-1" class="page">
+<div>
+		
+	
+	<div id="disclaimer-holder">
+		<div dir="ltr" lang="es-es">
+			<p>Puede mostrar el texto en inglés en una ventana emergente moviendo el cursor del mouse sobre el texto.</p>
+		</div>
+	</div>
+	</div>
+
+	<div data-bi-name="body">
+		
+		<div>
+
+			<section>
+				<div>
+
+					
+
+
+				<div id="main-column">
+					
+					
+
+
+
+						
+
+						<ul data-bi-name="page info" dir="ltr" lang="es-es">
+							<li>
+								<span></span>
+								<time role="presentation" datetime="2015-07-20T00:00:00.000Z" data-article-date-source="ms.date">19/07/2015</time>
+							</li>
+								<li>
+									<span></span>
+									Tiempo de lectura: 13 minutos
+								</li>
+							<li>
+								<span>Colaboradores</span>
+								
+							</li>
+
+						</ul>
+
+						<nav id="center-doc-outline" data-bi-name="intopic toc" role="navigation">
+							<h3>En este artículo</h3>
+						<ol><li><a href="#naming-conventions">Convenciones de nomenclatura</a></li><li><a href="#layout-conventions">Convenciones de diseño</a></li><li><a href="#commenting-conventions">Convenciones de los comentarios</a></li><li><a href="#language-guidelines">Convenciones de lenguaje</a></li><li><a href="#security">Seguridad</a></li><li><a href="#see-also">Vea también</a></li></ol></nav>
+
+
+
+						
+							
+<p> <span data-ttu-id="c6548-103">Las convenciones de codificación tienen los objetivos siguientes:</span><span><span data-stu-id="c6548-103">Coding conventions serve the following purposes:</span></span>  </p>
+<ul>
+<li><p><span data-ttu-id="c6548-104">Crean una apariencia coherente en el código, para que los lectores puedan centrarse en el contenido, no en el diseño.</span><span><span data-stu-id="c6548-104">They create a consistent look to the code, so that readers can focus on content, not layout.</span></span>  </p>
+</li>
+<li><p><span data-ttu-id="c6548-105">Permiten a los lectores comprender el código más rápidamente al hacer suposiciones basadas en la experiencia anterior.</span><span><span data-stu-id="c6548-105">They enable readers to understand the code more quickly by making assumptions based on previous experience.</span></span>  </p>
+</li>
+<li><p><span data-ttu-id="c6548-106">Facilitan la copia, el cambio y el mantenimiento del código.</span><span><span data-stu-id="c6548-106">They facilitate copying, changing, and maintaining the code.</span></span>  </p>
+</li>
+<li><p><span data-ttu-id="c6548-107">Muestran los procedimientos recomendados de C#.</span><span><span data-stu-id="c6548-107">They demonstrate C# best practices.</span></span>  </p>
+</li>
+</ul>
+<p> <span data-ttu-id="c6548-108">Microsoft usa las instrucciones de este tema para desarrollar ejemplos y documentación.</span><span><span data-stu-id="c6548-108">The guidelines in this topic are used by Microsoft to develop samples and documentation.</span></span>  </p>
+<h2 id="naming-conventions"><span data-ttu-id="c6548-109">Convenciones de nomenclatura</span><span><span data-stu-id="c6548-109">Naming Conventions</span></span><a tabindex="-1" href="#naming-conventions"></a></h2>
+<ul>
+<li><p><span data-ttu-id="c6548-110">En ejemplos breves que no incluyen <a href="https://docs.microsoft.com/es-es/dotnet/csharp/language-reference/keywords/using-directive" data-linktype="relative-path">directivas using</a>, use calificaciones de espacio de nombres.</span><span><span data-stu-id="c6548-110">In short examples that do not include <a href="https://docs.microsoft.com/es-es/dotnet/csharp/language-reference/keywords/using-directive" data-linktype="relative-path">using directives</a>, use namespace qualifications.</span></span> <span data-ttu-id="c6548-111">Si
+ sabe que un espacio de nombres se importa en un proyecto de forma 
+predeterminada, no es necesario completar los nombres de ese espacio de 
+nombres.</span><span><span data-stu-id="c6548-111">If you know that a 
+namespace is imported by default in a project, you do not have to fully 
+qualify the names from that namespace.</span></span> <span data-ttu-id="c6548-112">Los
+ nombres completos pueden partirse después de un punto (.) si son 
+demasiado largos para una sola línea, como se muestra en el ejemplo 
+siguiente.</span><span><span data-stu-id="c6548-112">Qualified names can be broken after a dot (.) if they are too long for a single line, as shown in the following example.</span></span>  </p>
+<pre><code data-src="https://github.com/dotnet/samples/blob/master/snippets/csharp/VS_Snippets_VBCSharp/csprogguidecodingconventions/cs/program.cs" name="csProgGuideCodingConventions#1"><span>var</span> currentPerformanceCounterCategory = <span>new</span> System.Diagnostics.
+    PerformanceCounterCategory();
+</code></pre></li>
+<li><p><span data-ttu-id="c6548-113">No es necesario cambiar los nombres
+ de objetos que se crearon con las herramientas del diseñador de Visual 
+Studio para que se ajusten a otras directrices.</span><span><span data-stu-id="c6548-113">You
+ do not have to change the names of objects that were created by using 
+the Visual Studio designer tools to make them fit other guidelines.</span></span>  </p>
+</li>
+</ul>
+<h2 id="layout-conventions"><span data-ttu-id="c6548-114">Convenciones de diseño</span><span><span data-stu-id="c6548-114">Layout Conventions</span></span><a tabindex="-1" href="#layout-conventions"></a></h2>
+<p> <span data-ttu-id="c6548-115">Un buen diseño utiliza un formato que destaque la estructura del código y haga que el código sea más fácil de leer.</span><span><span data-stu-id="c6548-115">Good layout uses formatting to emphasize the structure of your code and to make the code easier to read.</span></span> <span data-ttu-id="c6548-116">Las muestras y ejemplos de Microsoft cumplen las convenciones siguientes:</span><span><span data-stu-id="c6548-116">Microsoft examples and samples conform to the following conventions:</span></span>  </p>
+<ul>
+<li><p><span data-ttu-id="c6548-117">Utilice la configuración del Editor
+ de código predeterminada (sangría automática, sangrías de 4 caracteres,
+ tabulaciones guardadas como espacios).</span><span><span data-stu-id="c6548-117">Use the default Code Editor settings (smart indenting, four-character indents, tabs saved as spaces).</span></span> <span data-ttu-id="c6548-118">Para obtener más información, vea <a href="https://docs.microsoft.com/es-es/visualstudio/ide/reference/options-text-editor-csharp-formatting" data-linktype="absolute-path">Opciones, editor de texto, C#, formato</a>.</span><span><span data-stu-id="c6548-118">For more information, see <a href="https://docs.microsoft.com/es-es/visualstudio/ide/reference/options-text-editor-csharp-formatting" data-linktype="absolute-path">Options, Text Editor, C#, Formatting</a>.</span></span>  </p>
+</li>
+<li><p><span data-ttu-id="c6548-119">Escriba solo una instrucción por línea.</span><span><span data-stu-id="c6548-119">Write only one statement per line.</span></span>  </p>
+</li>
+<li><p><span data-ttu-id="c6548-120">Escriba solo una declaración por línea.</span><span><span data-stu-id="c6548-120">Write only one declaration per line.</span></span>  </p>
+</li>
+<li><p><span data-ttu-id="c6548-121">Si a las líneas de continuación no se les aplica sangría automáticamente, hágalo con una tabulación (cuatro espacios).</span><span><span data-stu-id="c6548-121">If continuation lines are not indented automatically, indent them one tab stop (four spaces).</span></span>  </p>
+</li>
+<li><p><span data-ttu-id="c6548-122">Agregue al menos una línea en blanco entre las definiciones de método y las de propiedad.</span><span><span data-stu-id="c6548-122">Add at least one blank line between method definitions and property definitions.</span></span>  </p>
+</li>
+<li><p><span data-ttu-id="c6548-123">Utilice paréntesis para que las cláusulas de una expresión sean evidentes, como se muestra en el código siguiente.</span><span><span data-stu-id="c6548-123">Use parentheses to make clauses in an expression apparent, as shown in the following code.</span></span>  </p>
+<pre><code data-src="https://github.com/dotnet/samples/blob/master/snippets/csharp/VS_Snippets_VBCSharp/csprogguidecodingconventions/cs/program.cs" name="csProgGuideCodingConventions#2"><span>if</span> ((val1 &gt; val2) &amp;&amp; (val1 &gt; val3))
+{
+    <span>// Take appropriate action.</span>
+}
+</code></pre></li>
+</ul>
+
+<ul>
+<li><p><span data-ttu-id="c6548-125">Coloque el comentario en una línea independiente, no al final de una línea de código.</span><span><span data-stu-id="c6548-125">Place the comment on a separate line, not at the end of a line of code.</span></span>  </p>
+</li>
+<li><p><span data-ttu-id="c6548-126">Comience el texto del comentario con una letra mayúscula.</span><span><span data-stu-id="c6548-126">Begin comment text with an uppercase letter.</span></span>  </p>
+</li>
+<li><p><span data-ttu-id="c6548-127">Finalice el texto del comentario con un punto.</span><span><span data-stu-id="c6548-127">End comment text with a period.</span></span>  </p>
+</li>
+<li><p><span data-ttu-id="c6548-128">Inserte un espacio entre el delimitador de comentario (//) y el texto del comentario, como se muestra en el ejemplo siguiente.</span><span><span data-stu-id="c6548-128">Insert one space between the comment delimiter (//) and the comment text, as shown in the following example.</span></span>  </p>
+<pre><code data-src="https://github.com/dotnet/samples/blob/master/snippets/csharp/VS_Snippets_VBCSharp/csprogguidecodingconventions/cs/program.cs" name="csProgGuideCodingConventions#3"><span>// The following declaration creates a query. It does not run</span>
+<span>// the query.</span>
+</code></pre></li>
+<li><p><span data-ttu-id="c6548-129">No cree bloques con formato de asteriscos alrededor de comentarios.</span><span><span data-stu-id="c6548-129">Do not create formatted blocks of asterisks around comments.</span></span>  </p>
+</li>
+</ul>
+<h2 id="language-guidelines"><span data-ttu-id="c6548-130">Convenciones de lenguaje</span><span><span data-stu-id="c6548-130">Language Guidelines</span></span><a tabindex="-1" href="#language-guidelines"></a></h2>
+<p> <span data-ttu-id="c6548-131">En las secciones siguientes se describen las prácticas que sigue el equipo C# para preparar las muestras y ejemplos de código.</span><span><span data-stu-id="c6548-131">The following sections describe practices that the C# team follows to prepare code examples and samples.</span></span>  </p>
+<h3 id="string-data-type"><span data-ttu-id="c6548-132">String (Tipo de datos)</span><span><span data-stu-id="c6548-132">String Data Type</span></span><a tabindex="-1" href="#string-data-type"></a></h3>
+<ul>
+<li><p><span data-ttu-id="c6548-133">Use <a href="https://docs.microsoft.com/es-es/dotnet/csharp/language-reference/tokens/interpolated" data-linktype="relative-path">interpolación de cadenas</a> para concatenar cadenas cortas, como se muestra en el código siguiente.</span><span><span data-stu-id="c6548-133">Use <a href="https://docs.microsoft.com/es-es/dotnet/csharp/language-reference/tokens/interpolated" data-linktype="relative-path">string interpolation</a> to concatenate short strings, as shown in the following code.</span></span>  </p>
+<pre><code data-src="https://github.com/dotnet/samples/blob/master/snippets/csharp/VS_Snippets_VBCSharp/csprogguidecodingconventions/cs/program.cs" name="csProgGuideCodingConventions#6"><span>string</span> displayName = <span>$"<span>{nameList[n].LastName}</span>, <span>{nameList[n].FirstName}</span>"</span>;
+</code></pre></li>
+<li><p><span data-ttu-id="c6548-134">Para anexar cadenas en bucles, especialmente cuando se trabaja con grandes cantidades de texto, utilice un objeto <a href="https://docs.microsoft.com/es-es/dotnet/api/system.text.stringbuilder" data-linktype="absolute-path">StringBuilder</a>.</span><span><span data-stu-id="c6548-134">To append strings in loops, especially when you are working with large amounts of text, use a <a href="https://docs.microsoft.com/es-es/dotnet/api/system.text.stringbuilder" data-linktype="absolute-path">StringBuilder</a> object.</span></span>  </p>
+<pre><code data-src="https://github.com/dotnet/samples/blob/master/snippets/csharp/VS_Snippets_VBCSharp/csprogguidecodingconventions/cs/program.cs" name="csProgGuideCodingConventions#7"><span>var</span> phrase = <span>"lalalalalalalalalalalalalalalalalalalalalalalalalalalalalala"</span>;
+<span>var</span> manyPhrases = <span>new</span> StringBuilder();
+<span>for</span> (<span>var</span> i = <span>0</span>; i &lt; <span>10000</span>; i++)
+{
+    manyPhrases.Append(phrase);
+}
+<span>//Console.WriteLine("tra" + manyPhrases);</span>
+</code></pre></li>
+</ul>
+<h3 id="implicitly-typed-local-variables"><span data-ttu-id="c6548-135">Variables locales con asignación implícita de tipos</span><span><span data-stu-id="c6548-135">Implicitly Typed Local Variables</span></span><a tabindex="-1" href="#implicitly-typed-local-variables"></a></h3>
+<ul>
+<li><p><span data-ttu-id="c6548-136">Use <a href="https://docs.microsoft.com/es-es/dotnet/csharp/programming-guide/classes-and-structs/implicitly-typed-local-variables" data-linktype="relative-path">tipos implícitos</a>
+ para las variables locales cuando el tipo de la variable sea obvio 
+desde el lado derecho de la asignación, o cuando el tipo exacto no sea 
+importante.</span><span><span data-stu-id="c6548-136">Use <a href="https://docs.microsoft.com/es-es/dotnet/csharp/programming-guide/classes-and-structs/implicitly-typed-local-variables" data-linktype="relative-path">implicit typing</a>
+ for local variables when the type of the variable is obvious from the 
+right side of the assignment, or when the precise type is not important.</span></span>  </p>
+<pre><code data-src="https://github.com/dotnet/samples/blob/master/snippets/csharp/VS_Snippets_VBCSharp/csprogguidecodingconventions/cs/program.cs" name="csProgGuideCodingConventions#8"><span>// When the type of a variable is clear from the context, use var </span>
+<span>// in the declaration.</span>
+<span>var</span> var1 = <span>"This is clearly a string."</span>;
+<span>var</span> var2 = <span>27</span>;
+<span>var</span> var3 = Convert.ToInt32(Console.ReadLine());
+</code></pre></li>
+<li><p><span data-ttu-id="c6548-137">No use <a href="https://docs.microsoft.com/es-es/dotnet/csharp/language-reference/keywords/var" data-linktype="relative-path">var</a> cuando el tipo no sea evidente desde el lado derecho de la asignación.</span><span><span data-stu-id="c6548-137">Do not use <a href="https://docs.microsoft.com/es-es/dotnet/csharp/language-reference/keywords/var" data-linktype="relative-path">var</a> when the type is not apparent from the right side of the assignment.</span></span>  </p>
+<pre><code data-src="https://github.com/dotnet/samples/blob/master/snippets/csharp/VS_Snippets_VBCSharp/csprogguidecodingconventions/cs/program.cs" name="csProgGuideCodingConventions#9"><span>// When the type of a variable is not clear from the context, use an</span>
+<span>// explicit type.</span>
+<span>int</span> var4 = ExampleClass.ResultSoFar();
+</code></pre></li>
+<li><p><span data-ttu-id="c6548-138">No confíe en el nombre de variable para especificar el tipo de la variable.</span><span><span data-stu-id="c6548-138">Do not rely on the variable name to specify the type of the variable.</span></span> <span data-ttu-id="c6548-139">Puede no ser correcto.</span><span><span data-stu-id="c6548-139">It might not be correct.</span></span>  </p>
+<pre><code data-src="https://github.com/dotnet/samples/blob/master/snippets/csharp/VS_Snippets_VBCSharp/csprogguidecodingconventions/cs/program.cs" name="csProgGuideCodingConventions#10"><span>// Naming the following variable inputInt is misleading. </span>
+<span>// It is a string.</span>
+<span>var</span> inputInt = Console.ReadLine();
+Console.WriteLine(inputInt);
+</code></pre></li>
+<li><p><span data-ttu-id="c6548-140">Evite el uso de <code>var</code> en lugar de <a href="https://docs.microsoft.com/es-es/dotnet/csharp/language-reference/keywords/dynamic" data-linktype="relative-path">dynamic</a>.</span><span><span data-stu-id="c6548-140">Avoid the use of <code>var</code> in place of <a href="https://docs.microsoft.com/es-es/dotnet/csharp/language-reference/keywords/dynamic" data-linktype="relative-path">dynamic</a>.</span></span>  </p>
+</li>
+<li><p><span data-ttu-id="c6548-141">Use tipos implícitos para determinar el tipo de la variable de bucle en bucles <a href="https://docs.microsoft.com/es-es/dotnet/csharp/language-reference/keywords/for" data-linktype="relative-path">for</a> y <a href="https://docs.microsoft.com/es-es/dotnet/csharp/language-reference/keywords/foreach-in" data-linktype="relative-path">foreach</a>.</span><span><span data-stu-id="c6548-141">Use implicit typing to determine the type of the loop variable in <a href="https://docs.microsoft.com/es-es/dotnet/csharp/language-reference/keywords/for" data-linktype="relative-path">for</a> and <a href="https://docs.microsoft.com/es-es/dotnet/csharp/language-reference/keywords/foreach-in" data-linktype="relative-path">foreach</a> loops.</span></span>  </p>
+<p> <span data-ttu-id="c6548-142">En el ejemplo siguiente se usan tipos implícitos en una instrucción <code>for</code>.</span><span><span data-stu-id="c6548-142">The following example uses implicit typing in a <code>for</code> statement.</span></span>  </p>
+<pre><code data-src="https://github.com/dotnet/samples/blob/master/snippets/csharp/VS_Snippets_VBCSharp/csprogguidecodingconventions/cs/program.cs" name="csProgGuideCodingConventions#11"><span>var</span> syllable = <span>"ha"</span>;
+<span>var</span> laugh = <span>""</span>;
+<span>for</span> (<span>var</span> i = <span>0</span>; i &lt; <span>10</span>; i++)
+{
+    laugh += syllable;
+    Console.WriteLine(laugh);
+}
+</code></pre><p> <span data-ttu-id="c6548-143">En el ejemplo siguiente se usan tipos implícitos en una instrucción <code>foreach</code>.</span><span><span data-stu-id="c6548-143">The following example uses implicit typing in a <code>foreach</code> statement.</span></span>  </p>
+<pre><code data-src="https://github.com/dotnet/samples/blob/master/snippets/csharp/VS_Snippets_VBCSharp/csprogguidecodingconventions/cs/program.cs" name="csProgGuideCodingConventions#12"><span>foreach</span> (<span>var</span> ch <span>in</span> laugh)
+{
+    <span>if</span> (ch == <span>'h'</span>)
+        Console.Write(<span>"H"</span>);
+    <span>else</span>
+        Console.Write(ch);
+}
+Console.WriteLine();
+</code></pre></li>
+</ul>
+<h3 id="unsigned-data-type"><span data-ttu-id="c6548-144">Tipo de datos sin signo</span><span><span data-stu-id="c6548-144">Unsigned Data Type</span></span><a tabindex="-1" href="#unsigned-data-type"></a></h3>
+<ul>
+<li><span data-ttu-id="c6548-145">En general, utilice <code>int</code> en lugar de tipos sin signo.</span><span><span data-stu-id="c6548-145">In general, use <code>int</code> rather than unsigned types.</span></span> <span data-ttu-id="c6548-146">El uso de <code>int</code> es común en todo C#, y es más fácil interactuar con otras bibliotecas cuando se usa <code>int</code>.</span><span><span data-stu-id="c6548-146">The use of <code>int</code> is common throughout C#, and it is easier to interact with other libraries when you use <code>int</code>.</span></span>  </li>
+</ul>
+<h3 id="arrays"><span data-ttu-id="c6548-147">Matrices</span><span><span data-stu-id="c6548-147">Arrays</span></span><a tabindex="-1" href="#arrays"></a></h3>
+<ul>
+<li><p><span data-ttu-id="c6548-148">Utilice sintaxis concisa para inicializar las matrices en la línea de declaración.</span><span><span data-stu-id="c6548-148">Use the concise syntax when you initialize arrays on the declaration line.</span></span>  </p>
+<pre><code data-src="https://github.com/dotnet/samples/blob/master/snippets/csharp/VS_Snippets_VBCSharp/csprogguidecodingconventions/cs/program.cs" name="csProgGuideCodingConventions#13"><span>// Preferred syntax. Note that you cannot use var here instead of string[].</span>
+<span>string</span>[] vowels1 = { <span>"a"</span>, <span>"e"</span>, <span>"i"</span>, <span>"o"</span>, <span>"u"</span> };
+
+
+<span>// If you use explicit instantiation, you can use var.</span>
+<span>var</span> vowels2 = <span>new</span> <span>string</span>[] { <span>"a"</span>, <span>"e"</span>, <span>"i"</span>, <span>"o"</span>, <span>"u"</span> };
+
+<span>// If you specify an array size, you must initialize the elements one at a time.</span>
+<span>var</span> vowels3 = <span>new</span> <span>string</span>[<span>5</span>];
+vowels3[<span>0</span>] = <span>"a"</span>;
+vowels3[<span>1</span>] = <span>"e"</span>;
+<span>// And so on.</span>
+</code></pre></li>
+</ul>
+<h3 id="delegates"><span data-ttu-id="c6548-149">Delegados</span><span><span data-stu-id="c6548-149">Delegates</span></span><a tabindex="-1" href="#delegates"></a></h3>
+<ul>
+<li><p><span data-ttu-id="c6548-150">Utilice sintaxis concisa para crear instancias de un tipo de delegado.</span><span><span data-stu-id="c6548-150">Use the concise syntax to create instances of a delegate type.</span></span>  </p>
+<pre><code data-src="https://github.com/dotnet/samples/blob/master/snippets/csharp/VS_Snippets_VBCSharp/csprogguidecodingconventions/cs/program.cs" name="csProgGuideCodingConventions#14"><span>// First, in class Program, define the delegate type and a method that  </span>
+<span>// has a matching signature.</span>
+
+<span>// Define the type.</span>
+<span><span>public</span> <span>delegate</span> <span>void</span> <span>Del</span>(<span><span>string</span> message</span>)</span>;
+
+<span>// Define a method that has a matching signature.</span>
+<span><span>public</span> <span>static</span> <span>void</span> <span>DelMethod</span>(<span><span>string</span> str</span>)
+</span>{
+    Console.WriteLine(<span>"DelMethod argument: {0}"</span>, str);
+}
+</code></pre><pre><code data-src="https://github.com/dotnet/samples/blob/master/snippets/csharp/VS_Snippets_VBCSharp/csprogguidecodingconventions/cs/program.cs" name="csProgGuideCodingConventions#15"><span>// In the Main method, create an instance of Del.</span>
+
+<span>// Preferred: Create an instance of Del by using condensed syntax.</span>
+Del exampleDel2 = DelMethod;
+
+<span>// The following declaration uses the full syntax.</span>
+Del exampleDel1 = <span>new</span> Del(DelMethod);
+</code></pre></li>
+</ul>
+<h3 id="try-catch-and-using-statements-in-exception-handling"><span data-ttu-id="c6548-151">Instrucciones try-catch y using en el control de excepciones</span><span><span data-stu-id="c6548-151">try-catch and using Statements in Exception Handling</span></span><a tabindex="-1" href="#try-catch-and-using-statements-in-exception-handling"></a></h3>
+<ul>
+<li><p><span data-ttu-id="c6548-152">Use una instrucción <a href="https://docs.microsoft.com/es-es/dotnet/csharp/language-reference/keywords/try-catch" data-linktype="relative-path">try-catch</a> en la mayoría de casos de control de excepciones.</span><span><span data-stu-id="c6548-152">Use a <a href="https://docs.microsoft.com/es-es/dotnet/csharp/language-reference/keywords/try-catch" data-linktype="relative-path">try-catch</a> statement for most exception handling.</span></span>  </p>
+<pre><code data-src="https://github.com/dotnet/samples/blob/master/snippets/csharp/VS_Snippets_VBCSharp/csprogguidecodingconventions/cs/program.cs" name="csProgGuideCodingConventions#16"><span><span>static</span> <span>string</span> <span>GetValueFromArray</span>(<span><span>string</span>[] array, <span>int</span> index</span>)
+</span>{
+    <span>try</span>
+    {
+        <span>return</span> array[index];
+    }
+    <span>catch</span> (System.IndexOutOfRangeException ex)
+    {
+        Console.WriteLine(<span>"Index is out of range: {0}"</span>, index);
+        <span>throw</span>;
+    }
+}
+</code></pre></li>
+<li><p><span data-ttu-id="c6548-153">Simplifique el código mediante la <a href="https://docs.microsoft.com/es-es/dotnet/csharp/language-reference/keywords/using-statement" data-linktype="relative-path">instrucción using</a> de C#.</span><span><span data-stu-id="c6548-153">Simplify your code by using the C# <a href="https://docs.microsoft.com/es-es/dotnet/csharp/language-reference/keywords/using-statement" data-linktype="relative-path">using statement</a>.</span></span> <span data-ttu-id="c6548-154">Si tiene una instrucción <a href="https://docs.microsoft.com/es-es/dotnet/csharp/language-reference/keywords/try-finally" data-linktype="relative-path">try-finally</a> en la que el único código del bloque <code>finally</code> es una llamada al método <a href="https://docs.microsoft.com/es-es/dotnet/api/system.idisposable.dispose" data-linktype="absolute-path">Dispose</a>, use en su lugar una instrucción <code>using</code>.</span><span><span data-stu-id="c6548-154">If you have a <a href="https://docs.microsoft.com/es-es/dotnet/csharp/language-reference/keywords/try-finally" data-linktype="relative-path">try-finally</a> statement in which the only code in the <code>finally</code> block is a call to the <a href="https://docs.microsoft.com/es-es/dotnet/api/system.idisposable.dispose" data-linktype="absolute-path">Dispose</a> method, use a <code>using</code> statement instead.</span></span>  </p>
+<pre><code data-src="https://github.com/dotnet/samples/blob/master/snippets/csharp/VS_Snippets_VBCSharp/csprogguidecodingconventions/cs/program.cs" name="csProgGuideCodingConventions#17"><span>// This try-finally statement only calls Dispose in the finally block.</span>
+Font font1 = <span>new</span> Font(<span>"Arial"</span>, <span>10.0</span>f);
+<span>try</span>
+{
+    <span>byte</span> charset = font1.GdiCharSet;
+}
+<span>finally</span>
+{
+    <span>if</span> (font1 != <span>null</span>)
+    {
+        ((IDisposable)font1).Dispose();
+    }
+}
+
+
+<span>// You can do the same thing with a using statement.</span>
+<span>using</span> (Font font2 = <span>new</span> Font(<span>"Arial"</span>, <span>10.0</span>f))
+{
+    <span>byte</span> charset = font2.GdiCharSet;
+}
+</code></pre></li>
+</ul>
+<h3 id="-and-124124-operators"><span data-ttu-id="c6548-155">Operadores &amp;&amp; y ||</span><span><span data-stu-id="c6548-155">&amp;&amp; and || Operators</span></span><a tabindex="-1" href="#-and-124124-operators"></a></h3>
+<ul>
+<li><p><span data-ttu-id="c6548-156">Para evitar excepciones y aumentar el rendimiento omitiendo las comparaciones innecesarias, use <a href="https://docs.microsoft.com/es-es/dotnet/csharp/language-reference/operators/conditional-and-operator" data-linktype="relative-path">&amp;&amp;</a> en lugar de <a href="https://docs.microsoft.com/es-es/dotnet/csharp/language-reference/operators/and-operator" data-linktype="relative-path">&amp;</a> y <a href="https://docs.microsoft.com/es-es/dotnet/csharp/language-reference/operators/conditional-or-operator" data-linktype="relative-path">||</a> en lugar de <a href="https://docs.microsoft.com/es-es/dotnet/csharp/language-reference/operators/or-operator" data-linktype="relative-path">|</a> cuando realice comparaciones, como se muestra en el ejemplo siguiente.</span><span><span data-stu-id="c6548-156">To avoid exceptions and increase performance by skipping unnecessary comparisons, use <a href="https://docs.microsoft.com/es-es/dotnet/csharp/language-reference/operators/conditional-and-operator" data-linktype="relative-path">&amp;&amp;</a> instead of <a href="https://docs.microsoft.com/es-es/dotnet/csharp/language-reference/operators/and-operator" data-linktype="relative-path">&amp;</a> and <a href="https://docs.microsoft.com/es-es/dotnet/csharp/language-reference/operators/conditional-or-operator" data-linktype="relative-path">||</a> instead of <a href="https://docs.microsoft.com/es-es/dotnet/csharp/language-reference/operators/or-operator" data-linktype="relative-path">|</a> when you perform comparisons, as shown in the following example.</span></span>  </p>
+<pre><code data-src="https://github.com/dotnet/samples/blob/master/snippets/csharp/VS_Snippets_VBCSharp/csprogguidecodingconventions/cs/program.cs" name="csProgGuideCodingConventions#18">Console.Write(<span>"Enter a dividend: "</span>);
+<span>var</span> dividend = Convert.ToInt32(Console.ReadLine());
+
+Console.Write(<span>"Enter a divisor: "</span>);
+<span>var</span> divisor = Convert.ToInt32(Console.ReadLine());
+
+<span>// If the divisor is 0, the second clause in the following condition</span>
+<span>// causes a run-time error. The &amp;&amp; operator short circuits when the</span>
+<span>// first expression is false. That is, it does not evaluate the</span>
+<span>// second expression. The &amp; operator evaluates both, and causes </span>
+<span>// a run-time error when divisor is 0.</span>
+<span>if</span> ((divisor != <span>0</span>) &amp;&amp; (dividend / divisor &gt; <span>0</span>))
+{
+    Console.WriteLine(<span>"Quotient: {0}"</span>, dividend / divisor);
+}
+<span>else</span>
+{
+    Console.WriteLine(<span>"Attempted division by 0 ends up here."</span>);
+}
+</code></pre></li>
+</ul>
+<h3 id="new-operator"><span data-ttu-id="c6548-157">New (Operador)</span><span><span data-stu-id="c6548-157">New Operator</span></span><a tabindex="-1" href="#new-operator"></a></h3>
+<ul>
+<li><p><span data-ttu-id="c6548-158">Utilice la forma concisa de la 
+creación de instancias de objeto con tipos implícitos, como se muestra 
+en la siguiente declaración.</span><span><span data-stu-id="c6548-158">Use the concise form of object instantiation, with implicit typing, as shown in the following declaration.</span></span>  </p>
+<pre><code data-src="https://github.com/dotnet/samples/blob/master/snippets/csharp/VS_Snippets_VBCSharp/csprogguidecodingconventions/cs/program.cs" name="csProgGuideCodingConventions#19"><span>var</span> instance1 = <span>new</span> ExampleClass();
+</code></pre><p> <span data-ttu-id="c6548-159">La línea anterior es equivalente a la siguiente declaración.</span><span><span data-stu-id="c6548-159">The previous line is equivalent to the following declaration.</span></span>  </p>
+<pre><code data-src="https://github.com/dotnet/samples/blob/master/snippets/csharp/VS_Snippets_VBCSharp/csprogguidecodingconventions/cs/program.cs" name="csProgGuideCodingConventions#20">ExampleClass instance2 = <span>new</span> ExampleClass();
+</code></pre></li>
+<li><p><span data-ttu-id="c6548-160">Utilice inicializadores de objeto para simplificar la creación de objetos.</span><span><span data-stu-id="c6548-160">Use object initializers to simplify object creation.</span></span>  </p>
+<pre><code data-src="https://github.com/dotnet/samples/blob/master/snippets/csharp/VS_Snippets_VBCSharp/csprogguidecodingconventions/cs/program.cs" name="csProgGuideCodingConventions#21"><span>// Object initializer.</span>
+<span>var</span> instance3 = <span>new</span> ExampleClass { Name = <span>"Desktop"</span>, ID = <span>37414</span>, 
+    Location = <span>"Redmond"</span>, Age = <span>2.3</span> };
+
+<span>// Default constructor and assignment statements.</span>
+<span>var</span> instance4 = <span>new</span> ExampleClass();
+instance4.Name = <span>"Desktop"</span>;
+instance4.ID = <span>37414</span>;
+instance4.Location = <span>"Redmond"</span>;
+instance4.Age = <span>2.3</span>;
+</code></pre></li>
+</ul>
+<h3 id="event-handling"><span data-ttu-id="c6548-161">Control de eventos</span><span><span data-stu-id="c6548-161">Event Handling</span></span><a tabindex="-1" href="#event-handling"></a></h3>
+<ul>
+<li><p><span data-ttu-id="c6548-162">Si va a definir un controlador de eventos que no es necesario quitar más tarde, utilice una expresión lambda.</span><span><span data-stu-id="c6548-162">If you are defining an event handler that you do not need to remove later, use a lambda expression.</span></span>  </p>
+<pre><code data-src="https://github.com/dotnet/samples/blob/master/snippets/csharp/VS_Snippets_VBCSharp/csprogguidecodingconventions/cs/program.cs" name="csProgGuideCodingConventions#22"><span><span>public</span> <span>Form2</span>(<span></span>)
+</span>{
+    <span>// You can use a lambda expression to define an event handler.</span>
+    <span>this</span>.Click += (s, e) =&gt;
+        {
+            MessageBox.Show(
+                ((MouseEventArgs)e).Location.ToString());
+        };
+}
+</code></pre><pre><code data-src="https://github.com/dotnet/samples/blob/master/snippets/csharp/VS_Snippets_VBCSharp/csprogguidecodingconventions/cs/program.cs" name="csProgGuideCodingConventions#23"><span>// Using a lambda expression shortens the following traditional definition.</span>
+<span><span>public</span> <span>Form1</span>(<span></span>)
+</span>{
+    <span>this</span>.Click += <span>new</span> EventHandler(Form1_Click);
+}
+
+<span><span>void</span> <span>Form1_Click</span>(<span><span>object</span> sender, EventArgs e</span>)
+</span>{
+    MessageBox.Show(((MouseEventArgs)e).Location.ToString());
+}
+</code></pre></li>
+</ul>
+<h3 id="static-members"><span data-ttu-id="c6548-163">Miembros estáticos</span><span><span data-stu-id="c6548-163">Static Members</span></span><a tabindex="-1" href="#static-members"></a></h3>
+<ul>
+<li><span data-ttu-id="c6548-164">Llame a miembros <a href="https://docs.microsoft.com/es-es/dotnet/csharp/language-reference/keywords/static" data-linktype="relative-path">estáticos</a> con el nombre de clase <em>ClassName.StaticMember</em>.</span><span><span data-stu-id="c6548-164">Call <a href="https://docs.microsoft.com/es-es/dotnet/csharp/language-reference/keywords/static" data-linktype="relative-path">static</a> members by using the class name: <em>ClassName.StaticMember</em>.</span></span> <span data-ttu-id="c6548-165">Esta práctica hace que el código sea más legible al clarificar el acceso estático.</span><span><span data-stu-id="c6548-165">This practice makes code more readable by making static access clear.</span></span>  <span data-ttu-id="c6548-166">No califique un miembro estático definido en una clase base con el nombre de una clase derivada.</span><span><span data-stu-id="c6548-166">Do not qualify a static member defined in a base class with the name of a derived class.</span></span>  <span data-ttu-id="c6548-167">Mientras
+ el código se compila, su legibilidad se presta a confusión, y puede 
+interrumpirse en el futuro si se agrega a un miembro estático con el 
+mismo nombre a la clase derivada.</span><span><span data-stu-id="c6548-167">While
+ that code compiles, the code readability is misleading, and the code 
+may break in the future if you add a static member with the same name to
+ the derived class.</span></span>  </li>
+</ul>
+<h3 id="linq-queries"><span data-ttu-id="c6548-168">Consultas LINQ</span><span><span data-stu-id="c6548-168">LINQ Queries</span></span><a tabindex="-1" href="#linq-queries"></a></h3>
+<ul>
+<li><p><span data-ttu-id="c6548-169">Utilice nombres descriptivos para las variables de consulta.</span><span><span data-stu-id="c6548-169">Use meaningful names for query variables.</span></span> <span data-ttu-id="c6548-170">En el ejemplo siguiente, se utiliza <code>seattleCustomers</code> para los clientes que se encuentran en Seattle.</span><span><span data-stu-id="c6548-170">The following example uses <code>seattleCustomers</code> for customers who are located in Seattle.</span></span>  </p>
+<pre><code data-src="https://github.com/dotnet/samples/blob/master/snippets/csharp/VS_Snippets_VBCSharp/csprogguidecodingconventions/cs/program.cs" name="csProgGuideCodingConventions#25"><span>var</span> seattleCustomers = <span>from</span> cust <span>in</span> customers
+                       <span>where</span> cust.City == <span>"Seattle"</span>
+                       <span>select</span> cust.Name;
+</code></pre></li>
+<li><p><span data-ttu-id="c6548-171">Utilice alias para asegurarse de 
+que los nombres de propiedad de tipos anónimos se escriben correctamente
+ con mayúscula o minúscula, usando para ello la grafía Pascal.</span><span><span data-stu-id="c6548-171">Use aliases to make sure that property names of anonymous types are correctly capitalized, using Pascal casing.</span></span>  </p>
+<pre><code data-src="https://github.com/dotnet/samples/blob/master/snippets/csharp/VS_Snippets_VBCSharp/csprogguidecodingconventions/cs/program.cs" name="csProgGuideCodingConventions#26"><span>var</span> localDistributors =
+    <span>from</span> customer <span>in</span> customers
+    <span>join</span> distributor <span>in</span> distributors <span>on</span> customer.City <span>equals</span> distributor.City
+    <span>select</span> <span>new</span> { Customer = customer, Distributor = distributor };
+</code></pre></li>
+<li><p><span data-ttu-id="c6548-172">Cambie el nombre de las propiedades cuando puedan ser ambiguos en el resultado.</span><span><span data-stu-id="c6548-172">Rename properties when the property names in the result would be ambiguous.</span></span> <span data-ttu-id="c6548-173">Por ejemplo, si la consulta devuelve un nombre de cliente y un identificador de distribuidor, en lugar de dejarlos como <code>Name</code> e <code>ID</code> en el resultado, cambie su nombre para aclarar que <code>Name</code> es el nombre de un cliente e <code>ID</code> es el identificador de un distribuidor.</span><span><span data-stu-id="c6548-173">For example, if your query returns a customer name and a distributor ID, instead of leaving them as <code>Name</code> and <code>ID</code> in the result, rename them to clarify that <code>Name</code> is the name of a customer, and <code>ID</code> is the ID of a distributor.</span></span>  </p>
+<pre><code data-src="https://github.com/dotnet/samples/blob/master/snippets/csharp/VS_Snippets_VBCSharp/csprogguidecodingconventions/cs/program.cs" name="csProgGuideCodingConventions#27"><span>var</span> localDistributors2 =
+    <span>from</span> cust <span>in</span> customers
+    <span>join</span> dist <span>in</span> distributors <span>on</span> cust.City <span>equals</span> dist.City
+    <span>select</span> <span>new</span> { CustomerName = cust.Name, DistributorID = dist.ID };
+</code></pre></li>
+<li><p><span data-ttu-id="c6548-174">Utilice tipos implícitos en la declaración de variables de consulta y variables de intervalo.</span><span><span data-stu-id="c6548-174">Use implicit typing in the declaration of query variables and range variables.</span></span>  </p>
+<pre><code data-src="https://github.com/dotnet/samples/blob/master/snippets/csharp/VS_Snippets_VBCSharp/csprogguidecodingconventions/cs/program.cs" name="csProgGuideCodingConventions#25"><span>var</span> seattleCustomers = <span>from</span> cust <span>in</span> customers
+                       <span>where</span> cust.City == <span>"Seattle"</span>
+                       <span>select</span> cust.Name;
+</code></pre></li>
+<li><p><span data-ttu-id="c6548-175">Alinee las cláusulas de consulta bajo la cláusula <a href="https://docs.microsoft.com/es-es/dotnet/csharp/language-reference/keywords/from-clause" data-linktype="relative-path">from</a>, como se muestra en los ejemplos anteriores.</span><span><span data-stu-id="c6548-175">Align query clauses under the <a href="https://docs.microsoft.com/es-es/dotnet/csharp/language-reference/keywords/from-clause" data-linktype="relative-path">from</a> clause, as shown in the previous examples.</span></span>  </p>
+</li>
+<li><p><span data-ttu-id="c6548-176">Use cláusulas <a href="https://docs.microsoft.com/es-es/dotnet/csharp/language-reference/keywords/where-clause" data-linktype="relative-path">where</a>
+ antes de otras cláusulas de consulta para asegurarse de que las 
+cláusulas de consulta posteriores operan en un conjunto de datos 
+reducido y filtrado.</span><span><span data-stu-id="c6548-176">Use <a href="https://docs.microsoft.com/es-es/dotnet/csharp/language-reference/keywords/where-clause" data-linktype="relative-path">where</a> clauses before other query clauses to ensure that later query clauses operate on the reduced, filtered set of data.</span></span>  </p>
+<pre><code data-src="https://github.com/dotnet/samples/blob/master/snippets/csharp/VS_Snippets_VBCSharp/csprogguidecodingconventions/cs/program.cs" name="csProgGuideCodingConventions#29"><span>var</span> seattleCustomers2 = <span>from</span> cust <span>in</span> customers
+                        <span>where</span> cust.City == <span>"Seattle"</span>
+                        <span>orderby</span> cust.Name
+                        <span>select</span> cust;
+</code></pre></li>
+<li><p><span data-ttu-id="c6548-177">Use varias cláusulas <code>from</code> en lugar de una cláusula <a href="https://docs.microsoft.com/es-es/dotnet/csharp/language-reference/keywords/join-clause" data-linktype="relative-path">join</a> para obtener acceso a colecciones internas.</span><span><span data-stu-id="c6548-177">Use multiple <code>from</code> clauses instead of a <a href="https://docs.microsoft.com/es-es/dotnet/csharp/language-reference/keywords/join-clause" data-linktype="relative-path">join</a> clause to access inner collections.</span></span> <span data-ttu-id="c6548-178">Por ejemplo, una colección de objetos <code>Student</code> podría contener cada uno un conjunto de resultados de exámenes.</span><span><span data-stu-id="c6548-178">For example, a collection of <code>Student</code> objects might each contain a collection of test scores.</span></span> <span data-ttu-id="c6548-179">Cuando
+ se ejecuta la siguiente consulta, devuelve cada resultado superior a 
+90, además del apellido del alumno que recibió la puntuación.</span><span><span data-stu-id="c6548-179">When
+ the following query is executed, it returns each score that is over 90,
+ along with the last name of the student who received the score.</span></span>  </p>
+<pre><code data-src="https://github.com/dotnet/samples/blob/master/snippets/csharp/VS_Snippets_VBCSharp/csprogguidecodingconventions/cs/program.cs" name="csProgGuideCodingConventions#30"><span>// Use a compound from to access the inner sequence within each element.</span>
+<span>var</span> scoreQuery = <span>from</span> student <span>in</span> students
+                 <span>from</span> score <span>in</span> student.Scores
+                 <span>where</span> score &gt; <span>90</span>
+                 <span>select</span> <span>new</span> { Last = student.LastName, score };
+</code></pre></li>
+</ul>
+<h2 id="security"><span data-ttu-id="c6548-180">Seguridad</span><span><span data-stu-id="c6548-180">Security</span></span><a tabindex="-1" href="#security"></a></h2>
+<p> <span data-ttu-id="c6548-181">Siga las instrucciones de <a href="https://docs.microsoft.com/es-es/dotnet/standard/security/secure-coding-guidelines" data-linktype="relative-path">Instrucciones de codificación segura</a>.</span><span><span data-stu-id="c6548-181">Follow the guidelines in <a href="https://docs.microsoft.com/es-es/dotnet/standard/security/secure-coding-guidelines" data-linktype="relative-path">Secure Coding Guidelines</a>.</span></span>  </p>
+<h2 id="see-also"><span data-ttu-id="c6548-182">Vea también</span><span><span data-stu-id="c6548-182">See Also</span></span><a tabindex="-1" href="#see-also"></a></h2>
+<ul>
+<li><a href="https://docs.microsoft.com/es-es/dotnet/visual-basic/programming-guide/program-structure/coding-conventions" data-linktype="relative-path"><span data-ttu-id="c6548-183">Convenciones de código de Visual Basic</span><span><span data-stu-id="c6548-183">Visual Basic Coding Conventions</span></span></a>  </li>
+<li><a href="https://docs.microsoft.com/es-es/dotnet/standard/security/secure-coding-guidelines" data-linktype="relative-path"><span data-ttu-id="c6548-184">Instrucciones de codificación segura</span><span><span data-stu-id="c6548-184">Secure Coding Guidelines</span></span></a></li>
+</ul>
+
+						
+							
+						
+
+						
+
+
+				
+<section data-bi-name="feedback-section">
+	<h2 id="feedback">Comentarios</h2>
+
+	<div>
+		<p>
+Nos gustaría conocer su opinión. Elija el tipo que desea proporcionar:		</p>
+
+		
+		<p><small>Nuestro nuevo sistema de comentarios está basado en los problemas de GitHub. Lea sobre este cambio en <a href="https://docs.microsoft.com/teamblog/a-new-feedback-system-is-coming-to-docs">nuestra entrada de blog</a>.</small></p>
+	</div>
+
+	
+
+	<div role="alert">Ahora mismo no hay comentarios de este documento. Los comentarios enviados aparecerán aquí.</div>
+
+	
+	
+</section>						
+
+						
+					</div>
+
+					
+
+				</div>
+			
+			
+			</section>
+
+				
+
+			
+		</div>
+
+		
+	</div>
+
+	<div id="openFeedbackContainer">
+		
+			
+			
+			<div>
+				<label>¿Le ha resultado útil esta página?</label>
+				
+				
+			</div>
+			
+			<div>
+				<p>¡Gracias por sus comentarios!</p>
+				<p>¿Tiene algún comentario o sugerencia? <a href="#" data-bi-name="rating-verbatim-link">Comuníquelos aquí</a>.</p>
+			</div>
+			<div>
+				<span>¡Gracias por sus comentarios!</span>
+			</div>
+		</div>
+
+	
+
+	
+
+</div></div>
+    </div>
+
+    <div>
+      <div class="reader-message"></div>
+    </div>
+  </div>
+
+  <ul class="toolbar reader-toolbar">
+    <li><button class="button close-button" title="Cerrar vista de lector"></button></li>
+    <ul class="dropdown style-dropdown">
+      <li><button class="dropdown-toggle button style-button" title="Controles de tipo"></button></li>
+      <li class="dropdown-popup">
+        <div class="font-type-buttons"><button class="sans-serif-button selected"><div class="name">Aa</div><div class="description">Sans-serif</div></button><button class="serif-button"><div class="name">Aa</div><div class="description">Serif</div></button></div>
+        <hr>
+        <div class="font-size-buttons">
+          <button class="minus-button">
+          </button><button class="font-size-sample">Aa</button><button class="plus-button">
+        </button></div>
+        <hr>
+        <div class="content-width-buttons">
+          <button class="content-width-minus-button">
+          </button><button class="content-width-plus-button">
+        </button></div>
+        <hr>
+        <div class="line-height-buttons">
+          <button class="line-height-minus-button">
+          </button><button class="line-height-plus-button">
+        </button></div>
+        <hr>
+        <div class="color-scheme-buttons"><button class="light-button selected"><div class="name">Claro</div></button><button class="dark-button"><div class="name">Oscuro</div></button><button class="sepia-button"><div class="name">Sepia</div></button></div>
+        <div class="dropdown-arrow">
+      </div></li>
+    </ul>
+  <ul class="dropdown narrate-dropdown"><li>
+       <button class="dropdown-toggle button narrate-toggle" title="Narrar" hidden=""></button>
+    </li>
+    <li class="dropdown-popup">
+      <div class="narrate-row narrate-control">
+        <button disabled="disabled" class="narrate-skip-previous" title="Atrás"></button>
+        <button class="narrate-start-stop" title="Inicio"></button>
+        <button disabled="disabled" class="narrate-skip-next" title="Adelante"></button>
+      </div>
+      <div class="narrate-row narrate-rate">
+        <input class="narrate-rate-input" value="0" step="5" max="100" min="-100" title="Velocidad" type="range">
+      </div>
+      <div class="narrate-row narrate-voices"><div class="voiceselect voice-select"><button class="select-toggle" aria-controls="voice-options">
+      <span class="label">Voz:</span> <span class="current-voice"></span>
+    </button>
+    <div class="options" id="voice-options" role="listbox"></div></div></div>
+      <div class="dropdown-arrow"></div>
+    </li></ul><button data-buttonid="pocket-button" class="button pocket-button" style="background-image: url(&quot;chrome://pocket/content/panels/img/pocket.svg#pocket-mark&quot;);" title="Guardar en Pocket"></button></ul>
+
+
+
+
+</body></html>
