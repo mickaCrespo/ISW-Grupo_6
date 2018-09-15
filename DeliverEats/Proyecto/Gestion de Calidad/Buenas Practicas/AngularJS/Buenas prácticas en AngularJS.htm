@@ -1,0 +1,1508 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns#" lang="es-ES"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+
+    <!-- TITLE OF SITE -->
+    <meta charset="UTF-8">
+    
+    <meta name="description" content="Blog de Irontec, empresa de software libre y negocios abiertos de Bilbao">
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+    
+    <!-- =========================
+      FAV AND TOUCH ICONS
+    ============================== -->
+            <link rel="shortcut icon" href="https://blog.irontec.com/wp-content/uploads/2015/03/irontec-icono-192x192.png">
+            <link rel="apple-touch-icon" sizes="60x60" href="https://blog.irontec.com/wp-content/uploads/2015/03/irontec-icono-192x192.png">
+            <link rel="apple-touch-icon" sizes="120x120" href="https://blog.irontec.com/wp-content/uploads/2015/03/irontec-icono-192x192.png">
+            <link rel="apple-touch-icon" sizes="76x76" href="https://blog.irontec.com/wp-content/uploads/2015/03/irontec-icono-192x192.png">
+            <link rel="apple-touch-icon" sizes="152x152" href="https://blog.irontec.com/wp-content/uploads/2015/03/irontec-icono-192x192.png">
+    
+    <link rel="alternate" type="application/rss+xml" title="Blog Irontec" href="https://blog.irontec.com/feed/">
+    <link rel="alternate" type="application/atom+xml" title="Blog Irontec" href="https://blog.irontec.com/feed/atom/">
+
+    <link href="Buenas%20pr%C3%A1cticas%20en%20AngularJS_archivos/css.css" rel="stylesheet" type="text/css">
+
+
+<!-- This site is optimized with the Yoast SEO plugin v7.6.1 - https://yoast.com/wordpress/plugins/seo/ -->
+<title>Buenas prácticas en AngularJS</title>
+<meta name="description" content="Buenas prácticas para desarrollar en AngularJS tanto para front-ends de páginas web, como para aplicaciones móviles con Ionic Framework.">
+<link rel="canonical" href="https://blog.irontec.com/buenas-practicas-en-angularjs/">
+<meta property="og:locale" content="es_ES">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Buenas prácticas en AngularJS">
+<meta property="og:description" content="Buenas prácticas para desarrollar en AngularJS tanto para front-ends de páginas web, como para aplicaciones móviles con Ionic Framework.">
+<meta property="og:url" content="https://blog.irontec.com/buenas-practicas-en-angularjs/">
+<meta property="og:site_name" content="Blog Irontec">
+<meta property="article:publisher" content="https://www.facebook.com/irontecsl/">
+<meta property="article:tag" content="angularjs">
+<meta property="article:tag" content="buenas prácticas">
+<meta property="article:tag" content="desarrollo web">
+<meta property="article:tag" content="guía de estilo">
+<meta property="article:section" content="Txoko tecnológico">
+<meta property="article:published_time" content="2015-10-16T12:24:04+00:00">
+<meta property="article:modified_time" content="2015-11-16T11:55:49+00:00">
+<meta property="og:updated_time" content="2015-11-16T11:55:49+00:00">
+<meta property="og:image" content="https://blog.irontec.com/wp-content/uploads/2015/10/buenas-practicas-Angular-JS-mini-1024x519.png">
+<meta property="og:image:secure_url" content="https://blog.irontec.com/wp-content/uploads/2015/10/buenas-practicas-Angular-JS-mini-1024x519.png">
+<meta property="og:image:width" content="1024">
+<meta property="og:image:height" content="519">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:description" content="Buenas prácticas para desarrollar en AngularJS tanto para front-ends de páginas web, como para aplicaciones móviles con Ionic Framework.">
+<meta name="twitter:title" content="Buenas prácticas en AngularJS">
+<meta name="twitter:site" content="@irontec">
+<meta name="twitter:image" content="https://blog.irontec.com/wp-content/uploads/2015/10/buenas-practicas-Angular-JS-mini.png">
+<meta name="twitter:creator" content="@irontec">
+<script type="text/javascript" async="" src="Buenas%20pr%C3%A1cticas%20en%20AngularJS_archivos/recaptcha__es_419.js"></script><script async="" src="Buenas%20pr%C3%A1cticas%20en%20AngularJS_archivos/analytics.js"></script><script type="application/ld+json">{"@context":"https:\/\/schema.org","@type":"Organization","url":"https:\/\/blog.irontec.com\/","sameAs":["https:\/\/www.facebook.com\/irontecsl\/","http:\/\/www.linkedin.com\/company\/irontec-internet-y-sistemas-sobre-gnu-linux\/","https:\/\/www.youtube.com\/irontecsl","https:\/\/twitter.com\/irontec"],"@id":"https:\/\/blog.irontec.com\/#organization","name":"Irontec","logo":"https:\/\/blog.irontec.com\/wp-content\/uploads\/2017\/02\/irontec-logo.jpg"}</script>
+<!-- / Yoast SEO plugin. -->
+
+<link rel="dns-prefetch" href="https://fonts.googleapis.com/">
+<link rel="dns-prefetch" href="https://s.w.org/">
+<link rel="alternate" type="application/rss+xml" title="Blog Irontec » Feed" href="https://blog.irontec.com/feed/">
+<link rel="alternate" type="application/rss+xml" title="Blog Irontec » RSS de los comentarios" href="https://blog.irontec.com/comments/feed/">
+<link rel="alternate" type="application/rss+xml" title="Blog Irontec » Buenas prácticas en AngularJS RSS de los comentarios" href="https://blog.irontec.com/buenas-practicas-en-angularjs/feed/">
+		<script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/11\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/11\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/blog.irontec.com\/wp-includes\/js\/wp-emoji-release.min.js?ver=4.9.8"}};
+			!function(a,b,c){function d(a,b){var c=String.fromCharCode;l.clearRect(0,0,k.width,k.height),l.fillText(c.apply(this,a),0,0);var d=k.toDataURL();l.clearRect(0,0,k.width,k.height),l.fillText(c.apply(this,b),0,0);var e=k.toDataURL();return d===e}function e(a){var b;if(!l||!l.fillText)return!1;switch(l.textBaseline="top",l.font="600 32px Arial",a){case"flag":return!(b=d([55356,56826,55356,56819],[55356,56826,8203,55356,56819]))&&(b=d([55356,57332,56128,56423,56128,56418,56128,56421,56128,56430,56128,56423,56128,56447],[55356,57332,8203,56128,56423,8203,56128,56418,8203,56128,56421,8203,56128,56430,8203,56128,56423,8203,56128,56447]),!b);case"emoji":return b=d([55358,56760,9792,65039],[55358,56760,8203,9792,65039]),!b}return!1}function f(a){var c=b.createElement("script");c.src=a,c.defer=c.type="text/javascript",b.getElementsByTagName("head")[0].appendChild(c)}var g,h,i,j,k=b.createElement("canvas"),l=k.getContext&&k.getContext("2d");for(j=Array("flag","emoji"),c.supports={everything:!0,everythingExceptFlag:!0},i=0;i<j.length;i++)c.supports[j[i]]=e(j[i]),c.supports.everything=c.supports.everything&&c.supports[j[i]],"flag"!==j[i]&&(c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&c.supports[j[i]]);c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&!c.supports.flag,c.DOMReady=!1,c.readyCallback=function(){c.DOMReady=!0},c.supports.everything||(h=function(){c.readyCallback()},b.addEventListener?(b.addEventListener("DOMContentLoaded",h,!1),a.addEventListener("load",h,!1)):(a.attachEvent("onload",h),b.attachEvent("onreadystatechange",function(){"complete"===b.readyState&&c.readyCallback()})),g=c.source||{},g.concatemoji?f(g.concatemoji):g.wpemoji&&g.twemoji&&(f(g.twemoji),f(g.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script><script src="Buenas%20pr%C3%A1cticas%20en%20AngularJS_archivos/wp-emoji-release.js" type="text/javascript" defer="defer"></script>
+		<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+<link rel="stylesheet" id="alertas-admin-styles-css" href="Buenas%20pr%C3%A1cticas%20en%20AngularJS_archivos/admin-styles.css" type="text/css" media="all">
+<link rel="stylesheet" id="crayon-css" href="Buenas%20pr%C3%A1cticas%20en%20AngularJS_archivos/crayon.css" type="text/css" media="all">
+<link rel="stylesheet" id="crayon-theme-classic-css" href="Buenas%20pr%C3%A1cticas%20en%20AngularJS_archivos/classic.css" type="text/css" media="all">
+<link rel="stylesheet" id="crayon-font-monaco-css" href="Buenas%20pr%C3%A1cticas%20en%20AngularJS_archivos/monaco.css" type="text/css" media="all">
+<link rel="stylesheet" id="stag-shortcode-styles-css" href="Buenas%20pr%C3%A1cticas%20en%20AngularJS_archivos/stag-shortcodes.css" type="text/css" media="all">
+<link rel="stylesheet" id="font-awesome-css" href="Buenas%20pr%C3%A1cticas%20en%20AngularJS_archivos/font-awesome.css" type="text/css" media="all">
+<link rel="stylesheet" id="googlefont1-css" href="Buenas%20pr%C3%A1cticas%20en%20AngularJS_archivos/css_002.css" type="text/css" media="all">
+<link rel="stylesheet" id="bootstrap-css" href="Buenas%20pr%C3%A1cticas%20en%20AngularJS_archivos/bootstrap.css" type="text/css" media="all">
+<link rel="stylesheet" id="flaticon-css" href="Buenas%20pr%C3%A1cticas%20en%20AngularJS_archivos/flaticon.css" type="text/css" media="all">
+<link rel="stylesheet" id="fontawesome-css" href="Buenas%20pr%C3%A1cticas%20en%20AngularJS_archivos/font-awesome_002.css" type="text/css" media="all">
+<link rel="stylesheet" id="nprogress-css" href="Buenas%20pr%C3%A1cticas%20en%20AngularJS_archivos/nprogress.css" type="text/css" media="all">
+<link rel="stylesheet" id="mediaelementplayer-css" href="Buenas%20pr%C3%A1cticas%20en%20AngularJS_archivos/mediaelementplayer.css" type="text/css" media="all">
+<link rel="stylesheet" id="style-css" href="Buenas%20pr%C3%A1cticas%20en%20AngularJS_archivos/style.css" type="text/css" media="all">
+<link rel="stylesheet" id="responsive-css" href="Buenas%20pr%C3%A1cticas%20en%20AngularJS_archivos/blog_style2.css" type="text/css" media="all">
+<link rel="stylesheet" id="custom_color-css" href="Buenas%20pr%C3%A1cticas%20en%20AngularJS_archivos/alizarin.css" type="text/css" media="all">
+<link rel="stylesheet" id="tablepress-default-css" href="Buenas%20pr%C3%A1cticas%20en%20AngularJS_archivos/default.css" type="text/css" media="all">
+<script type="text/javascript">
+/* <![CDATA[ */
+var templateUrl = "https:\/\/blog.irontec.com\/wp-content\/themes\/reader";
+/* ]]> */
+</script>
+<script type="text/javascript" src="Buenas%20pr%C3%A1cticas%20en%20AngularJS_archivos/jquery_002.js"></script>
+<script type="text/javascript" src="Buenas%20pr%C3%A1cticas%20en%20AngularJS_archivos/jquery-migrate.js"></script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var CrayonSyntaxSettings = {"version":"_2.7.2_beta","is_admin":"0","ajaxurl":"https:\/\/blog.irontec.com\/wp-admin\/admin-ajax.php","prefix":"crayon-","setting":"crayon-setting","selected":"crayon-setting-selected","changed":"crayon-setting-changed","special":"crayon-setting-special","orig_value":"data-orig-value","debug":""};
+var CrayonSyntaxStrings = {"copy":"Presiona %s para copiar y %s para pegar","minimize":"Click To Expand Code"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="Buenas%20pr%C3%A1cticas%20en%20AngularJS_archivos/crayon.js"></script>
+<link rel="https://api.w.org/" href="https://blog.irontec.com/wp-json/">
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://blog.irontec.com/xmlrpc.php?rsd">
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="https://blog.irontec.com/wp-includes/wlwmanifest.xml"> 
+<meta name="generator" content="WordPress 4.9.8">
+<link rel="shortlink" href="https://blog.irontec.com/?p=2184">
+<link rel="alternate" type="application/json+oembed" href="https://blog.irontec.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fblog.irontec.com%2Fbuenas-practicas-en-angularjs%2F">
+<link rel="alternate" type="text/xml+oembed" href="https://blog.irontec.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fblog.irontec.com%2Fbuenas-practicas-en-angularjs%2F&amp;format=xml">
+<link rel="https://github.com/WP-API/WP-API" href="https://blog.irontec.com/wp-json">
+<script src="Buenas%20pr%C3%A1cticas%20en%20AngularJS_archivos/api.js" async="" defer="defer"></script>
+<!--[if lt IE 9]><script src="https://blog.irontec.com/wp-content/themes/reader/js/html5shiv.js"></script><script src="https://blog.irontec.com/wp-content/themes/reader/js/respond.min.js"></script><![endif]-->		<style type="text/css">.recentcomments a{display:inline !important;padding:0 !important;margin:0 !important;}</style>
+		<style id="fit-vids-style">.fluid-width-video-wrapper{width:100%;position:relative;padding:0;}.fluid-width-video-wrapper iframe,.fluid-width-video-wrapper object,.fluid-width-video-wrapper embed {position:absolute;top:0;left:0;width:100%;height:100%;}</style></head>
+<body id="header-top" class="post-template-default single single-post postid-2184 single-format-standard style-blog-grid style-sidebar-right_s  stagtools">
+
+
+    <header id="irontec-header">
+
+        <div class="navbar navbar-inverse nav nav-top sticky" role="navigation">
+            <ul class="nav navbar-nav header-social">
+                <li>
+                    <a href="https://twitter.com/irontec/" class="twitter spy" title="Twitter" data-gcategory="Menu Superior" data-gaction="Click social" data-glabel="Twitter">
+                        <i class="fa fa-twitter"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="http://www.linkedin.com/company/irontec-internet-y-sistemas-sobre-gnu-linux/" class="linkedin spy" title="LinkedIn" data-gcategory="Menu Superior" data-gaction="Click social" data-glabel="LinkedIn">
+                        <i class="fa fa-linkedin"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="http://es.slideshare.net/irontec/" class="slideshare spy" title="Slideshare" data-gcategory="Menu Superior" data-gaction="Click social" data-glabel="Slideshare">
+                        <i class="fa fa-slideshare"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.facebook.com/irontecsl/" class="facebook spy" title="Facebook" data-gcategory="Menu Superior" data-gaction="Click social" data-glabel="Facebook">
+                        <i class="fa fa-facebook"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://plus.google.com/+Irontecsl/" class="google spy" title="Google +" data-gcategory="Menu Superior" data-gaction="Click social" data-glabel="Google +">
+                        <i class="fa fa-google-plus"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://github.com/irontec/" class="google spy" title="Github" data-gcategory="Menu Superior" data-gaction="Click social" data-glabel="GitHub">
+                        <i class="fa fa-github"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="http://www.irontec.com/rss/" class="rss spy" title="Irontec Rss" data-gcategory="Menu Superior" data-gaction="Click social" data-glabel="Rss">
+                        <i class="fa fa-rss"></i>
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="sidebar-menu-content pull-right hidden-lg hidden-md" data-spy="affix-top" style="width: 0px;">
+            <div class="container-fluid">
+                <ul>
+                    <li>
+                        <a href="http://www.irontec.com/nosotros" title="Nosotros">Nosotros</a>
+                    </li>
+                    <li>
+                        <a class="submenu" title="" onclick="">Servicios <i class="fa fa-bars"></i></a>
+                        <ul class="submenu-content" style="display: none;">
+                            <li>
+                                <a href="http://www.irontec.com/internet" title="Desarrollo y Negocio en Internet">Desarrollo y Negocio en Internet</a>
+                            </li>
+                            <li>
+                                <a href="http://www.irontec.com/sistemas-linux" title="Sistemas e Infraestructuras">Sistemas e Infraestructuras</a>
+                            </li>
+                            <li>
+                                <a href="http://www.irontec.com/voz-ip" title="Comunicaciones y Telefonía IP">Comunicaciones y Telefonía IP</a>
+                            </li>
+                            <li>
+                                <a href="http://www.irontec.com/marketing-eventos" title="Marketing tecnológico">Marketing tecnológico</a>
+                            </li>
+                            <li>
+                                <a href="http://www.irontec.com/cursos" title="Formación especializada">Formación especializada</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="http://www.irontec.com/proyectos" title="Casos de éxito">Casos de éxito</a>
+                    </li>
+                    <li>
+                        <a href="http://www.irontec.com/noticias" title="Noticias">Noticias</a>
+                    </li>
+                    <li>
+                        <a href="http://www.irontec.com/contacto" title="Contacto">Contacto</a>
+                    </li>
+                    <li>
+                        <a href="http://blog.irontec.com/" title="Blog">Blog</a>
+                    </li>
+                </ul>
+            </div>
+
+            <div id="sidebar-search" class="container-fluid">
+                <div class="btn-menu pull-right">
+                    <div class="btnSidebarSearch">
+                        <i class="fa fa-search"></i>
+                    </div>
+                </div>
+                <input name="q" data-searchurl="http://www.irontec.com/buscador" placeholder="Introduce tu búsqueda..." type="text">
+            </div>
+        </div>
+
+        <div id="sidebar-menu" class="btn-menu pull-right hidden-lg hidden-md" data-spy="affix-top" style="right: 0px;">
+            <div class="btnSidebarMenu">
+                <div class="si-icons si-icons-hover" onclick="">
+                    <i class="fa fa-bars" data-icon-name="hamburger"></i>
+                </div>
+            </div>
+        </div>
+
+        <nav id="menu" class="navbar navbar-inverse navbar-menu quick-contact sticky" data-spy="affix-top" data-affix-top="45">
+
+            <!--Boton buscador-->
+            <div id="search" class="btn-menu pull-right hidden-xs hidden-sm">
+                <div class="btnSearch">
+                    <i class="fa fa-search"></i>
+                </div>
+
+                <div class="dropdown-search" id="dropdown-search-full" style="height: 0px;">
+                    <div class="tr-drop1"></div>
+                    <div class="tr-drop2"></div>
+                    <input class="dark-input" name="q" data-searchurl="http://www.irontec.com/buscador" placeholder="Introduce tu busqueda..." type="text">
+                </div>
+            </div>
+
+            <!--Menu-->
+            <div id="nav-menu" class="hidden-sm hidden-xs">
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a href="http://www.irontec.com/nosotros" title="Nosotros">Nosotros</a>
+                    </li>
+                    <li class="dropdown" data-open-action="hover">
+                        <a class="submenu" title="">Servicios <i class="fa fa-bars"></i></a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="http://www.irontec.com/internet" title="Desarrollo y Negocio en Internet">Desarrollo y Negocio en Internet</a>
+                            </li>
+                            <li>
+                                <a href="http://www.irontec.com/sistemas-linux" title="Sistemas e Infraestructuras">Sistemas e Infraestructuras</a>
+                            </li>
+                            <li>
+                                <a href="http://www.irontec.com/voz-ip" title="Comunicaciones y Telefonía IP">Comunicaciones y Telefonía IP</a>
+                            </li>
+                            <li>
+                                <a href="http://www.irontec.com/marketing-eventos" title="Marketing tecnológico">Marketing tecnológico</a>
+                            </li>
+                            <li>
+                                <a href="http://www.irontec.com/cursos" title="Formación especializada">Formación especializada</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="http://www.irontec.com/proyectos" title="Casos de éxito">Casos de éxito</a>
+                    </li>
+                    <li>
+                        <a href="http://www.irontec.com/noticias" title="Noticias">Noticias</a>
+                    </li>
+                    <li>
+                        <a href="http://www.irontec.com/contacto" title="Contacto">Contacto</a>
+                    </li>
+                    <li>
+                        <a href="http://blog.irontec.com/" title="Blog" class="active" style="background-color: rgba(255,8,8,.5);">Blog</a>
+                    </li>
+                </ul>
+            </div>
+
+            <!--Logo-->
+            <div class="container">
+                <div class="navbar-header">
+                    <a class="navbar-brand spy" href="http://www.irontec.com/" data-gcategory="Logo Irontec" data-gaction="Click" data-glabel="Logo principal (menu superior izquierdo)">
+                        <img src="Buenas%20pr%C3%A1cticas%20en%20AngularJS_archivos/irontec_logo.png" alt="Irontec, Internet y sistemas sobre GNU/Linux">
+                    </a>
+                </div>
+            </div>
+        </nav>
+
+    </header>
+
+    <header class="header">
+        <div class="container">
+                        <!--<nav class="navbar navbar-default" role="navigation">
+                <div class="container">
+                    <div class="collapse navbar-collapse main-navigation" id="bs-example-navbar-collapse-1" style="display: block; border: 0px;">
+                        <ul id="menu-menu3" class="nav navbar-nav uppercase"><li id="menu-item-139" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-139"><a title="Inicio" href="http://blog.irontec.com/">Inicio</a></li>
+<li id="menu-item-111" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-111 dropdown"><a title="Sobre Irontec" href="#" data-toggle="dropdown" class="dropdown-toggle" aria-haspopup="true" data-hover="dropdown">Sobre Irontec </a>
+<ul role="menu" class=" dropdown-menu">
+	<li id="menu-item-113" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-113"><a title="La empresa" href="https://blog.irontec.com/category/sobre-irontec/la-empresa/">La empresa</a></li>
+	<li id="menu-item-114" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-114"><a title="Nuestro día a día" href="https://blog.irontec.com/category/sobre-irontec/nuestro-dia-a-dia/">Nuestro día a día</a></li>
+</ul>
+</li>
+<li id="menu-item-117" class="menu-item menu-item-type-taxonomy menu-item-object-category current-post-ancestor current-menu-parent current-post-parent menu-item-has-children menu-item-117 dropdown"><a title="Txoko tecnológico" href="#" data-toggle="dropdown" class="dropdown-toggle" aria-haspopup="true" data-hover="dropdown">Txoko tecnológico </a>
+<ul role="menu" class=" dropdown-menu">
+	<li id="menu-item-122" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-122"><a title="Marketing tecnológico" href="https://blog.irontec.com/category/txoko-tecnologico/marketing-tecnologico/">Marketing tecnológico</a></li>
+	<li id="menu-item-123" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-123"><a title="Sistemas Linux" href="https://blog.irontec.com/category/txoko-tecnologico/sistemas-linux/">Sistemas Linux</a></li>
+</ul>
+</li>
+<li id="menu-item-125" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-125"><a title="Software libre" href="https://blog.irontec.com/category/we-love-free-software/">Software libre</a></li>
+</ul>
+                        <form class="search-box navbar-form navbar-right" action="https://blog.irontec.com" role="search">
+                            <div class="input-group">
+                                <input type="text" name="s" id="ss" class="form-control" placeholder="Buscar en el Blog" />
+                            </div>
+                        </form>
+                    </div>
+
+                </div>
+            </nav>-->
+        </div>
+    </header>
+
+<!-- BODY CONTAINER - FULL WIDTH -->
+<div class="container">
+    <div class="row">
+
+        
+        <!-- =========================
+             BLOG SECTION
+        ============================== -->
+        <div class="col-md-18">
+            <div class="blog-style-one">
+                <!-- GENERAL BLOG POST -->
+
+                                <article class="blog-item">
+
+                    <header>
+                        <h1 class="title">
+                            <a href="https://blog.irontec.com/buenas-practicas-en-angularjs/" style="color:#000;">Buenas prácticas en AngularJS</a>
+                        </h1>
+                        <div class="meta-info">
+                             	<img alt="" src="Buenas%20pr%C3%A1cticas%20en%20AngularJS_archivos/3974bd5818e6e83360c3dfd9bb8daf85_003.jpg" srcset="https://secure.gravatar.com/avatar/3974bd5818e6e83360c3dfd9bb8daf85?s=180&amp;d=mm&amp;r=g 2x" class="avatar thumb avatar-90 photo" width="90" height="90"> <ul>
+
+		<li> <a href="https://blog.irontec.com/author/meizagirre/" title="Entradas de Mikel Eizagirre" rel="author">Mikel Eizagirre</a></li>
+	
+
+		<li> 16/10/2015</li>
+	
+
+
+
+						 <li><a href="https://blog.irontec.com/category/txoko-tecnologico/">Txoko tecnológico</a></li>
+			
+	
+
+
+		<li class="comments"><a href="https://blog.irontec.com/buenas-practicas-en-angularjs/#comments" class="comments-link">1 Comentario</a></li>
+	</ul>                        </div>
+                    </header>
+                                        <div class="post-body">
+                    <p><a href="https://blog.irontec.com/wp-content/uploads/2015/10/buenas-practicas-Angular-JS1.png"><img class="wp-image-2240 size-full aligncenter" src="Buenas%20pr%C3%A1cticas%20en%20AngularJS_archivos/buenas-practicas-Angular-JS1.png" alt="" srcset="https://blog.irontec.com/wp-content/uploads/2015/10/buenas-practicas-Angular-JS1.png 800w, https://blog.irontec.com/wp-content/uploads/2015/10/buenas-practicas-Angular-JS1-300x152.png 300w" sizes="(max-width: 800px) 100vw, 800px" width="800" height="405"></a></p>
+<p>En <a href="http://bit.ly/1EwBknw">Irontec</a> llevamos un tiempo <strong>desarrollando con AngularJS</strong>; tanto para <strong>desarrollar<em>&nbsp;front-ends</em> de páginas web</strong>, como para <strong>desarrollar aplicaciones móviles</strong> basadas en<em> <a href="http://bit.ly/1VVNBXY">Ionic Framework</a></em>. Durante dichos desarrollos, hemos experimentado con diferentes métodos y prácticas para organizar el <strong>código</strong>&nbsp;lo más&nbsp;<strong>limpio y sostenible</strong>&nbsp;posible.
+ Sin embargo, hemos comprobado que no todos los métodos se adaptan bien a
+ proyectos de tamaño medio/grande; ya que, a medida que los proyectos 
+han ido creciendo, hemos tenido que adoptar nuevas prácticas. Al final 
+basándonos en las&nbsp;<strong>guías de estilos</strong> de <a href="https://twitter.com/john_papa">@John Papa</a> y <a href="https://twitter.com/toddmotto">@Todd Motto</a>&nbsp;hemos creado unas pautas/reglas básicas que se adaptan muy bien a todo tipo de proyectos.</p>
+<p>A continuación explicaremos las que, en todo desarrollo, intentamos 
+tener en cuenta. Pero si algún curioso desea ver las guías de estilo al 
+completo, se pueden encontrar&nbsp;en los siguientes enlaces: <a href="https://github.com/johnpapa/angular-styleguide">guía de estilos de John Papa</a> y <a href="https://github.com/toddmotto/angularjs-styleguide">guía de estilos de Todd Motto</a>.</p>
+<p>&nbsp;</p>
+<h3>Una única responsabilidad: código ravioli vs. código espagueti</h3>
+<p>Cada archivo del proyecto tiene que tener una única responsabilidad, 
+sin importar el número de líneas que pueda tener. Cada responsabilidad 
+hay que encapsularla y aislarla para conseguir&nbsp;código ravioli.</p>
+<p>Aunque, en un principio, tengamos la tentación de unificar varias 
+funcionalidades con la excusa de que son pocas líneas, es muy importante
+ empezar a separar el código desde el principio. A medida de que el 
+proyecto vaya creciendo, aumentarán las &nbsp;líneas de código y si no 
+seguimos esta buena práctica, nos encontraremos con código espagueti.</p>
+<p><strong>La diferencia entre un código espagueti y uno ravioli se ve al hacer cambios en el código</strong>.
+ En el espagueti, esa parte del código puede estar “enredado” con otras 
+funcionalidades y provocar mal funcionamientos o conflictos indeseados 
+en otras partes del código. Sin embargo, en un código ravioli al estar 
+todo empaquetado individualmente, cada cambio afectaría únicamente a esa
+ parte; sin provocar daños colaterales.</p>
+<p>Por ello, evitaremos el siguiente código:</p><!-- Crayon Syntax Highlighter v_2.7.2_beta -->
+
+		<div id="crayon-5b9d8dd44128a679356648" class="crayon-syntax crayon-theme-classic crayon-font-monaco crayon-os-pc print-yes notranslate" data-settings=" minimize scroll-always" style="margin-top: 12px; margin-bottom: 12px; font-size: 12px !important; line-height: 15px !important; height: auto;">
+		
+			<div class="crayon-toolbar" data-settings=" show" style="font-size: 12px !important;height: 18px !important; line-height: 18px !important;"><span class="crayon-title">app.js</span>
+			<div class="crayon-tools" style="font-size: 12px !important;height: 18px !important; line-height: 18px !important;"><div class="crayon-button crayon-nums-button crayon-pressed" title="Mostrar/ocultar números de línea"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-plain-button" title="Cambiar a texto plano"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-wrap-button" title="Toggle Line Wrap"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-expand-button" title="Expand Code" style="display: none;"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-copy-button" title="Copy"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-popup-button" title="Abrir el código en una nueva ventana"><div class="crayon-button-icon"></div></div><span class="crayon-language">JavaScript</span></div></div>
+			<div class="crayon-info" style="min-height: 16.8px !important; line-height: 16.8px !important;"></div>
+			<div class="crayon-plain-wrap"><textarea class="crayon-plain print-no" data-settings="" readonly="readonly" style="-moz-tab-size: 4; font-size: 12px !important; line-height: 15px !important; z-index: 0; opacity: 0;" wrap="soft">angular
+    .module('app', ['ui.router'])
+    .controller('SomeController', SomeController)
+    .factory('someFactory', someFactory);
+
+    function SomeController() { }
+
+    function someFactory() { }</textarea></div>
+			<div class="crayon-main" style="position: relative; z-index: 1;">
+				<table class="crayon-table" style="">
+					<tbody><tr class="crayon-row">
+				<td class="crayon-nums " data-settings="show">
+					<div class="crayon-nums-content" style="font-size: 12px !important; line-height: 15px !important;"><div class="crayon-num" data-line="crayon-5b9d8dd44128a679356648-1">1</div><div class="crayon-num crayon-striped-num" data-line="crayon-5b9d8dd44128a679356648-2">2</div><div class="crayon-num" data-line="crayon-5b9d8dd44128a679356648-3">3</div><div class="crayon-num crayon-striped-num" data-line="crayon-5b9d8dd44128a679356648-4">4</div><div class="crayon-num" data-line="crayon-5b9d8dd44128a679356648-5">5</div><div class="crayon-num crayon-striped-num" data-line="crayon-5b9d8dd44128a679356648-6">6</div><div class="crayon-num" data-line="crayon-5b9d8dd44128a679356648-7">7</div><div class="crayon-num crayon-striped-num" data-line="crayon-5b9d8dd44128a679356648-8">8</div></div>
+				</td>
+						<td class="crayon-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 15px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="crayon-5b9d8dd44128a679356648-1"><span class="crayon-i">angular</span></div><div class="crayon-line crayon-striped-line" id="crayon-5b9d8dd44128a679356648-2"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-sy">.</span><span class="crayon-e">module</span><span class="crayon-sy">(</span><span class="crayon-s">'app'</span><span class="crayon-sy">,</span><span class="crayon-h"> </span><span class="crayon-sy">[</span><span class="crayon-s">'ui.router'</span><span class="crayon-sy">]</span><span class="crayon-sy">)</span></div><div class="crayon-line" id="crayon-5b9d8dd44128a679356648-3"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-sy">.</span><span class="crayon-e">controller</span><span class="crayon-sy">(</span><span class="crayon-s">'SomeController'</span><span class="crayon-sy">,</span><span class="crayon-h"> </span><span class="crayon-v">SomeController</span><span class="crayon-sy">)</span></div><div class="crayon-line crayon-striped-line" id="crayon-5b9d8dd44128a679356648-4"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-sy">.</span><span class="crayon-e">factory</span><span class="crayon-sy">(</span><span class="crayon-s">'someFactory'</span><span class="crayon-sy">,</span><span class="crayon-h"> </span><span class="crayon-v">someFactory</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div><div class="crayon-line" id="crayon-5b9d8dd44128a679356648-5">&nbsp;</div><div class="crayon-line crayon-striped-line" id="crayon-5b9d8dd44128a679356648-6"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-t">function</span><span class="crayon-h"> </span><span class="crayon-e">SomeController</span><span class="crayon-sy">(</span><span class="crayon-sy">)</span><span class="crayon-h"> </span><span class="crayon-sy">{</span><span class="crayon-h"> </span><span class="crayon-sy">}</span></div><div class="crayon-line" id="crayon-5b9d8dd44128a679356648-7">&nbsp;</div><div class="crayon-line crayon-striped-line" id="crayon-5b9d8dd44128a679356648-8"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-t">function</span><span class="crayon-h"> </span><span class="crayon-e">someFactory</span><span class="crayon-sy">(</span><span class="crayon-sy">)</span><span class="crayon-h"> </span><span class="crayon-sy">{</span><span class="crayon-h"> </span><span class="crayon-sy">}</span></div></div></td>
+					</tr>
+				</tbody></table>
+			</div>
+		</div>
+<!-- [Format Time: 0.0004 seconds] -->
+<p><span style="font-weight: 400;">Y lo organizaremos de este modo:</span></p><!-- Crayon Syntax Highlighter v_2.7.2_beta -->
+
+		<div id="crayon-5b9d8dd44129c023417891" class="crayon-syntax crayon-theme-classic crayon-font-monaco crayon-os-pc print-yes notranslate" data-settings=" minimize scroll-always" style="margin-top: 12px; margin-bottom: 12px; font-size: 12px !important; line-height: 15px !important; height: auto;">
+		
+			<div class="crayon-toolbar" data-settings=" show" style="font-size: 12px !important;height: 18px !important; line-height: 18px !important;"><span class="crayon-title">app.js</span>
+			<div class="crayon-tools" style="font-size: 12px !important;height: 18px !important; line-height: 18px !important;"><div class="crayon-button crayon-nums-button crayon-pressed" title="Mostrar/ocultar números de línea"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-plain-button" title="Cambiar a texto plano"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-wrap-button" title="Toggle Line Wrap"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-expand-button" title="Expand Code" style="display: none;"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-copy-button" title="Copy"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-popup-button" title="Abrir el código en una nueva ventana"><div class="crayon-button-icon"></div></div><span class="crayon-language">JavaScript</span></div></div>
+			<div class="crayon-info" style="min-height: 16.8px !important; line-height: 16.8px !important;"></div>
+			<div class="crayon-plain-wrap"><textarea class="crayon-plain print-no" data-settings="" readonly="readonly" style="-moz-tab-size: 4; font-size: 12px !important; line-height: 15px !important; z-index: 0; opacity: 0;" wrap="soft">angular
+    .module('app', ['ui.router']);</textarea></div>
+			<div class="crayon-main" style="position: relative; z-index: 1;">
+				<table class="crayon-table" style="">
+					<tbody><tr class="crayon-row">
+				<td class="crayon-nums " data-settings="show">
+					<div class="crayon-nums-content" style="font-size: 12px !important; line-height: 15px !important;"><div class="crayon-num" data-line="crayon-5b9d8dd44129c023417891-1">1</div><div class="crayon-num crayon-striped-num" data-line="crayon-5b9d8dd44129c023417891-2">2</div></div>
+				</td>
+						<td class="crayon-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 15px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="crayon-5b9d8dd44129c023417891-1"><span class="crayon-i">angular</span></div><div class="crayon-line crayon-striped-line" id="crayon-5b9d8dd44129c023417891-2"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-sy">.</span><span class="crayon-e">module</span><span class="crayon-sy">(</span><span class="crayon-s">'app'</span><span class="crayon-sy">,</span><span class="crayon-h"> </span><span class="crayon-sy">[</span><span class="crayon-s">'ui.router'</span><span class="crayon-sy">]</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div></div></td>
+					</tr>
+				</tbody></table>
+			</div>
+		</div>
+<!-- [Format Time: 0.0001 seconds] -->
+<p></p><!-- Crayon Syntax Highlighter v_2.7.2_beta -->
+
+		<div id="crayon-5b9d8dd44129e695916262" class="crayon-syntax crayon-theme-classic crayon-font-monaco crayon-os-pc print-yes notranslate" data-settings=" minimize scroll-always" style="margin-top: 12px; margin-bottom: 12px; font-size: 12px !important; line-height: 15px !important; height: auto;">
+		
+			<div class="crayon-toolbar" data-settings=" show" style="font-size: 12px !important;height: 18px !important; line-height: 18px !important;"><span class="crayon-title">someController.js</span>
+			<div class="crayon-tools" style="font-size: 12px !important;height: 18px !important; line-height: 18px !important;"><div class="crayon-button crayon-nums-button crayon-pressed" title="Mostrar/ocultar números de línea"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-plain-button" title="Cambiar a texto plano"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-wrap-button" title="Toggle Line Wrap"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-expand-button" title="Expand Code" style="display: none;"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-copy-button" title="Copy"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-popup-button" title="Abrir el código en una nueva ventana"><div class="crayon-button-icon"></div></div><span class="crayon-language">JavaScript</span></div></div>
+			<div class="crayon-info" style="min-height: 16.8px !important; line-height: 16.8px !important;"></div>
+			<div class="crayon-plain-wrap"><textarea class="crayon-plain print-no" data-settings="" readonly="readonly" style="-moz-tab-size: 4; font-size: 12px !important; line-height: 15px !important; z-index: 0; opacity: 0;" wrap="soft">angular
+    .module('app')
+    .controller('SomeController', SomeController);
+
+    function SomeController() { }</textarea></div>
+			<div class="crayon-main" style="position: relative; z-index: 1;">
+				<table class="crayon-table" style="">
+					<tbody><tr class="crayon-row">
+				<td class="crayon-nums " data-settings="show">
+					<div class="crayon-nums-content" style="font-size: 12px !important; line-height: 15px !important;"><div class="crayon-num" data-line="crayon-5b9d8dd44129e695916262-1">1</div><div class="crayon-num crayon-striped-num" data-line="crayon-5b9d8dd44129e695916262-2">2</div><div class="crayon-num" data-line="crayon-5b9d8dd44129e695916262-3">3</div><div class="crayon-num crayon-striped-num" data-line="crayon-5b9d8dd44129e695916262-4">4</div><div class="crayon-num" data-line="crayon-5b9d8dd44129e695916262-5">5</div></div>
+				</td>
+						<td class="crayon-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 15px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="crayon-5b9d8dd44129e695916262-1"><span class="crayon-i">angular</span></div><div class="crayon-line crayon-striped-line" id="crayon-5b9d8dd44129e695916262-2"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-sy">.</span><span class="crayon-e">module</span><span class="crayon-sy">(</span><span class="crayon-s">'app'</span><span class="crayon-sy">)</span></div><div class="crayon-line" id="crayon-5b9d8dd44129e695916262-3"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-sy">.</span><span class="crayon-e">controller</span><span class="crayon-sy">(</span><span class="crayon-s">'SomeController'</span><span class="crayon-sy">,</span><span class="crayon-h"> </span><span class="crayon-v">SomeController</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div><div class="crayon-line crayon-striped-line" id="crayon-5b9d8dd44129e695916262-4">&nbsp;</div><div class="crayon-line" id="crayon-5b9d8dd44129e695916262-5"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-t">function</span><span class="crayon-h"> </span><span class="crayon-e">SomeController</span><span class="crayon-sy">(</span><span class="crayon-sy">)</span><span class="crayon-h"> </span><span class="crayon-sy">{</span><span class="crayon-h"> </span><span class="crayon-sy">}</span></div></div></td>
+					</tr>
+				</tbody></table>
+			</div>
+		</div>
+<!-- [Format Time: 0.0001 seconds] -->
+<p></p><!-- Crayon Syntax Highlighter v_2.7.2_beta -->
+
+		<div id="crayon-5b9d8dd44129f483734985" class="crayon-syntax crayon-theme-classic crayon-font-monaco crayon-os-pc print-yes notranslate" data-settings=" minimize scroll-always" style="margin-top: 12px; margin-bottom: 12px; font-size: 12px !important; line-height: 15px !important; height: auto;">
+		
+			<div class="crayon-toolbar" data-settings=" show" style="font-size: 12px !important;height: 18px !important; line-height: 18px !important;"><span class="crayon-title">someFactory.js</span>
+			<div class="crayon-tools" style="font-size: 12px !important;height: 18px !important; line-height: 18px !important;"><div class="crayon-button crayon-nums-button crayon-pressed" title="Mostrar/ocultar números de línea"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-plain-button" title="Cambiar a texto plano"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-wrap-button" title="Toggle Line Wrap"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-expand-button" title="Expand Code" style="display: none;"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-copy-button" title="Copy"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-popup-button" title="Abrir el código en una nueva ventana"><div class="crayon-button-icon"></div></div><span class="crayon-language">JavaScript</span></div></div>
+			<div class="crayon-info" style="min-height: 16.8px !important; line-height: 16.8px !important;"></div>
+			<div class="crayon-plain-wrap"><textarea class="crayon-plain print-no" data-settings="" readonly="readonly" style="-moz-tab-size: 4; font-size: 12px !important; line-height: 15px !important; z-index: 0; opacity: 0;" wrap="soft">angular
+    .module('app')
+    .factory('someFactory', someFactory);
+
+    function someFactory() { }</textarea></div>
+			<div class="crayon-main" style="position: relative; z-index: 1;">
+				<table class="crayon-table" style="">
+					<tbody><tr class="crayon-row">
+				<td class="crayon-nums " data-settings="show">
+					<div class="crayon-nums-content" style="font-size: 12px !important; line-height: 15px !important;"><div class="crayon-num" data-line="crayon-5b9d8dd44129f483734985-1">1</div><div class="crayon-num crayon-striped-num" data-line="crayon-5b9d8dd44129f483734985-2">2</div><div class="crayon-num" data-line="crayon-5b9d8dd44129f483734985-3">3</div><div class="crayon-num crayon-striped-num" data-line="crayon-5b9d8dd44129f483734985-4">4</div><div class="crayon-num" data-line="crayon-5b9d8dd44129f483734985-5">5</div></div>
+				</td>
+						<td class="crayon-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 15px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="crayon-5b9d8dd44129f483734985-1"><span class="crayon-i">angular</span></div><div class="crayon-line crayon-striped-line" id="crayon-5b9d8dd44129f483734985-2"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-sy">.</span><span class="crayon-e">module</span><span class="crayon-sy">(</span><span class="crayon-s">'app'</span><span class="crayon-sy">)</span></div><div class="crayon-line" id="crayon-5b9d8dd44129f483734985-3"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-sy">.</span><span class="crayon-e">factory</span><span class="crayon-sy">(</span><span class="crayon-s">'someFactory'</span><span class="crayon-sy">,</span><span class="crayon-h"> </span><span class="crayon-v">someFactory</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div><div class="crayon-line crayon-striped-line" id="crayon-5b9d8dd44129f483734985-4">&nbsp;</div><div class="crayon-line" id="crayon-5b9d8dd44129f483734985-5"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-t">function</span><span class="crayon-h"> </span><span class="crayon-e">someFactory</span><span class="crayon-sy">(</span><span class="crayon-sy">)</span><span class="crayon-h"> </span><span class="crayon-sy">{</span><span class="crayon-h"> </span><span class="crayon-sy">}</span></div></div></td>
+					</tr>
+				</tbody></table>
+			</div>
+		</div>
+<!-- [Format Time: 0.0001 seconds] -->
+<p></p>
+<h3><span style="line-height: 1.5;">IIFE (Immediately Invoked Function Expression)</span></h3>
+<p><strong>Es una buena práctica empaquetar los componentes en funciones que se invocan inmediatamente</strong>. De ese modo, evitamos que las variables y funciones estén más tiempo de lo esperado en el <strong><em>global scope</em></strong>, al mismo tiempo que evitamos posibles colisiones entre variables.</p>
+<p>Por lo tanto evitaremos este código:</p><!-- Crayon Syntax Highlighter v_2.7.2_beta -->
+
+		<div id="crayon-5b9d8dd4412a0758736358" class="crayon-syntax crayon-theme-classic crayon-font-monaco crayon-os-pc print-yes notranslate" data-settings=" minimize scroll-always" style="margin-top: 12px; margin-bottom: 12px; font-size: 12px !important; line-height: 15px !important; height: auto;">
+		
+			<div class="crayon-toolbar" data-settings=" show" style="font-size: 12px !important;height: 18px !important; line-height: 18px !important;"><span class="crayon-title">logger.js</span>
+			<div class="crayon-tools" style="font-size: 12px !important;height: 18px !important; line-height: 18px !important;"><div class="crayon-button crayon-nums-button crayon-pressed" title="Mostrar/ocultar números de línea"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-plain-button" title="Cambiar a texto plano"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-wrap-button" title="Toggle Line Wrap"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-expand-button" title="Expand Code" style="display: none;"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-copy-button" title="Copy"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-popup-button" title="Abrir el código en una nueva ventana"><div class="crayon-button-icon"></div></div><span class="crayon-language">JavaScript</span></div></div>
+			<div class="crayon-info" style="min-height: 16.8px !important; line-height: 16.8px !important;"></div>
+			<div class="crayon-plain-wrap"><textarea class="crayon-plain print-no" data-settings="" readonly="readonly" style="-moz-tab-size: 4; font-size: 12px !important; line-height: 15px !important; z-index: 0; opacity: 0;" wrap="soft">angular
+    .module('app')
+    .factory('logger', logger);
+
+    // la función logger es añadida como variable global
+    function logger() { }</textarea></div>
+			<div class="crayon-main" style="position: relative; z-index: 1;">
+				<table class="crayon-table" style="">
+					<tbody><tr class="crayon-row">
+				<td class="crayon-nums " data-settings="show">
+					<div class="crayon-nums-content" style="font-size: 12px !important; line-height: 15px !important;"><div class="crayon-num" data-line="crayon-5b9d8dd4412a0758736358-1">1</div><div class="crayon-num crayon-striped-num" data-line="crayon-5b9d8dd4412a0758736358-2">2</div><div class="crayon-num" data-line="crayon-5b9d8dd4412a0758736358-3">3</div><div class="crayon-num crayon-striped-num" data-line="crayon-5b9d8dd4412a0758736358-4">4</div><div class="crayon-num" data-line="crayon-5b9d8dd4412a0758736358-5">5</div><div class="crayon-num crayon-striped-num" data-line="crayon-5b9d8dd4412a0758736358-6">6</div></div>
+				</td>
+						<td class="crayon-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 15px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="crayon-5b9d8dd4412a0758736358-1"><span class="crayon-i">angular</span></div><div class="crayon-line crayon-striped-line" id="crayon-5b9d8dd4412a0758736358-2"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-sy">.</span><span class="crayon-e">module</span><span class="crayon-sy">(</span><span class="crayon-s">'app'</span><span class="crayon-sy">)</span></div><div class="crayon-line" id="crayon-5b9d8dd4412a0758736358-3"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-sy">.</span><span class="crayon-e">factory</span><span class="crayon-sy">(</span><span class="crayon-s">'logger'</span><span class="crayon-sy">,</span><span class="crayon-h"> </span><span class="crayon-v">logger</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div><div class="crayon-line crayon-striped-line" id="crayon-5b9d8dd4412a0758736358-4">&nbsp;</div><div class="crayon-line" id="crayon-5b9d8dd4412a0758736358-5"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-c">// la función logger es añadida como variable global</span></div><div class="crayon-line crayon-striped-line" id="crayon-5b9d8dd4412a0758736358-6"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-t">function</span><span class="crayon-h"> </span><span class="crayon-e">logger</span><span class="crayon-sy">(</span><span class="crayon-sy">)</span><span class="crayon-h"> </span><span class="crayon-sy">{</span><span class="crayon-h"> </span><span class="crayon-sy">}</span></div></div></td>
+					</tr>
+				</tbody></table>
+			</div>
+		</div>
+<!-- [Format Time: 0.0002 seconds] -->
+<p><span style="font-weight: 400;">Y usaremos el siguiente código:</span></p><!-- Crayon Syntax Highlighter v_2.7.2_beta -->
+
+		<div id="crayon-5b9d8dd4412a2817811329" class="crayon-syntax crayon-theme-classic crayon-font-monaco crayon-os-pc print-yes notranslate" data-settings=" minimize scroll-always" style="margin-top: 12px; margin-bottom: 12px; font-size: 12px !important; line-height: 15px !important; height: auto;">
+		
+			<div class="crayon-toolbar" data-settings=" show" style="font-size: 12px !important;height: 18px !important; line-height: 18px !important;"><span class="crayon-title">logger.js</span>
+			<div class="crayon-tools" style="font-size: 12px !important;height: 18px !important; line-height: 18px !important;"><div class="crayon-button crayon-nums-button crayon-pressed" title="Mostrar/ocultar números de línea"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-plain-button" title="Cambiar a texto plano"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-wrap-button" title="Toggle Line Wrap"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-expand-button" title="Expand Code" style="display: none;"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-copy-button" title="Copy"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-popup-button" title="Abrir el código en una nueva ventana"><div class="crayon-button-icon"></div></div><span class="crayon-language">JavaScript</span></div></div>
+			<div class="crayon-info" style="min-height: 16.8px !important; line-height: 16.8px !important;"></div>
+			<div class="crayon-plain-wrap"><textarea class="crayon-plain print-no" data-settings="" readonly="readonly" style="-moz-tab-size: 4; font-size: 12px !important; line-height: 15px !important; z-index: 0; opacity: 0;" wrap="soft">(function() {
+    'use strict';
+
+    angular
+        .module('app')
+        .factory('logger', logger);
+
+    function logger() {}
+})();</textarea></div>
+			<div class="crayon-main" style="position: relative; z-index: 1;">
+				<table class="crayon-table" style="">
+					<tbody><tr class="crayon-row">
+				<td class="crayon-nums " data-settings="show">
+					<div class="crayon-nums-content" style="font-size: 12px !important; line-height: 15px !important;"><div class="crayon-num" data-line="crayon-5b9d8dd4412a2817811329-1">1</div><div class="crayon-num crayon-striped-num" data-line="crayon-5b9d8dd4412a2817811329-2">2</div><div class="crayon-num" data-line="crayon-5b9d8dd4412a2817811329-3">3</div><div class="crayon-num crayon-striped-num" data-line="crayon-5b9d8dd4412a2817811329-4">4</div><div class="crayon-num" data-line="crayon-5b9d8dd4412a2817811329-5">5</div><div class="crayon-num crayon-striped-num" data-line="crayon-5b9d8dd4412a2817811329-6">6</div><div class="crayon-num" data-line="crayon-5b9d8dd4412a2817811329-7">7</div><div class="crayon-num crayon-striped-num" data-line="crayon-5b9d8dd4412a2817811329-8">8</div><div class="crayon-num" data-line="crayon-5b9d8dd4412a2817811329-9">9</div></div>
+				</td>
+						<td class="crayon-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 15px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="crayon-5b9d8dd4412a2817811329-1"><span class="crayon-sy">(</span><span class="crayon-t">function</span><span class="crayon-sy">(</span><span class="crayon-sy">)</span><span class="crayon-h"> </span><span class="crayon-sy">{</span></div><div class="crayon-line crayon-striped-line" id="crayon-5b9d8dd4412a2817811329-2"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-s">'use strict'</span><span class="crayon-sy">;</span></div><div class="crayon-line" id="crayon-5b9d8dd4412a2817811329-3">&nbsp;</div><div class="crayon-line crayon-striped-line" id="crayon-5b9d8dd4412a2817811329-4"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-i">angular</span></div><div class="crayon-line" id="crayon-5b9d8dd4412a2817811329-5"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-sy">.</span><span class="crayon-e">module</span><span class="crayon-sy">(</span><span class="crayon-s">'app'</span><span class="crayon-sy">)</span></div><div class="crayon-line crayon-striped-line" id="crayon-5b9d8dd4412a2817811329-6"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-sy">.</span><span class="crayon-e">factory</span><span class="crayon-sy">(</span><span class="crayon-s">'logger'</span><span class="crayon-sy">,</span><span class="crayon-h"> </span><span class="crayon-v">logger</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div><div class="crayon-line" id="crayon-5b9d8dd4412a2817811329-7">&nbsp;</div><div class="crayon-line crayon-striped-line" id="crayon-5b9d8dd4412a2817811329-8"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-t">function</span><span class="crayon-h"> </span><span class="crayon-e">logger</span><span class="crayon-sy">(</span><span class="crayon-sy">)</span><span class="crayon-h"> </span><span class="crayon-sy">{</span><span class="crayon-sy">}</span></div><div class="crayon-line" id="crayon-5b9d8dd4412a2817811329-9"><span class="crayon-sy">}</span><span class="crayon-sy">)</span><span class="crayon-sy">(</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div></div></td>
+					</tr>
+				</tbody></table>
+			</div>
+		</div>
+<!-- [Format Time: 0.0002 seconds] -->
+<p>Para no alargar las líneas de código, en los siguientes puntos se omitirá esta buena práctica.</p>
+<h3><span style="font-weight: 400;"><br>
+Evitar colisiones de nombres</span></h3>
+<p>Para evitar la colisión de nombres, utilizaremos una convención de 
+nombres única con separadores para los sub-módulos. Además el uso de 
+separadores ayuda a definir los módulos y sus jerarquías.</p>
+<p>Por ejemplo, <strong>app</strong> puede ser nuestro módulo raíz y <strong>app.dashboard</strong> y <strong>app.users</strong> pueden ser módulos que dependen de él.</p>
+<h3><span style="font-weight: 400;">Módulos</span></h3>
+<p>Declararemos los módulos sin asignarlos a una variable y lo haremos utilizando la sintaxis de los <em>setters</em>.</p>
+<p><span style="font-weight: 400;">Por lo tanto, evitaremos esto:</span></p><!-- Crayon Syntax Highlighter v_2.7.2_beta -->
+
+		<div id="crayon-5b9d8dd4412a4168645350" class="crayon-syntax crayon-theme-classic crayon-font-monaco crayon-os-pc print-yes notranslate" data-settings=" minimize scroll-always" style="margin-top: 12px; margin-bottom: 12px; font-size: 12px !important; line-height: 15px !important; height: auto;">
+		
+			<div class="crayon-toolbar" data-settings=" show" style="font-size: 12px !important;height: 18px !important; line-height: 18px !important;"><span class="crayon-title">app.js</span>
+			<div class="crayon-tools" style="font-size: 12px !important;height: 18px !important; line-height: 18px !important;"><div class="crayon-button crayon-nums-button crayon-pressed" title="Mostrar/ocultar números de línea"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-plain-button" title="Cambiar a texto plano"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-wrap-button" title="Toggle Line Wrap"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-expand-button" title="Expand Code" style="display: none;"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-copy-button" title="Copy"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-popup-button" title="Abrir el código en una nueva ventana"><div class="crayon-button-icon"></div></div><span class="crayon-language">JavaScript</span></div></div>
+			<div class="crayon-info" style="min-height: 16.8px !important; line-height: 16.8px !important;"></div>
+			<div class="crayon-plain-wrap"><textarea class="crayon-plain print-no" data-settings="" readonly="readonly" style="-moz-tab-size: 4; font-size: 12px !important; line-height: 15px !important; z-index: 0; opacity: 0;" wrap="soft">var app = angular.module('app', [
+    'ngAnimate',
+    'ui.router',
+    'app.shared'
+]);</textarea></div>
+			<div class="crayon-main" style="position: relative; z-index: 1;">
+				<table class="crayon-table" style="">
+					<tbody><tr class="crayon-row">
+				<td class="crayon-nums " data-settings="show">
+					<div class="crayon-nums-content" style="font-size: 12px !important; line-height: 15px !important;"><div class="crayon-num" data-line="crayon-5b9d8dd4412a4168645350-1">1</div><div class="crayon-num crayon-striped-num" data-line="crayon-5b9d8dd4412a4168645350-2">2</div><div class="crayon-num" data-line="crayon-5b9d8dd4412a4168645350-3">3</div><div class="crayon-num crayon-striped-num" data-line="crayon-5b9d8dd4412a4168645350-4">4</div><div class="crayon-num" data-line="crayon-5b9d8dd4412a4168645350-5">5</div></div>
+				</td>
+						<td class="crayon-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 15px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="crayon-5b9d8dd4412a4168645350-1"><span class="crayon-t">var</span><span class="crayon-h"> </span><span class="crayon-v">app</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-v">angular</span><span class="crayon-sy">.</span><span class="crayon-e">module</span><span class="crayon-sy">(</span><span class="crayon-s">'app'</span><span class="crayon-sy">,</span><span class="crayon-h"> </span><span class="crayon-sy">[</span></div><div class="crayon-line crayon-striped-line" id="crayon-5b9d8dd4412a4168645350-2"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-s">'ngAnimate'</span><span class="crayon-sy">,</span></div><div class="crayon-line" id="crayon-5b9d8dd4412a4168645350-3"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-s">'ui.router'</span><span class="crayon-sy">,</span></div><div class="crayon-line crayon-striped-line" id="crayon-5b9d8dd4412a4168645350-4"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-s">'app.shared'</span></div><div class="crayon-line" id="crayon-5b9d8dd4412a4168645350-5"><span class="crayon-sy">]</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div></div></td>
+					</tr>
+				</tbody></table>
+			</div>
+		</div>
+<!-- [Format Time: 0.0001 seconds] -->
+<p><span style="font-weight: 400;">Y utilizaremos lo siguiente:</span></p><!-- Crayon Syntax Highlighter v_2.7.2_beta -->
+
+		<div id="crayon-5b9d8dd4412a5282487729" class="crayon-syntax crayon-theme-classic crayon-font-monaco crayon-os-pc print-yes notranslate" data-settings=" minimize scroll-always" style="margin-top: 12px; margin-bottom: 12px; font-size: 12px !important; line-height: 15px !important; height: auto;">
+		
+			<div class="crayon-toolbar" data-settings=" show" style="font-size: 12px !important;height: 18px !important; line-height: 18px !important;"><span class="crayon-title">app.js</span>
+			<div class="crayon-tools" style="font-size: 12px !important;height: 18px !important; line-height: 18px !important;"><div class="crayon-button crayon-nums-button crayon-pressed" title="Mostrar/ocultar números de línea"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-plain-button" title="Cambiar a texto plano"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-wrap-button" title="Toggle Line Wrap"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-expand-button" title="Expand Code" style="display: none;"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-copy-button" title="Copy"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-popup-button" title="Abrir el código en una nueva ventana"><div class="crayon-button-icon"></div></div><span class="crayon-language">JavaScript</span></div></div>
+			<div class="crayon-info" style="min-height: 16.8px !important; line-height: 16.8px !important;"></div>
+			<div class="crayon-plain-wrap"><textarea class="crayon-plain print-no" data-settings="" readonly="readonly" style="-moz-tab-size: 4; font-size: 12px !important; line-height: 15px !important; z-index: 0; opacity: 0;" wrap="soft">angular
+    .module('app', [
+        'ngAnimate',
+        'ui.router',
+        'app.shared'
+    ]);</textarea></div>
+			<div class="crayon-main" style="position: relative; z-index: 1;">
+				<table class="crayon-table" style="">
+					<tbody><tr class="crayon-row">
+				<td class="crayon-nums " data-settings="show">
+					<div class="crayon-nums-content" style="font-size: 12px !important; line-height: 15px !important;"><div class="crayon-num" data-line="crayon-5b9d8dd4412a5282487729-1">1</div><div class="crayon-num crayon-striped-num" data-line="crayon-5b9d8dd4412a5282487729-2">2</div><div class="crayon-num" data-line="crayon-5b9d8dd4412a5282487729-3">3</div><div class="crayon-num crayon-striped-num" data-line="crayon-5b9d8dd4412a5282487729-4">4</div><div class="crayon-num" data-line="crayon-5b9d8dd4412a5282487729-5">5</div><div class="crayon-num crayon-striped-num" data-line="crayon-5b9d8dd4412a5282487729-6">6</div></div>
+				</td>
+						<td class="crayon-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 15px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="crayon-5b9d8dd4412a5282487729-1"><span class="crayon-i">angular</span></div><div class="crayon-line crayon-striped-line" id="crayon-5b9d8dd4412a5282487729-2"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-sy">.</span><span class="crayon-e">module</span><span class="crayon-sy">(</span><span class="crayon-s">'app'</span><span class="crayon-sy">,</span><span class="crayon-h"> </span><span class="crayon-sy">[</span></div><div class="crayon-line" id="crayon-5b9d8dd4412a5282487729-3"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-s">'ngAnimate'</span><span class="crayon-sy">,</span></div><div class="crayon-line crayon-striped-line" id="crayon-5b9d8dd4412a5282487729-4"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-s">'ui.router'</span><span class="crayon-sy">,</span></div><div class="crayon-line" id="crayon-5b9d8dd4412a5282487729-5"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-s">'app.shared'</span></div><div class="crayon-line crayon-striped-line" id="crayon-5b9d8dd4412a5282487729-6"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-sy">]</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div></div></td>
+					</tr>
+				</tbody></table>
+			</div>
+		</div>
+<!-- [Format Time: 0.0001 seconds] -->
+<p>Usaremos <strong>angular.module(‘app’, [])</strong> para declarar un módulo y especificar sus dependencias (sintaxis <em>setter</em>) y <strong>angular.module(‘app’)</strong> para recuperar un módulo (sintaxis <em>getter</em>).</p>
+<h3><span style="font-weight: 400;">Controller as vm</span></h3>
+<p><span style="font-weight: 400;">Utilizaremos la sintaxis <em>controller as</em> en vez del clásico <em>controller</em> con <em>$scope</em> y capturaremos el <em>this</em> en una variable llamada <em>vm</em> (<em>ViewModel</em>).</span></p>
+<p>Este método nos ayuda a prevenir el uso excesivo del <em>$scope</em>,
+ ya que en&nbsp;algunos casos suele ser muy tentador utilizar dicha 
+variable para declarar funciones que deberían de estar delegados&nbsp;a 
+un servicio o factoría.&nbsp;El<em> $scope</em> se debe utilizar únicamente cuando es necesario; por ejemplo, al llamar a eventos utilizando<em> $emit</em>,<em> $broadcast</em> o <em>$on</em>.</p>
+<p><span style="font-weight: 400;">Por lo tanto evitaremos este código:</span></p><!-- Crayon Syntax Highlighter v_2.7.2_beta -->
+
+		<div id="crayon-5b9d8dd4412a7040027317" class="crayon-syntax crayon-theme-classic crayon-font-monaco crayon-os-pc print-yes notranslate" data-settings=" minimize scroll-always" style="margin-top: 12px; margin-bottom: 12px; font-size: 12px !important; line-height: 15px !important; height: auto;">
+		
+			<div class="crayon-toolbar" data-settings=" show" style="font-size: 12px !important;height: 18px !important; line-height: 18px !important;"><span class="crayon-title">customer.js</span>
+			<div class="crayon-tools" style="font-size: 12px !important;height: 18px !important; line-height: 18px !important;"><div class="crayon-button crayon-nums-button crayon-pressed" title="Mostrar/ocultar números de línea"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-plain-button" title="Cambiar a texto plano"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-wrap-button" title="Toggle Line Wrap"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-expand-button" title="Expand Code" style="display: none;"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-copy-button" title="Copy"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-popup-button" title="Abrir el código en una nueva ventana"><div class="crayon-button-icon"></div></div><span class="crayon-language">JavaScript</span></div></div>
+			<div class="crayon-info" style="min-height: 16.8px !important; line-height: 16.8px !important;"></div>
+			<div class="crayon-plain-wrap"><textarea class="crayon-plain print-no" data-settings="" readonly="readonly" style="-moz-tab-size: 4; font-size: 12px !important; line-height: 15px !important; z-index: 0; opacity: 0;" wrap="soft">function Customer() {
+
+    this.name = 'Irontec';
+
+    this.sendMessage = function() {};
+}</textarea></div>
+			<div class="crayon-main" style="position: relative; z-index: 1;">
+				<table class="crayon-table" style="">
+					<tbody><tr class="crayon-row">
+				<td class="crayon-nums " data-settings="show">
+					<div class="crayon-nums-content" style="font-size: 12px !important; line-height: 15px !important;"><div class="crayon-num" data-line="crayon-5b9d8dd4412a7040027317-1">1</div><div class="crayon-num crayon-striped-num" data-line="crayon-5b9d8dd4412a7040027317-2">2</div><div class="crayon-num" data-line="crayon-5b9d8dd4412a7040027317-3">3</div><div class="crayon-num crayon-striped-num" data-line="crayon-5b9d8dd4412a7040027317-4">4</div><div class="crayon-num" data-line="crayon-5b9d8dd4412a7040027317-5">5</div><div class="crayon-num crayon-striped-num" data-line="crayon-5b9d8dd4412a7040027317-6">6</div></div>
+				</td>
+						<td class="crayon-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 15px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="crayon-5b9d8dd4412a7040027317-1"><span class="crayon-t">function</span><span class="crayon-h"> </span><span class="crayon-e">Customer</span><span class="crayon-sy">(</span><span class="crayon-sy">)</span><span class="crayon-h"> </span><span class="crayon-sy">{</span></div><div class="crayon-line crayon-striped-line" id="crayon-5b9d8dd4412a7040027317-2">&nbsp;</div><div class="crayon-line" id="crayon-5b9d8dd4412a7040027317-3"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-r">this</span><span class="crayon-sy">.</span><span class="crayon-e ">name</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-s">'Irontec'</span><span class="crayon-sy">;</span></div><div class="crayon-line crayon-striped-line" id="crayon-5b9d8dd4412a7040027317-4">&nbsp;</div><div class="crayon-line" id="crayon-5b9d8dd4412a7040027317-5"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-r">this</span><span class="crayon-sy">.</span><span class="crayon-v">sendMessage</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-t">function</span><span class="crayon-sy">(</span><span class="crayon-sy">)</span><span class="crayon-h"> </span><span class="crayon-sy">{</span><span class="crayon-sy">}</span><span class="crayon-sy">;</span></div><div class="crayon-line crayon-striped-line" id="crayon-5b9d8dd4412a7040027317-6"><span class="crayon-sy">}</span></div></div></td>
+					</tr>
+				</tbody></table>
+			</div>
+		</div>
+<!-- [Format Time: 0.0002 seconds] -->
+<p>Sustituyéndolo por el siguiente código:</p><!-- Crayon Syntax Highlighter v_2.7.2_beta -->
+
+		<div id="crayon-5b9d8dd4412a8557522579" class="crayon-syntax crayon-theme-classic crayon-font-monaco crayon-os-pc print-yes notranslate" data-settings=" minimize scroll-always" style="margin-top: 12px; margin-bottom: 12px; font-size: 12px !important; line-height: 15px !important; height: auto;">
+		
+			<div class="crayon-toolbar" data-settings=" show" style="font-size: 12px !important;height: 18px !important; line-height: 18px !important;"><span class="crayon-title">customer.js</span>
+			<div class="crayon-tools" style="font-size: 12px !important;height: 18px !important; line-height: 18px !important;"><div class="crayon-button crayon-nums-button crayon-pressed" title="Mostrar/ocultar números de línea"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-plain-button" title="Cambiar a texto plano"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-wrap-button" title="Toggle Line Wrap"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-expand-button" title="Expand Code" style="display: none;"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-copy-button" title="Copy"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-popup-button" title="Abrir el código en una nueva ventana"><div class="crayon-button-icon"></div></div></div></div>
+			<div class="crayon-info" style="min-height: 16.8px !important; line-height: 16.8px !important;"></div>
+			<div class="crayon-plain-wrap"><textarea class="crayon-plain print-no" data-settings="" readonly="readonly" style="-moz-tab-size: 4; font-size: 12px !important; line-height: 15px !important; z-index: 0; opacity: 0;" wrap="soft">function Customer() {
+
+    var vm = this;
+
+    vm.name = 'Irontec';
+
+    vm.sendMessage = function() {};
+}</textarea></div>
+			<div class="crayon-main" style="position: relative; z-index: 1;">
+				<table class="crayon-table" style="">
+					<tbody><tr class="crayon-row">
+				<td class="crayon-nums " data-settings="show">
+					<div class="crayon-nums-content" style="font-size: 12px !important; line-height: 15px !important;"><div class="crayon-num" data-line="crayon-5b9d8dd4412a8557522579-1">1</div><div class="crayon-num crayon-striped-num" data-line="crayon-5b9d8dd4412a8557522579-2">2</div><div class="crayon-num" data-line="crayon-5b9d8dd4412a8557522579-3">3</div><div class="crayon-num crayon-striped-num" data-line="crayon-5b9d8dd4412a8557522579-4">4</div><div class="crayon-num" data-line="crayon-5b9d8dd4412a8557522579-5">5</div><div class="crayon-num crayon-striped-num" data-line="crayon-5b9d8dd4412a8557522579-6">6</div><div class="crayon-num" data-line="crayon-5b9d8dd4412a8557522579-7">7</div><div class="crayon-num crayon-striped-num" data-line="crayon-5b9d8dd4412a8557522579-8">8</div></div>
+				</td>
+						<td class="crayon-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 15px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="crayon-5b9d8dd4412a8557522579-1"><span class="crayon-t">function</span><span class="crayon-h"> </span><span class="crayon-e">Customer</span><span class="crayon-sy">(</span><span class="crayon-sy">)</span><span class="crayon-h"> </span><span class="crayon-sy">{</span></div><div class="crayon-line crayon-striped-line" id="crayon-5b9d8dd4412a8557522579-2">&nbsp;</div><div class="crayon-line" id="crayon-5b9d8dd4412a8557522579-3"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-t">var</span><span class="crayon-h"> </span><span class="crayon-v">vm</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-r">this</span><span class="crayon-sy">;</span></div><div class="crayon-line crayon-striped-line" id="crayon-5b9d8dd4412a8557522579-4">&nbsp;</div><div class="crayon-line" id="crayon-5b9d8dd4412a8557522579-5"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-v">vm</span><span class="crayon-sy">.</span><span class="crayon-v">name</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-s">'Irontec'</span><span class="crayon-sy">;</span></div><div class="crayon-line crayon-striped-line" id="crayon-5b9d8dd4412a8557522579-6">&nbsp;</div><div class="crayon-line" id="crayon-5b9d8dd4412a8557522579-7"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-v">vm</span><span class="crayon-sy">.</span><span class="crayon-v">sendMessage</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-t">function</span><span class="crayon-sy">(</span><span class="crayon-sy">)</span><span class="crayon-h"> </span><span class="crayon-sy">{</span><span class="crayon-sy">}</span><span class="crayon-sy">;</span></div><div class="crayon-line crayon-striped-line" id="crayon-5b9d8dd4412a8557522579-8"><span class="crayon-sy">}</span></div></div></td>
+					</tr>
+				</tbody></table>
+			</div>
+		</div>
+<!-- [Format Time: 0.0235 seconds] -->
+<p></p><!-- Crayon Syntax Highlighter v_2.7.2_beta -->
+
+		<div id="crayon-5b9d8dd4412a9187315509" class="crayon-syntax crayon-theme-classic crayon-font-monaco crayon-os-pc print-yes notranslate" data-settings=" minimize scroll-always" style="margin-top: 12px; margin-bottom: 12px; font-size: 12px !important; line-height: 15px !important; height: auto;">
+		
+			<div class="crayon-toolbar" data-settings=" show" style="font-size: 12px !important;height: 18px !important; line-height: 18px !important;"><span class="crayon-title">customer.html</span>
+			<div class="crayon-tools" style="font-size: 12px !important;height: 18px !important; line-height: 18px !important;"><div class="crayon-button crayon-nums-button crayon-pressed" title="Mostrar/ocultar números de línea"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-plain-button" title="Cambiar a texto plano"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-wrap-button" title="Toggle Line Wrap"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-expand-button" title="Expand Code" style="display: none;"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-copy-button" title="Copy"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-popup-button" title="Abrir el código en una nueva ventana"><div class="crayon-button-icon"></div></div><span class="crayon-language">XHTML</span></div></div>
+			<div class="crayon-info" style="min-height: 16.8px !important; line-height: 16.8px !important;"></div>
+			<div class="crayon-plain-wrap"><textarea class="crayon-plain print-no" data-settings="" readonly="readonly" style="-moz-tab-size: 4; font-size: 12px !important; line-height: 15px !important; z-index: 0; opacity: 0;" wrap="soft">&lt;input ng-model="vm.name"/&gt;</textarea></div>
+			<div class="crayon-main" style="position: relative; z-index: 1;">
+				<table class="crayon-table" style="">
+					<tbody><tr class="crayon-row">
+				<td class="crayon-nums " data-settings="show">
+					<div class="crayon-nums-content" style="font-size: 12px !important; line-height: 15px !important;"><div class="crayon-num" data-line="crayon-5b9d8dd4412a9187315509-1">1</div></div>
+				</td>
+						<td class="crayon-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 15px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="crayon-5b9d8dd4412a9187315509-1"><span class="crayon-r ">&lt;input </span><span class="crayon-e ">ng-model</span><span class="crayon-o">=</span><span class="crayon-s ">"vm.name"</span><span class="crayon-r ">/&gt;</span></div></div></td>
+					</tr>
+				</tbody></table>
+			</div>
+		</div>
+<!-- [Format Time: 0.0001 seconds] -->
+<p></p>
+<h3><span style="line-height: 1.5;">Funciones anónimas vs&nbsp;funciones declaradas</span></h3>
+<p>En la medida de lo posible utilizaremos funciones declaradas, ya que el código será más limpio, más fácil de <em>debuggear</em> y reducirá la cantidad de llamadas anidadas.</p>
+<p>Por lo tanto, en vez de utilizar este código:</p><!-- Crayon Syntax Highlighter v_2.7.2_beta -->
+
+		<div id="crayon-5b9d8dd4412aa789167069" class="crayon-syntax crayon-theme-classic crayon-font-monaco crayon-os-pc print-yes notranslate" data-settings=" minimize scroll-always" style="margin-top: 12px; margin-bottom: 12px; font-size: 12px !important; line-height: 15px !important; height: auto;">
+		
+			<div class="crayon-toolbar" data-settings=" show" style="font-size: 12px !important;height: 18px !important; line-height: 18px !important;"><span class="crayon-title">app.js</span>
+			<div class="crayon-tools" style="font-size: 12px !important;height: 18px !important; line-height: 18px !important;"><div class="crayon-button crayon-nums-button crayon-pressed" title="Mostrar/ocultar números de línea"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-plain-button" title="Cambiar a texto plano"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-wrap-button" title="Toggle Line Wrap"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-expand-button" title="Expand Code" style="display: none;"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-copy-button" title="Copy"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-popup-button" title="Abrir el código en una nueva ventana"><div class="crayon-button-icon"></div></div><span class="crayon-language">JavaScript</span></div></div>
+			<div class="crayon-info" style="min-height: 16.8px !important; line-height: 16.8px !important;"></div>
+			<div class="crayon-plain-wrap"><textarea class="crayon-plain print-no" data-settings="" readonly="readonly" style="-moz-tab-size: 4; font-size: 12px !important; line-height: 15px !important; z-index: 0; opacity: 0;" wrap="soft">angular
+    .module('app')
+    .controller('DashboardController', function() { })
+    .factory('logger', function() { });</textarea></div>
+			<div class="crayon-main" style="position: relative; z-index: 1;">
+				<table class="crayon-table" style="">
+					<tbody><tr class="crayon-row">
+				<td class="crayon-nums " data-settings="show">
+					<div class="crayon-nums-content" style="font-size: 12px !important; line-height: 15px !important;"><div class="crayon-num" data-line="crayon-5b9d8dd4412aa789167069-1">1</div><div class="crayon-num crayon-striped-num" data-line="crayon-5b9d8dd4412aa789167069-2">2</div><div class="crayon-num" data-line="crayon-5b9d8dd4412aa789167069-3">3</div><div class="crayon-num crayon-striped-num" data-line="crayon-5b9d8dd4412aa789167069-4">4</div></div>
+				</td>
+						<td class="crayon-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 15px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="crayon-5b9d8dd4412aa789167069-1"><span class="crayon-i">angular</span></div><div class="crayon-line crayon-striped-line" id="crayon-5b9d8dd4412aa789167069-2"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-sy">.</span><span class="crayon-e">module</span><span class="crayon-sy">(</span><span class="crayon-s">'app'</span><span class="crayon-sy">)</span></div><div class="crayon-line" id="crayon-5b9d8dd4412aa789167069-3"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-sy">.</span><span class="crayon-e">controller</span><span class="crayon-sy">(</span><span class="crayon-s">'DashboardController'</span><span class="crayon-sy">,</span><span class="crayon-h"> </span><span class="crayon-t">function</span><span class="crayon-sy">(</span><span class="crayon-sy">)</span><span class="crayon-h"> </span><span class="crayon-sy">{</span><span class="crayon-h"> </span><span class="crayon-sy">}</span><span class="crayon-sy">)</span></div><div class="crayon-line crayon-striped-line" id="crayon-5b9d8dd4412aa789167069-4"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-sy">.</span><span class="crayon-e">factory</span><span class="crayon-sy">(</span><span class="crayon-s">'logger'</span><span class="crayon-sy">,</span><span class="crayon-h"> </span><span class="crayon-t">function</span><span class="crayon-sy">(</span><span class="crayon-sy">)</span><span class="crayon-h"> </span><span class="crayon-sy">{</span><span class="crayon-h"> </span><span class="crayon-sy">}</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div></div></td>
+					</tr>
+				</tbody></table>
+			</div>
+		</div>
+<!-- [Format Time: 0.0002 seconds] -->
+<p>Y lo organizaremos de la siguiente manera:</p><!-- Crayon Syntax Highlighter v_2.7.2_beta -->
+
+		<div id="crayon-5b9d8dd4412ac586189161" class="crayon-syntax crayon-theme-classic crayon-font-monaco crayon-os-pc print-yes notranslate" data-settings=" minimize scroll-always" style="margin-top: 12px; margin-bottom: 12px; font-size: 12px !important; line-height: 15px !important; height: auto;">
+		
+			<div class="crayon-toolbar" data-settings=" show" style="font-size: 12px !important;height: 18px !important; line-height: 18px !important;"><span class="crayon-title">dashboard.js</span>
+			<div class="crayon-tools" style="font-size: 12px !important;height: 18px !important; line-height: 18px !important;"><div class="crayon-button crayon-nums-button crayon-pressed" title="Mostrar/ocultar números de línea"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-plain-button" title="Cambiar a texto plano"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-wrap-button" title="Toggle Line Wrap"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-expand-button" title="Expand Code" style="display: none;"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-copy-button" title="Copy"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-popup-button" title="Abrir el código en una nueva ventana"><div class="crayon-button-icon"></div></div></div></div>
+			<div class="crayon-info" style="min-height: 16.8px !important; line-height: 16.8px !important;"></div>
+			<div class="crayon-plain-wrap"><textarea class="crayon-plain print-no" data-settings="" readonly="readonly" style="-moz-tab-size: 4; font-size: 12px !important; line-height: 15px !important; z-index: 0; opacity: 0;" wrap="soft">angular
+    .module('app')
+    .controller('DashboardController', DashboardController);
+
+function DashboardController() { }</textarea></div>
+			<div class="crayon-main" style="position: relative; z-index: 1;">
+				<table class="crayon-table" style="">
+					<tbody><tr class="crayon-row">
+				<td class="crayon-nums " data-settings="show">
+					<div class="crayon-nums-content" style="font-size: 12px !important; line-height: 15px !important;"><div class="crayon-num" data-line="crayon-5b9d8dd4412ac586189161-1">1</div><div class="crayon-num crayon-striped-num" data-line="crayon-5b9d8dd4412ac586189161-2">2</div><div class="crayon-num" data-line="crayon-5b9d8dd4412ac586189161-3">3</div><div class="crayon-num crayon-striped-num" data-line="crayon-5b9d8dd4412ac586189161-4">4</div><div class="crayon-num" data-line="crayon-5b9d8dd4412ac586189161-5">5</div></div>
+				</td>
+						<td class="crayon-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 15px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="crayon-5b9d8dd4412ac586189161-1"><span class="crayon-i">angular</span></div><div class="crayon-line crayon-striped-line" id="crayon-5b9d8dd4412ac586189161-2"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-sy">.</span><span class="crayon-e">module</span><span class="crayon-sy">(</span><span class="crayon-s">'app'</span><span class="crayon-sy">)</span></div><div class="crayon-line" id="crayon-5b9d8dd4412ac586189161-3"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-sy">.</span><span class="crayon-e">controller</span><span class="crayon-sy">(</span><span class="crayon-s">'DashboardController'</span><span class="crayon-sy">,</span><span class="crayon-h"> </span><span class="crayon-v">DashboardController</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div><div class="crayon-line crayon-striped-line" id="crayon-5b9d8dd4412ac586189161-4">&nbsp;</div><div class="crayon-line" id="crayon-5b9d8dd4412ac586189161-5"><span class="crayon-t">function</span><span class="crayon-h"> </span><span class="crayon-e">DashboardController</span><span class="crayon-sy">(</span><span class="crayon-sy">)</span><span class="crayon-h"> </span><span class="crayon-sy">{</span><span class="crayon-h"> </span><span class="crayon-sy">}</span></div></div></td>
+					</tr>
+				</tbody></table>
+			</div>
+		</div>
+<!-- [Format Time: 0.0001 seconds] -->
+<p></p><!-- Crayon Syntax Highlighter v_2.7.2_beta -->
+
+		<div id="crayon-5b9d8dd4412ad742614146" class="crayon-syntax crayon-theme-classic crayon-font-monaco crayon-os-pc print-yes notranslate" data-settings=" minimize scroll-always" style="margin-top: 12px; margin-bottom: 12px; font-size: 12px !important; line-height: 15px !important; height: auto;">
+		
+			<div class="crayon-toolbar" data-settings=" show" style="font-size: 12px !important;height: 18px !important; line-height: 18px !important;"><span class="crayon-title">logger.js</span>
+			<div class="crayon-tools" style="font-size: 12px !important;height: 18px !important; line-height: 18px !important;"><div class="crayon-button crayon-nums-button crayon-pressed" title="Mostrar/ocultar números de línea"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-plain-button" title="Cambiar a texto plano"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-wrap-button" title="Toggle Line Wrap"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-expand-button" title="Expand Code" style="display: none;"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-copy-button" title="Copy"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-popup-button" title="Abrir el código en una nueva ventana"><div class="crayon-button-icon"></div></div></div></div>
+			<div class="crayon-info" style="min-height: 16.8px !important; line-height: 16.8px !important;"></div>
+			<div class="crayon-plain-wrap"><textarea class="crayon-plain print-no" data-settings="" readonly="readonly" style="-moz-tab-size: 4; font-size: 12px !important; line-height: 15px !important; z-index: 0; opacity: 0;" wrap="soft">angular
+    .module('app')
+    .factory('logger', logger);
+
+function logger() { }</textarea></div>
+			<div class="crayon-main" style="position: relative; z-index: 1;">
+				<table class="crayon-table" style="">
+					<tbody><tr class="crayon-row">
+				<td class="crayon-nums " data-settings="show">
+					<div class="crayon-nums-content" style="font-size: 12px !important; line-height: 15px !important;"><div class="crayon-num" data-line="crayon-5b9d8dd4412ad742614146-1">1</div><div class="crayon-num crayon-striped-num" data-line="crayon-5b9d8dd4412ad742614146-2">2</div><div class="crayon-num" data-line="crayon-5b9d8dd4412ad742614146-3">3</div><div class="crayon-num crayon-striped-num" data-line="crayon-5b9d8dd4412ad742614146-4">4</div><div class="crayon-num" data-line="crayon-5b9d8dd4412ad742614146-5">5</div></div>
+				</td>
+						<td class="crayon-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 15px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="crayon-5b9d8dd4412ad742614146-1"><span class="crayon-i">angular</span></div><div class="crayon-line crayon-striped-line" id="crayon-5b9d8dd4412ad742614146-2"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-sy">.</span><span class="crayon-e">module</span><span class="crayon-sy">(</span><span class="crayon-s">'app'</span><span class="crayon-sy">)</span></div><div class="crayon-line" id="crayon-5b9d8dd4412ad742614146-3"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-sy">.</span><span class="crayon-e">factory</span><span class="crayon-sy">(</span><span class="crayon-s">'logger'</span><span class="crayon-sy">,</span><span class="crayon-h"> </span><span class="crayon-v">logger</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div><div class="crayon-line crayon-striped-line" id="crayon-5b9d8dd4412ad742614146-4">&nbsp;</div><div class="crayon-line" id="crayon-5b9d8dd4412ad742614146-5"><span class="crayon-t">function</span><span class="crayon-h"> </span><span class="crayon-e">logger</span><span class="crayon-sy">(</span><span class="crayon-sy">)</span><span class="crayon-h"> </span><span class="crayon-sy">{</span><span class="crayon-h"> </span><span class="crayon-sy">}</span></div></div></td>
+					</tr>
+				</tbody></table>
+			</div>
+		</div>
+<!-- [Format Time: 0.0001 seconds] -->
+<p>&nbsp;</p>
+<h3><span style="line-height: 1.5;">Asociaciones en la parte superior del controlador</span></h3>
+<h3><span style="font-weight: 400; font-size: 16px; line-height: 1.5;">Colocaremos
+ las asociaciones en la parte superior del controlador; facilita la 
+lectura y ayuda a identificar las variables asociadas a la vista.</span></h3>
+<p>Evitaremos este tipo de orden:</p><!-- Crayon Syntax Highlighter v_2.7.2_beta -->
+
+		<div id="crayon-5b9d8dd4412af706658371" class="crayon-syntax crayon-theme-classic crayon-font-monaco crayon-os-pc print-yes notranslate" data-settings=" minimize scroll-always" style="margin-top: 12px; margin-bottom: 12px; font-size: 12px !important; line-height: 15px !important; height: auto;">
+		
+			<div class="crayon-toolbar" data-settings=" show" style="font-size: 12px !important;height: 18px !important; line-height: 18px !important;"><span class="crayon-title">sessions.js</span>
+			<div class="crayon-tools" style="font-size: 12px !important;height: 18px !important; line-height: 18px !important;"><div class="crayon-button crayon-nums-button crayon-pressed" title="Mostrar/ocultar números de línea"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-plain-button" title="Cambiar a texto plano"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-wrap-button" title="Toggle Line Wrap"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-expand-button" title="Expand Code" style="display: none;"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-copy-button" title="Copy"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-popup-button" title="Abrir el código en una nueva ventana"><div class="crayon-button-icon"></div></div><span class="crayon-language">JavaScript</span></div></div>
+			<div class="crayon-info" style="min-height: 16.8px !important; line-height: 16.8px !important;"></div>
+			<div class="crayon-plain-wrap"><textarea class="crayon-plain print-no" data-settings="" readonly="readonly" style="-moz-tab-size: 4; font-size: 12px !important; line-height: 15px !important; z-index: 0; opacity: 0;" wrap="soft">function Sessions() {
+
+    var vm = this;
+    vm.gotoSession = function() {
+        /* ... */
+    };
+
+    vm.sessions = [];
+
+    vm.title = 'Sessions';</textarea></div>
+			<div class="crayon-main" style="position: relative; z-index: 1;">
+				<table class="crayon-table" style="">
+					<tbody><tr class="crayon-row">
+				<td class="crayon-nums " data-settings="show">
+					<div class="crayon-nums-content" style="font-size: 12px !important; line-height: 15px !important;"><div class="crayon-num" data-line="crayon-5b9d8dd4412af706658371-1">1</div><div class="crayon-num crayon-striped-num" data-line="crayon-5b9d8dd4412af706658371-2">2</div><div class="crayon-num" data-line="crayon-5b9d8dd4412af706658371-3">3</div><div class="crayon-num crayon-striped-num" data-line="crayon-5b9d8dd4412af706658371-4">4</div><div class="crayon-num" data-line="crayon-5b9d8dd4412af706658371-5">5</div><div class="crayon-num crayon-striped-num" data-line="crayon-5b9d8dd4412af706658371-6">6</div><div class="crayon-num" data-line="crayon-5b9d8dd4412af706658371-7">7</div><div class="crayon-num crayon-striped-num" data-line="crayon-5b9d8dd4412af706658371-8">8</div><div class="crayon-num" data-line="crayon-5b9d8dd4412af706658371-9">9</div><div class="crayon-num crayon-striped-num" data-line="crayon-5b9d8dd4412af706658371-10">10</div></div>
+				</td>
+						<td class="crayon-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 15px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="crayon-5b9d8dd4412af706658371-1"><span class="crayon-t">function</span><span class="crayon-h"> </span><span class="crayon-e">Sessions</span><span class="crayon-sy">(</span><span class="crayon-sy">)</span><span class="crayon-h"> </span><span class="crayon-sy">{</span></div><div class="crayon-line crayon-striped-line" id="crayon-5b9d8dd4412af706658371-2">&nbsp;</div><div class="crayon-line" id="crayon-5b9d8dd4412af706658371-3"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-t">var</span><span class="crayon-h"> </span><span class="crayon-v">vm</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-r">this</span><span class="crayon-sy">;</span></div><div class="crayon-line crayon-striped-line" id="crayon-5b9d8dd4412af706658371-4"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-v">vm</span><span class="crayon-sy">.</span><span class="crayon-v">gotoSession</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-t">function</span><span class="crayon-sy">(</span><span class="crayon-sy">)</span><span class="crayon-h"> </span><span class="crayon-sy">{</span></div><div class="crayon-line" id="crayon-5b9d8dd4412af706658371-5"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-c">/* ... */</span></div><div class="crayon-line crayon-striped-line" id="crayon-5b9d8dd4412af706658371-6"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-sy">}</span><span class="crayon-sy">;</span></div><div class="crayon-line" id="crayon-5b9d8dd4412af706658371-7">&nbsp;</div><div class="crayon-line crayon-striped-line" id="crayon-5b9d8dd4412af706658371-8"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-v">vm</span><span class="crayon-sy">.</span><span class="crayon-v">sessions</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-sy">[</span><span class="crayon-sy">]</span><span class="crayon-sy">;</span></div><div class="crayon-line" id="crayon-5b9d8dd4412af706658371-9">&nbsp;</div><div class="crayon-line crayon-striped-line" id="crayon-5b9d8dd4412af706658371-10"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-v">vm</span><span class="crayon-sy">.</span><span class="crayon-e ">title</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-s">'Sessions'</span><span class="crayon-sy">;</span></div></div></td>
+					</tr>
+				</tbody></table>
+			</div>
+		</div>
+<!-- [Format Time: 0.0002 seconds] -->
+<p>Y ordenaremos los controladores de la siguiente manera. A poder ser 
+agrupando primero todas las variables y a continuación todas las 
+funciones.</p><!-- Crayon Syntax Highlighter v_2.7.2_beta -->
+
+		<div id="crayon-5b9d8dd4412b0354739427" class="crayon-syntax crayon-theme-classic crayon-font-monaco crayon-os-pc print-yes notranslate" data-settings=" minimize scroll-always" style="margin-top: 12px; margin-bottom: 12px; font-size: 12px !important; line-height: 15px !important; height: auto;">
+		
+			<div class="crayon-toolbar" data-settings=" show" style="font-size: 12px !important;height: 18px !important; line-height: 18px !important;"><span class="crayon-title">sessions.js</span>
+			<div class="crayon-tools" style="font-size: 12px !important;height: 18px !important; line-height: 18px !important;"><div class="crayon-button crayon-nums-button crayon-pressed" title="Mostrar/ocultar números de línea"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-plain-button" title="Cambiar a texto plano"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-wrap-button" title="Toggle Line Wrap"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-expand-button" title="Expand Code" style="display: none;"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-copy-button" title="Copy"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-popup-button" title="Abrir el código en una nueva ventana"><div class="crayon-button-icon"></div></div><span class="crayon-language">JavaScript</span></div></div>
+			<div class="crayon-info" style="min-height: 16.8px !important; line-height: 16.8px !important;"></div>
+			<div class="crayon-plain-wrap"><textarea class="crayon-plain print-no" data-settings="" readonly="readonly" style="-moz-tab-size: 4; font-size: 12px !important; line-height: 15px !important; z-index: 0; opacity: 0;" wrap="soft">function Sessions() {
+
+    var vm = this;
+
+    // Variables
+    vm.sessions = [];
+    vm.title = 'Sessions';
+
+    // Funciones
+    vm.gotoSession = gotoSession;
+    ////////////
+
+    function gotoSession() {
+        /* ... */
+    }</textarea></div>
+			<div class="crayon-main" style="position: relative; z-index: 1;">
+				<table class="crayon-table" style="">
+					<tbody><tr class="crayon-row">
+				<td class="crayon-nums " data-settings="show">
+					<div class="crayon-nums-content" style="font-size: 12px !important; line-height: 15px !important;"><div class="crayon-num" data-line="crayon-5b9d8dd4412b0354739427-1">1</div><div class="crayon-num crayon-striped-num" data-line="crayon-5b9d8dd4412b0354739427-2">2</div><div class="crayon-num" data-line="crayon-5b9d8dd4412b0354739427-3">3</div><div class="crayon-num crayon-striped-num" data-line="crayon-5b9d8dd4412b0354739427-4">4</div><div class="crayon-num" data-line="crayon-5b9d8dd4412b0354739427-5">5</div><div class="crayon-num crayon-striped-num" data-line="crayon-5b9d8dd4412b0354739427-6">6</div><div class="crayon-num" data-line="crayon-5b9d8dd4412b0354739427-7">7</div><div class="crayon-num crayon-striped-num" data-line="crayon-5b9d8dd4412b0354739427-8">8</div><div class="crayon-num" data-line="crayon-5b9d8dd4412b0354739427-9">9</div><div class="crayon-num crayon-striped-num" data-line="crayon-5b9d8dd4412b0354739427-10">10</div><div class="crayon-num" data-line="crayon-5b9d8dd4412b0354739427-11">11</div><div class="crayon-num crayon-striped-num" data-line="crayon-5b9d8dd4412b0354739427-12">12</div><div class="crayon-num" data-line="crayon-5b9d8dd4412b0354739427-13">13</div><div class="crayon-num crayon-striped-num" data-line="crayon-5b9d8dd4412b0354739427-14">14</div><div class="crayon-num" data-line="crayon-5b9d8dd4412b0354739427-15">15</div></div>
+				</td>
+						<td class="crayon-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 15px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="crayon-5b9d8dd4412b0354739427-1"><span class="crayon-t">function</span><span class="crayon-h"> </span><span class="crayon-e">Sessions</span><span class="crayon-sy">(</span><span class="crayon-sy">)</span><span class="crayon-h"> </span><span class="crayon-sy">{</span></div><div class="crayon-line crayon-striped-line" id="crayon-5b9d8dd4412b0354739427-2">&nbsp;</div><div class="crayon-line" id="crayon-5b9d8dd4412b0354739427-3"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-t">var</span><span class="crayon-h"> </span><span class="crayon-v">vm</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-r">this</span><span class="crayon-sy">;</span></div><div class="crayon-line crayon-striped-line" id="crayon-5b9d8dd4412b0354739427-4">&nbsp;</div><div class="crayon-line" id="crayon-5b9d8dd4412b0354739427-5"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-c">// Variables</span></div><div class="crayon-line crayon-striped-line" id="crayon-5b9d8dd4412b0354739427-6"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-v">vm</span><span class="crayon-sy">.</span><span class="crayon-v">sessions</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-sy">[</span><span class="crayon-sy">]</span><span class="crayon-sy">;</span></div><div class="crayon-line" id="crayon-5b9d8dd4412b0354739427-7"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-v">vm</span><span class="crayon-sy">.</span><span class="crayon-e ">title</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-s">'Sessions'</span><span class="crayon-sy">;</span></div><div class="crayon-line crayon-striped-line" id="crayon-5b9d8dd4412b0354739427-8">&nbsp;</div><div class="crayon-line" id="crayon-5b9d8dd4412b0354739427-9"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-c">// Funciones</span></div><div class="crayon-line crayon-striped-line" id="crayon-5b9d8dd4412b0354739427-10"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-v">vm</span><span class="crayon-sy">.</span><span class="crayon-v">gotoSession</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-v">gotoSession</span><span class="crayon-sy">;</span></div><div class="crayon-line" id="crayon-5b9d8dd4412b0354739427-11"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-c">////////////</span></div><div class="crayon-line crayon-striped-line" id="crayon-5b9d8dd4412b0354739427-12">&nbsp;</div><div class="crayon-line" id="crayon-5b9d8dd4412b0354739427-13"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-t">function</span><span class="crayon-h"> </span><span class="crayon-e">gotoSession</span><span class="crayon-sy">(</span><span class="crayon-sy">)</span><span class="crayon-h"> </span><span class="crayon-sy">{</span></div><div class="crayon-line crayon-striped-line" id="crayon-5b9d8dd4412b0354739427-14"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-c">/* ... */</span></div><div class="crayon-line" id="crayon-5b9d8dd4412b0354739427-15"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-sy">}</span></div></div></td>
+					</tr>
+				</tbody></table>
+			</div>
+		</div>
+<!-- [Format Time: 0.0003 seconds] -->
+<p></p>
+<h3><span style="font-weight: 400;">Delegar la lógica dentro de los controladores a servicios o factorías</span></h3>
+<p>Es recomendable delegar la lógica de los controladores a servicios o 
+factorías para reutilizar la lógica empleada. Además se puede aislar en 
+un test unitario y elimina dependencias a la vez que esconde detalles de
+ la implementación.</p>
+<p>Por lo tanto, en vez de programar la lógica en el <em>controller</em>.</p><!-- Crayon Syntax Highlighter v_2.7.2_beta -->
+
+		<div id="crayon-5b9d8dd4412b1830507622" class="crayon-syntax crayon-theme-classic crayon-font-monaco crayon-os-pc print-yes notranslate" data-settings=" minimize scroll-always" style="margin-top: 12px; margin-bottom: 12px; font-size: 12px !important; line-height: 15px !important; height: auto;">
+		
+			<div class="crayon-toolbar" data-settings=" show" style="font-size: 12px !important;height: 18px !important; line-height: 18px !important;"><span class="crayon-title"></span>
+			<div class="crayon-tools" style="font-size: 12px !important;height: 18px !important; line-height: 18px !important;"><div class="crayon-button crayon-nums-button crayon-pressed" title="Mostrar/ocultar números de línea"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-plain-button" title="Cambiar a texto plano"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-wrap-button" title="Toggle Line Wrap"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-expand-button" title="Expand Code" style="display: none;"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-copy-button" title="Copy"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-popup-button" title="Abrir el código en una nueva ventana"><div class="crayon-button-icon"></div></div><span class="crayon-language">JavaScript</span></div></div>
+			<div class="crayon-info" style="min-height: 16.8px !important; line-height: 16.8px !important;"></div>
+			<div class="crayon-plain-wrap"><textarea class="crayon-plain print-no" data-settings="" readonly="readonly" style="-moz-tab-size: 4; font-size: 12px !important; line-height: 15px !important; z-index: 0; opacity: 0;" wrap="soft">function OrderController($http, $q, config, userInfo) {
+    var vm = this;
+
+    vm.isCreditOk;
+
+    vm.checkCredit = checkCredit;
+    /////////////////
+
+    function checkCredit() {
+        var settings = {/* ... */};
+
+        return $http.get(settings)
+            .then(function(data) {
+               vm.isCreditOk = vm.total &lt;= maxRemainingAmount
+            })
+            .catch(function(error) {
+               // Gestionar el error
+            });
+    };
+}</textarea></div>
+			<div class="crayon-main" style="position: relative; z-index: 1;">
+				<table class="crayon-table" style="">
+					<tbody><tr class="crayon-row">
+				<td class="crayon-nums " data-settings="show">
+					<div class="crayon-nums-content" style="font-size: 12px !important; line-height: 15px !important;"><div class="crayon-num" data-line="crayon-5b9d8dd4412b1830507622-1">1</div><div class="crayon-num crayon-striped-num" data-line="crayon-5b9d8dd4412b1830507622-2">2</div><div class="crayon-num" data-line="crayon-5b9d8dd4412b1830507622-3">3</div><div class="crayon-num crayon-striped-num" data-line="crayon-5b9d8dd4412b1830507622-4">4</div><div class="crayon-num" data-line="crayon-5b9d8dd4412b1830507622-5">5</div><div class="crayon-num crayon-striped-num" data-line="crayon-5b9d8dd4412b1830507622-6">6</div><div class="crayon-num" data-line="crayon-5b9d8dd4412b1830507622-7">7</div><div class="crayon-num crayon-striped-num" data-line="crayon-5b9d8dd4412b1830507622-8">8</div><div class="crayon-num" data-line="crayon-5b9d8dd4412b1830507622-9">9</div><div class="crayon-num crayon-striped-num" data-line="crayon-5b9d8dd4412b1830507622-10">10</div><div class="crayon-num" data-line="crayon-5b9d8dd4412b1830507622-11">11</div><div class="crayon-num crayon-striped-num" data-line="crayon-5b9d8dd4412b1830507622-12">12</div><div class="crayon-num" data-line="crayon-5b9d8dd4412b1830507622-13">13</div><div class="crayon-num crayon-striped-num" data-line="crayon-5b9d8dd4412b1830507622-14">14</div><div class="crayon-num" data-line="crayon-5b9d8dd4412b1830507622-15">15</div><div class="crayon-num crayon-striped-num" data-line="crayon-5b9d8dd4412b1830507622-16">16</div><div class="crayon-num" data-line="crayon-5b9d8dd4412b1830507622-17">17</div><div class="crayon-num crayon-striped-num" data-line="crayon-5b9d8dd4412b1830507622-18">18</div><div class="crayon-num" data-line="crayon-5b9d8dd4412b1830507622-19">19</div><div class="crayon-num crayon-striped-num" data-line="crayon-5b9d8dd4412b1830507622-20">20</div></div>
+				</td>
+						<td class="crayon-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 15px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="crayon-5b9d8dd4412b1830507622-1"><span class="crayon-t">function</span><span class="crayon-h"> </span><span class="crayon-e">OrderController</span><span class="crayon-sy">(</span><span class="crayon-sy">$</span><span class="crayon-v">http</span><span class="crayon-sy">,</span><span class="crayon-h"> </span><span class="crayon-sy">$</span><span class="crayon-v">q</span><span class="crayon-sy">,</span><span class="crayon-h"> </span><span class="crayon-v">config</span><span class="crayon-sy">,</span><span class="crayon-h"> </span><span class="crayon-v">userInfo</span><span class="crayon-sy">)</span><span class="crayon-h"> </span><span class="crayon-sy">{</span></div><div class="crayon-line crayon-striped-line" id="crayon-5b9d8dd4412b1830507622-2"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-t">var</span><span class="crayon-h"> </span><span class="crayon-v">vm</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-r">this</span><span class="crayon-sy">;</span></div><div class="crayon-line" id="crayon-5b9d8dd4412b1830507622-3">&nbsp;</div><div class="crayon-line crayon-striped-line" id="crayon-5b9d8dd4412b1830507622-4"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-v">vm</span><span class="crayon-sy">.</span><span class="crayon-v">isCreditOk</span><span class="crayon-sy">;</span></div><div class="crayon-line" id="crayon-5b9d8dd4412b1830507622-5">&nbsp;</div><div class="crayon-line crayon-striped-line" id="crayon-5b9d8dd4412b1830507622-6"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-v">vm</span><span class="crayon-sy">.</span><span class="crayon-v">checkCredit</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-v">checkCredit</span><span class="crayon-sy">;</span></div><div class="crayon-line" id="crayon-5b9d8dd4412b1830507622-7"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-c">/////////////////</span></div><div class="crayon-line crayon-striped-line" id="crayon-5b9d8dd4412b1830507622-8">&nbsp;</div><div class="crayon-line" id="crayon-5b9d8dd4412b1830507622-9"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-t">function</span><span class="crayon-h"> </span><span class="crayon-e">checkCredit</span><span class="crayon-sy">(</span><span class="crayon-sy">)</span><span class="crayon-h"> </span><span class="crayon-sy">{</span></div><div class="crayon-line crayon-striped-line" id="crayon-5b9d8dd4412b1830507622-10"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-t">var</span><span class="crayon-h"> </span><span class="crayon-v">settings</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-sy">{</span><span class="crayon-c">/* ... */</span><span class="crayon-sy">}</span><span class="crayon-sy">;</span></div><div class="crayon-line" id="crayon-5b9d8dd4412b1830507622-11">&nbsp;</div><div class="crayon-line crayon-striped-line" id="crayon-5b9d8dd4412b1830507622-12"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-st">return</span><span class="crayon-h"> </span><span class="crayon-sy">$</span><span class="crayon-v">http</span><span class="crayon-sy">.</span><span class="crayon-e">get</span><span class="crayon-sy">(</span><span class="crayon-v">settings</span><span class="crayon-sy">)</span></div><div class="crayon-line" id="crayon-5b9d8dd4412b1830507622-13"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-sy">.</span><span class="crayon-st">then</span><span class="crayon-sy">(</span><span class="crayon-t">function</span><span class="crayon-sy">(</span><span class="crayon-v">data</span><span class="crayon-sy">)</span><span class="crayon-h"> </span><span class="crayon-sy">{</span></div><div class="crayon-line crayon-striped-line" id="crayon-5b9d8dd4412b1830507622-14"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class="crayon-v">vm</span><span class="crayon-sy">.</span><span class="crayon-v">isCreditOk</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-v">vm</span><span class="crayon-sy">.</span><span class="crayon-v">total</span><span class="crayon-h"> </span><span class="crayon-o">&lt;=</span><span class="crayon-h"> </span><span class="crayon-i">maxRemainingAmount</span></div><div class="crayon-line" id="crayon-5b9d8dd4412b1830507622-15"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-sy">}</span><span class="crayon-sy">)</span></div><div class="crayon-line crayon-striped-line" id="crayon-5b9d8dd4412b1830507622-16"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-sy">.</span><span class="crayon-st">catch</span><span class="crayon-sy">(</span><span class="crayon-t">function</span><span class="crayon-sy">(</span><span class="crayon-v">error</span><span class="crayon-sy">)</span><span class="crayon-h"> </span><span class="crayon-sy">{</span></div><div class="crayon-line" id="crayon-5b9d8dd4412b1830507622-17"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class="crayon-c">// Gestionar el error</span></div><div class="crayon-line crayon-striped-line" id="crayon-5b9d8dd4412b1830507622-18"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-sy">}</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div><div class="crayon-line" id="crayon-5b9d8dd4412b1830507622-19"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-sy">}</span><span class="crayon-sy">;</span></div><div class="crayon-line crayon-striped-line" id="crayon-5b9d8dd4412b1830507622-20"><span class="crayon-sy">}</span></div></div></td>
+					</tr>
+				</tbody></table>
+			</div>
+		</div>
+<!-- [Format Time: 0.0005 seconds] -->
+<p>Delegaremos esa función a un servicio.</p><!-- Crayon Syntax Highlighter v_2.7.2_beta -->
+
+		<div id="crayon-5b9d8dd4412b3835340771" class="crayon-syntax crayon-theme-classic crayon-font-monaco crayon-os-pc print-yes notranslate" data-settings=" minimize scroll-always" style="margin-top: 12px; margin-bottom: 12px; font-size: 12px !important; line-height: 15px !important; height: auto;">
+		
+			<div class="crayon-toolbar" data-settings=" show" style="font-size: 12px !important;height: 18px !important; line-height: 18px !important;"><span class="crayon-title"></span>
+			<div class="crayon-tools" style="font-size: 12px !important;height: 18px !important; line-height: 18px !important;"><div class="crayon-button crayon-nums-button crayon-pressed" title="Mostrar/ocultar números de línea"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-plain-button" title="Cambiar a texto plano"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-wrap-button" title="Toggle Line Wrap"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-expand-button" title="Expand Code" style="display: none;"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-copy-button" title="Copy"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-popup-button" title="Abrir el código en una nueva ventana"><div class="crayon-button-icon"></div></div></div></div>
+			<div class="crayon-info" style="min-height: 16.8px !important; line-height: 16.8px !important;"></div>
+			<div class="crayon-plain-wrap"><textarea class="crayon-plain print-no" data-settings="" readonly="readonly" style="-moz-tab-size: 4; font-size: 12px !important; line-height: 15px !important; z-index: 0; opacity: 0;" wrap="soft">function OrderController(creditService) {
+    var vm = this;
+
+    vm.isCreditOk;
+    vm.total = 0;
+
+    vm.checkCredit = checkCredit;
+    ///////////////////
+
+    function checkCredit() {
+       return creditService.isOrderTotalOk(vm.total)
+          .then(function(isOk) { vm.isCreditOk = isOk; })
+          .catch(showError);
+    };
+}</textarea></div>
+			<div class="crayon-main" style="position: relative; z-index: 1;">
+				<table class="crayon-table" style="">
+					<tbody><tr class="crayon-row">
+				<td class="crayon-nums " data-settings="show">
+					<div class="crayon-nums-content" style="font-size: 12px !important; line-height: 15px !important;"><div class="crayon-num" data-line="crayon-5b9d8dd4412b3835340771-1">1</div><div class="crayon-num crayon-striped-num" data-line="crayon-5b9d8dd4412b3835340771-2">2</div><div class="crayon-num" data-line="crayon-5b9d8dd4412b3835340771-3">3</div><div class="crayon-num crayon-striped-num" data-line="crayon-5b9d8dd4412b3835340771-4">4</div><div class="crayon-num" data-line="crayon-5b9d8dd4412b3835340771-5">5</div><div class="crayon-num crayon-striped-num" data-line="crayon-5b9d8dd4412b3835340771-6">6</div><div class="crayon-num" data-line="crayon-5b9d8dd4412b3835340771-7">7</div><div class="crayon-num crayon-striped-num" data-line="crayon-5b9d8dd4412b3835340771-8">8</div><div class="crayon-num" data-line="crayon-5b9d8dd4412b3835340771-9">9</div><div class="crayon-num crayon-striped-num" data-line="crayon-5b9d8dd4412b3835340771-10">10</div><div class="crayon-num" data-line="crayon-5b9d8dd4412b3835340771-11">11</div><div class="crayon-num crayon-striped-num" data-line="crayon-5b9d8dd4412b3835340771-12">12</div><div class="crayon-num" data-line="crayon-5b9d8dd4412b3835340771-13">13</div><div class="crayon-num crayon-striped-num" data-line="crayon-5b9d8dd4412b3835340771-14">14</div><div class="crayon-num" data-line="crayon-5b9d8dd4412b3835340771-15">15</div></div>
+				</td>
+						<td class="crayon-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 15px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="crayon-5b9d8dd4412b3835340771-1"><span class="crayon-t">function</span><span class="crayon-h"> </span><span class="crayon-e">OrderController</span><span class="crayon-sy">(</span><span class="crayon-v">creditService</span><span class="crayon-sy">)</span><span class="crayon-h"> </span><span class="crayon-sy">{</span></div><div class="crayon-line crayon-striped-line" id="crayon-5b9d8dd4412b3835340771-2"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-t">var</span><span class="crayon-h"> </span><span class="crayon-v">vm</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-r">this</span><span class="crayon-sy">;</span></div><div class="crayon-line" id="crayon-5b9d8dd4412b3835340771-3">&nbsp;</div><div class="crayon-line crayon-striped-line" id="crayon-5b9d8dd4412b3835340771-4"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-v">vm</span><span class="crayon-sy">.</span><span class="crayon-v">isCreditOk</span><span class="crayon-sy">;</span></div><div class="crayon-line" id="crayon-5b9d8dd4412b3835340771-5"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-v">vm</span><span class="crayon-sy">.</span><span class="crayon-v">total</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-cn">0</span><span class="crayon-sy">;</span></div><div class="crayon-line crayon-striped-line" id="crayon-5b9d8dd4412b3835340771-6">&nbsp;</div><div class="crayon-line" id="crayon-5b9d8dd4412b3835340771-7"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-v">vm</span><span class="crayon-sy">.</span><span class="crayon-v">checkCredit</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-v">checkCredit</span><span class="crayon-sy">;</span></div><div class="crayon-line crayon-striped-line" id="crayon-5b9d8dd4412b3835340771-8"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-c">///////////////////</span></div><div class="crayon-line" id="crayon-5b9d8dd4412b3835340771-9">&nbsp;</div><div class="crayon-line crayon-striped-line" id="crayon-5b9d8dd4412b3835340771-10"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-t">function</span><span class="crayon-h"> </span><span class="crayon-e">checkCredit</span><span class="crayon-sy">(</span><span class="crayon-sy">)</span><span class="crayon-h"> </span><span class="crayon-sy">{</span></div><div class="crayon-line" id="crayon-5b9d8dd4412b3835340771-11"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class="crayon-st">return</span><span class="crayon-h"> </span><span class="crayon-v">creditService</span><span class="crayon-sy">.</span><span class="crayon-e">isOrderTotalOk</span><span class="crayon-sy">(</span><span class="crayon-v">vm</span><span class="crayon-sy">.</span><span class="crayon-v">total</span><span class="crayon-sy">)</span></div><div class="crayon-line crayon-striped-line" id="crayon-5b9d8dd4412b3835340771-12"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-sy">.</span><span class="crayon-st">then</span><span class="crayon-sy">(</span><span class="crayon-t">function</span><span class="crayon-sy">(</span><span class="crayon-v">isOk</span><span class="crayon-sy">)</span><span class="crayon-h"> </span><span class="crayon-sy">{</span><span class="crayon-h"> </span><span class="crayon-v">vm</span><span class="crayon-sy">.</span><span class="crayon-v">isCreditOk</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-v">isOk</span><span class="crayon-sy">;</span><span class="crayon-h"> </span><span class="crayon-sy">}</span><span class="crayon-sy">)</span></div><div class="crayon-line" id="crayon-5b9d8dd4412b3835340771-13"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-sy">.</span><span class="crayon-st">catch</span><span class="crayon-sy">(</span><span class="crayon-v">showError</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div><div class="crayon-line crayon-striped-line" id="crayon-5b9d8dd4412b3835340771-14"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-sy">}</span><span class="crayon-sy">;</span></div><div class="crayon-line" id="crayon-5b9d8dd4412b3835340771-15"><span class="crayon-sy">}</span></div></div></td>
+					</tr>
+				</tbody></table>
+			</div>
+		</div>
+<!-- [Format Time: 0.0004 seconds] -->
+<p></p>
+<h3><span style="font-weight: 400;">Utiliza snippets</span></h3>
+<p>Por último, cabe destacar que existen <strong><em>snippets</em> basados en estas buenas prácticas</strong> que agilizan muchísimo el desarrollo de aplicaciones&nbsp;. Para utilizar dichos <em>snippets</em> en Atom, basta con ejecutar el siguiente comando:</p><!-- Crayon Syntax Highlighter v_2.7.2_beta -->
+
+		<div id="crayon-5b9d8dd4412b4492985090" class="crayon-syntax crayon-theme-classic crayon-font-monaco crayon-os-pc print-yes notranslate" data-settings=" minimize scroll-always" style="margin-top: 12px; margin-bottom: 12px; font-size: 12px !important; line-height: 15px !important; height: auto;">
+		
+			<div class="crayon-toolbar" data-settings=" show" style="font-size: 12px !important;height: 18px !important; line-height: 18px !important;"><span class="crayon-title"></span>
+			<div class="crayon-tools" style="font-size: 12px !important;height: 18px !important; line-height: 18px !important;"><div class="crayon-button crayon-nums-button crayon-pressed" title="Mostrar/ocultar números de línea"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-plain-button" title="Cambiar a texto plano"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-wrap-button" title="Toggle Line Wrap"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-expand-button" title="Expand Code" style="display: none;"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-copy-button" title="Copy"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-popup-button" title="Abrir el código en una nueva ventana"><div class="crayon-button-icon"></div></div><span class="crayon-language">Shell</span></div></div>
+			<div class="crayon-info" style="min-height: 16.8px !important; line-height: 16.8px !important;"></div>
+			<div class="crayon-plain-wrap"><textarea class="crayon-plain print-no" data-settings="" readonly="readonly" style="-moz-tab-size: 4; font-size: 12px !important; line-height: 15px !important; z-index: 0; opacity: 0;" wrap="soft">apm install angularjs-styleguide-snippets</textarea></div>
+			<div class="crayon-main" style="position: relative; z-index: 1;">
+				<table class="crayon-table" style="">
+					<tbody><tr class="crayon-row">
+				<td class="crayon-nums " data-settings="show">
+					<div class="crayon-nums-content" style="font-size: 12px !important; line-height: 15px !important;"><div class="crayon-num" data-line="crayon-5b9d8dd4412b4492985090-1">1</div></div>
+				</td>
+						<td class="crayon-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 15px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="crayon-5b9d8dd4412b4492985090-1"><span class="crayon-e">apm </span><span class="crayon-e">install </span><span class="crayon-v">angularjs</span><span class="crayon-o">-</span><span class="crayon-v">styleguide</span><span class="crayon-o">-</span><span class="crayon-v">snippets</span></div></div></td>
+					</tr>
+				</tbody></table>
+			</div>
+		</div>
+<!-- [Format Time: 0.0001 seconds] -->
+<p>Los <em>snippets</em> incluidos en ese paquete son los siguientes:</p>
+<ul>
+<li><strong>ngcontroller</strong> // crea un controlador de Angular</li>
+<li><strong>ngdirective</strong> // crea una directiva de Angular</li>
+<li><strong>ngfactory</strong> // crea una factoría de Angular</li>
+<li><strong>ngmodule</strong> // crea un módulode Angular</li>
+<li><strong>ngservice</strong> // crea un servicio de Angular</li>
+<li><strong>ngfilter</strong> // crea un filtro de Angular</li>
+</ul>
+<h2><span style="font-weight: 400;">Conclusión</span></h2>
+<p>Después de identificar y entender las <strong>mejores prácticas</strong> que podemos tener en cuenta a la hora de <strong>desarrollar con&nbsp;<em>AngularJS</em></strong>, el equipo de desarrollo de Irontec decidimos introducir dichas prácticas en todos los proyectos venideros.</p>
+<p>Para ello, hicimos una lista con&nbsp;los distintos tipos de proyectos que solemos desarrollar con <em>AngularJS</em>
+ y analizamos las posibilidades de adoptar estas buenas prácticas en 
+cada una de ellas. A la hora de investigar las opciones que teníamos 
+para desarrollar con<em> Ionic Framework</em>, vimos la necesidad de <strong>crear un starter propio</strong>,&nbsp;ya
+ que no había ninguno que se adaptaba a nuestras necesidades. Por ello, 
+siguiendo estas buenas prácticas y añadiendo unas cuantas utilidades 
+extra, desarrollamos el <strong><em>Ironic-Starter</em></strong>; un <strong>starter propio que utilizamos en todos los proyectos basados en</strong> <em>Ionic Framework</em>.</p>
+<p>Si quieres saber más sobre este starter…&nbsp;¡te lo presentaremos en el siguiente artículo!</p>
+<p>&nbsp;</p>
+                                                            </div><!-- post-body end -->
+                </article>
+                                    <br>
+                    <br>
+                    <div class="plugin-alertas" style="background: #b0232a;">
+                        <div class="row">
+                            <div class="col-sm-24"><h5>¿Te gusta este post? Es solo un ejemplo de cómo podemos ayudar a tu empresa...</h5></div>
+                            <div class="col-sm-24"><!-- Nos presentamos a los <strong>Open Awards</strong> con nuestro blog y aún necesitamos muchos votos para pasar la primera fase, antes del 15 de mayo. <a href=http://a.cstmapp.com/voteme/13437/617579920><u>¿Nos ayudas con un clic?</u></a> También nos presentamos <a href=http://a.cstmapp.com/voteme/13527/617580243><u>con un super caso de éxito</u></a> y nuestra solución más pro de VoIP <a href=http://a.cstmapp.com/voteme/13526/617580136><u>IVOZ Provider</u></a>. ¡Muchas gracias!
+<br /><br /> 
+<a href=https://www.irontec.com/contacto?utm_source=Post%20Blog&utm_medium=Post%20Blog&utm_campaign=Clic-Contacto-Post><img src=https://blog.irontec.com/wp-content/uploads/2016/05/contacto-blog-irontec1.png></a>
+
+-->
+
+<a href="https://www.irontec.com/contacto?utm_source=Post%20Blog&amp;utm_medium=Post%20Blog&amp;utm_campaign=Clic-Contacto-Post"><u>Pulsa para contacto directo con el equipo de Irontec y resolveremos todas tus dudas</u></a>
+</div>
+                        </div>
+                    </div>
+                                    <div class="social-share">
+                    <div class="row">
+                        <div class="col-sm-24">
+                            <p class="col-sm-12">
+                                <a class="iron-btn iron-btn-black" href="http://blog.irontec.com/">
+                                    <span>Ver todos los post</span>
+                                </a>
+                            </p>
+                                                            <p class="col-sm-12 text-right">
+                                                                    <a class="iron-btn iron-btn-black" href="https://www.irontec.com/contacto?utm_source=Post%20Blog&amp;utm_medium=Post%20Blog&amp;utm_campaign=Boton-Contacto-Post&amp;utm_content=buenas-practicas-en-angularjs">
+                                        <span>¿Podemos ayudarte?</span>
+                                    </a>
+                                </p>
+                                                        </div>
+                    </div>
+                    <div class="row">
+
+                        <div class="col-sm-13 post-tags">
+                            <p><strong>Etiquetas: </strong><a href="https://blog.irontec.com/tag/angularjs/" rel="tag">angularjs</a>, <a href="https://blog.irontec.com/tag/buenas-practicas/" rel="tag">buenas prácticas</a>, <a href="https://blog.irontec.com/tag/desarrollo-web/" rel="tag">desarrollo web</a>, <a href="https://blog.irontec.com/tag/guia-de-estilo/" rel="tag">guía de estilo</a></p>
+                        </div>
+                        <div class="col-sm-11">
+                            <div class="social-icons">
+                                <p><strong>Comparte:</strong></p>
+                                <ul>
+								<li><a target="_blank" class="" href="http://www.facebook.com/sharer.php?u=https://blog.irontec.com/buenas-practicas-en-angularjs/&amp;t=Buenas%20pr%C3%A1cticas%20en%20AngularJS"><i class="fa fa-facebook"></i></a></li>
+								
+								<li><a target="_blank" class="" href="http://twitter.com/home?status=Buenas%20pr%C3%A1cticas%20en%20AngularJS%20https://blog.irontec.com/buenas-practicas-en-angularjs/"><i class="fa fa-twitter"></i></a></li>
+								
+								
+								<li><a target="_blank" class="" href="https://plus.google.com/share?url=https://blog.irontec.com/buenas-practicas-en-angularjs/" onclick="javascript:window.open(this.href,'', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;"><i class="fa fa-google-plus"></i></a></li>
+								
+												<li><a class="" target="_blank" href="http://pinterest.com/pin/create/button/?url=https%3A%2F%2Fblog.irontec.com%2Fbuenas-practicas-en-angularjs%2F&amp;description=Buenas+pr%C3%A1cticas+en+AngularJS&amp;media=https://blog.irontec.com/wp-content/uploads/2015/10/buenas-practicas-Angular-JS-mini-150x150.png"><i class="fa fa-pinterest"></i></a></li>
+								
+								
+								
+						
+</ul>
+
+                            </div>
+                        </div>
+                    </div>
+                </div> <!-- end of .social-share -->
+
+                                 <div class="about-author">
+                    <div class="row">
+                        <div class="col-sm-4 hidden-xs">
+                            <div class="thumb">
+                                <img alt="" src="Buenas%20pr%C3%A1cticas%20en%20AngularJS_archivos/3974bd5818e6e83360c3dfd9bb8daf85_002.jpg" srcset="https://secure.gravatar.com/avatar/3974bd5818e6e83360c3dfd9bb8daf85?s=148&amp;d=mm&amp;r=g 2x" class="avatar thumb avatar-74 photo" width="74" height="74">                            </div>
+                        </div>
+                        <div class="col-sm-20">
+                            <div class="desc">
+                                                                <a href="https://blog.irontec.com/author/meizagirre" title="Sobre Mikel Eizagirre">
+                                    <h5>Sobre Mikel Eizagirre</h5>
+                                </a>
+                                <p>Desarrollador front-end y de apps móviles.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                
+                                <span id="comments"></span>
+
+
+<!-- You can start editing here. -->
+<!-- Comment Section Begins -->
+<section class="comments-area">
+
+
+    <!-- Title -->
+    <div class="title-accent" data-animated="fadeInUp">
+        <h3>1 Comentario</h3>
+    </div>
+                    <p>¿Por qué no comentas tú también?</p>
+                 <div class="comments">
+    <ul>
+    <hr class="small">
+         <li>
+                                <div class="row">
+									                                    <div class="col-sm-24">
+                                        <p></p><p>[…] al estar 
+desarrollado siguiendo las buenas prácticas para&nbsp;AngularJS 
+mencionadas en el&nbsp;post anterior, incita al desarrollador a seguir 
+las misma pautas y a desarrollar proyectos más sostenibles&nbsp;y […]</p>
+<p></p>
+                                        <p>
+                                            <span class="author-comment"><a href="https://blog.irontec.com/ironic-starter-nuestro-starter-para-ionic-framework/" rel="external nofollow" class="url">Ironic-starter: nuestro starter para Ionic Framework | Blog Irontec</a></span>
+                                            <span>Hace 3 años </span>
+                                            <a rel="nofollow" class="comment-reply-link" href="#comment-440" onclick='return addComment.moveForm( "comment-440", "440", "respond", "2184" )' aria-label="Responder a Ironic-starter: nuestro starter para Ionic Framework | Blog Irontec">Responde</a>                                        </p>
+                                    </div>
+                                </div>
+                                <hr class="small">
+                            </li>
+
+
+
+<!-- #comment-## -->
+ <li>
+                                <div class="row">
+																		                                    <div class="col-sm-4">
+                                        <div class="thumb">
+                                            <img alt="" src="Buenas%20pr%C3%A1cticas%20en%20AngularJS_archivos/a4430754e021f2c3eb01c7483cea3ba4.jpg" srcset="https://secure.gravatar.com/avatar/a4430754e021f2c3eb01c7483cea3ba4?s=256&amp;d=mm&amp;r=g 2x" class="avatar thumb avatar-128 photo" width="128" height="128">                                        </div>
+                                    </div>
+									                                    <div class="col-sm-20">
+                                        <p></p><p>Qué buen artículo, gracias por compartir esa buena experiencia!!</p>
+<p></p>
+                                        <p>
+                                            <span class="author-comment"><a href="http://gallosbinarios.wordpress.com/" rel="external nofollow" class="url">Victor A HC</a></span>
+                                            <span>Hace 3 años </span>
+                                            <a rel="nofollow" class="comment-reply-link" href="#comment-750" onclick='return addComment.moveForm( "comment-750", "750", "respond", "2184" )' aria-label="Responder a Victor A HC">Responde</a>                                        </p>
+                                    </div>
+                                </div>
+                                <hr class="small">
+                            </li>
+
+
+
+<!-- #comment-## -->
+ <li>
+                                <div class="row">
+																		                                    <div class="col-sm-4">
+                                        <div class="thumb">
+                                            <img alt="" src="Buenas%20pr%C3%A1cticas%20en%20AngularJS_archivos/52652f1ebc272c07edb1c9f50d44aca1.jpg" srcset="https://secure.gravatar.com/avatar/52652f1ebc272c07edb1c9f50d44aca1?s=256&amp;d=mm&amp;r=g 2x" class="avatar thumb avatar-128 photo" width="128" height="128">                                        </div>
+                                    </div>
+									                                    <div class="col-sm-20">
+                                        <p></p><p>Gracias por compartir su experiencia.</p>
+<p></p>
+                                        <p>
+                                            <span class="author-comment">sebas</span>
+                                            <span>Hace 3 años </span>
+                                            <a rel="nofollow" class="comment-reply-link" href="#comment-752" onclick='return addComment.moveForm( "comment-752", "752", "respond", "2184" )' aria-label="Responder a sebas">Responde</a>                                        </p>
+                                    </div>
+                                </div>
+                                <hr class="small">
+                            </li>
+
+
+
+<!-- #comment-## -->
+ <li>
+                                <div class="row">
+																		                                    <div class="col-sm-4">
+                                        <div class="thumb">
+                                            <img alt="" src="Buenas%20pr%C3%A1cticas%20en%20AngularJS_archivos/9b4ca95c7c7220fa6e6960411fb1366d.jpg" srcset="https://secure.gravatar.com/avatar/9b4ca95c7c7220fa6e6960411fb1366d?s=256&amp;d=mm&amp;r=g 2x" class="avatar thumb avatar-128 photo" width="128" height="128">                                        </div>
+                                    </div>
+									                                    <div class="col-sm-20">
+                                        <p></p><p>Soberbio!! Excelente ahora si me despejaste muchas dudas agradecido.</p>
+<p></p>
+                                        <p>
+                                            <span class="author-comment">Arnold</span>
+                                            <span>Hace 3 años </span>
+                                            <a rel="nofollow" class="comment-reply-link" href="#comment-830" onclick='return addComment.moveForm( "comment-830", "830", "respond", "2184" )' aria-label="Responder a Arnold">Responde</a>                                        </p>
+                                    </div>
+                                </div>
+                                <hr class="small">
+                            </li>
+
+
+
+<!-- #comment-## -->
+ <li>
+                                <div class="row">
+																		                                    <div class="col-sm-4">
+                                        <div class="thumb">
+                                            <img alt="" src="Buenas%20pr%C3%A1cticas%20en%20AngularJS_archivos/5e57270e1c8a10a9e9bf3bf0fad85848.jpg" srcset="https://secure.gravatar.com/avatar/5e57270e1c8a10a9e9bf3bf0fad85848?s=256&amp;d=mm&amp;r=g 2x" class="avatar thumb avatar-128 photo" width="128" height="128">                                        </div>
+                                    </div>
+									                                    <div class="col-sm-20">
+                                        <p></p><p>si yo tengo el código raviolí cómo hago para mandarle a ese controlador el scope y demas?</p>
+<p></p>
+                                        <p>
+                                            <span class="author-comment">Judavaro</span>
+                                            <span>Hace 2 años </span>
+                                            <a rel="nofollow" class="comment-reply-link" href="#comment-971" onclick='return addComment.moveForm( "comment-971", "971", "respond", "2184" )' aria-label="Responder a Judavaro">Responde</a>                                        </p>
+                                    </div>
+                                </div>
+                                <hr class="small">
+                            </li>
+
+
+
+<ul class="children">
+ <li>
+                                <div class="row">
+																		                                    <div class="col-sm-4">
+                                        <div class="thumb">
+                                            <img alt="" src="Buenas%20pr%C3%A1cticas%20en%20AngularJS_archivos/3974bd5818e6e83360c3dfd9bb8daf85.jpg" srcset="https://secure.gravatar.com/avatar/3974bd5818e6e83360c3dfd9bb8daf85?s=256&amp;d=mm&amp;r=g 2x" class="avatar thumb avatar-128 photo" width="128" height="128">                                        </div>
+                                    </div>
+									                                    <div class="col-sm-20">
+                                        <p></p><p>Cada controlador tiene su propio scope.<br>
+Si te refieres a cómo pasar datos de un controlador a otro, lo puedes 
+hacer mediante los servicios (service, factory o providers).<br>
+Al ser singletons, existirá una única copia de cada uno y por lo tanto 
+los cambios realizados por un controlador se verán reflejados en el 
+otro.</p>
+<p></p>
+                                        <p>
+                                            <span class="author-comment">Mikel Eizagirre</span>
+                                            <span>Hace 2 años </span>
+                                            <a rel="nofollow" class="comment-reply-link" href="#comment-992" onclick='return addComment.moveForm( "comment-992", "992", "respond", "2184" )' aria-label="Responder a Mikel Eizagirre">Responde</a>                                        </p>
+                                    </div>
+                                </div>
+                                <hr class="small">
+                            </li>
+
+
+
+<!-- #comment-## -->
+</ul><!-- .children -->
+<!-- #comment-## -->
+ <li>
+                                <div class="row">
+									                                    <div class="col-sm-24">
+                                        <p></p><p>[…] Buenas prácticas en AngularJS, de Mikel Eizagirre. […]</p>
+<p></p>
+                                        <p>
+                                            <span class="author-comment"><a href="https://blog.irontec.com/los-10-post-mas-leidos-del-mejor-blog-de-software-libre/" rel="external nofollow" class="url">Los 10 post más leídos del Mejor Blog de Software Libre | Blog Irontec</a></span>
+                                            <span>Hace 2 años </span>
+                                            <a rel="nofollow" class="comment-reply-link" href="#comment-975" onclick='return addComment.moveForm( "comment-975", "975", "respond", "2184" )' aria-label="Responder a Los 10 post más leídos del Mejor Blog de Software Libre | Blog Irontec">Responde</a>                                        </p>
+                                    </div>
+                                </div>
+                                <hr class="small">
+                            </li>
+
+
+
+<!-- #comment-## -->
+    </ul>
+    </div>
+
+
+
+
+
+
+    
+
+
+
+    <!-- Leave a Comment -->
+    <div class="comment-form animated" data-animation="fadeInUp" data-animation-delay="300">
+        <h3 id="respond">Queremos tu opinión :)</h3>
+        <p class="form-message" style="display: none;"></p>
+
+        
+        <!-- Form Begins -->
+        <form role="form" name="contactform" class="form-horizontal" id="contactform" method="post" action="https://blog.irontec.com/wp-comments-post.php">
+
+                        <!-- Field 1 -->
+            <div class="comment-input ">
+                <input name="author" class="input-name form-input" placeholder="Nombre " type="text">
+            </div>
+
+            <!-- Field 2 -->
+            <div class="comment-input ">
+                <input name="email" class="input-email form-input" placeholder="Email" type="email">
+            </div>
+            <div class="comment-input ">
+                <input name="url" class="input-email form-input" placeholder="Web" type="text">
+            </div>
+                        <!-- Field 3 -->
+            <div class="textarea-message comment-input ">
+                <textarea name="comment" class="textarea-message form-input" placeholder="Comenta aquí..." rows="8"></textarea>
+            </div>
+
+            <input name="comment_post_ID" value="2184" id="comment_post_ID" type="hidden">
+<input name="comment_parent" id="comment_parent" value="0" type="hidden">
+            <p style="display: none;"><input id="akismet_comment_nonce" name="akismet_comment_nonce" value="47d0310e30" type="hidden"></p><p style="display: none;"></p>            <!-- Button -->
+
+            <button class="iron-btn iron-btn-black" type="submit" value="Send Now"><span>Publica el comentario</span></button>
+        </form><!-- Form Ends -->
+    </div>
+
+
+
+
+
+</section><!-- Comment Section Ends -->
+                <!-- PAGINATION -->
+
+                <!-- /PAGINATION -->
+            </div>
+        </div>
+        <!-- /END BLOG SECTION -->
+
+        <!-- =========================
+             RIGHT SIDEBAR 
+        ============================== -->
+        <div class="col-md-6">
+            <aside class="right-sidebar">		
+				<div class="widget widget_text" id="text-2">			<div class="textwidget"><p><a href="http://www.portalprogramas.com/software-libre/premios/proyecto/Blog-de-Irontec" target="_blank" rel="noopener"><img src="Buenas%20pr%C3%A1cticas%20en%20AngularJS_archivos/finalista.png" alt="Finalistas al mejor blog de Software Libre 2016" style="margin:0 28px;" width="200" height="233"></a><br>
+<br>
+<a href="http://www.portalprogramas.com/software-libre/premios/proyecto/Blog-de-Irontec"><img src="Buenas%20pr%C3%A1cticas%20en%20AngularJS_archivos/mejor-blog-de-sfotware-libre.png" alt="Nominados al mejor blog de Software Libre 2015"></a></p>
+<p>Somos una <strong>empresa de software libre de Bilbao</strong> y este es <a title="Listado de post del Blog de Irontec" href="http://blog.irontec.com/">nuestro blog</a>.
+ Aquí escribimos sobre el día a día de Irontec, nuestros proyectos, 
+inquietudes tecnológicas… cada uno con su estilo. Comenta, aporta, 
+comparte. Estás en tu casa: siéntete libre.</p>
+<p><a class="iron-btn iron-btn-black" href="http://blog.irontec.com/feed/">RSS del blog</a></p>
+</div>
+		</div><hr class="small"><div class="widget widget_categories" id="categories-2"><h5 class="sr_w_title">Categorías</h5>		<ul>
+	<li class="cat-item cat-item-1"><a href="https://blog.irontec.com/category/sobre-irontec/">Sobre Irontec</a>
+<ul class="children">
+	<li class="cat-item cat-item-13"><a href="https://blog.irontec.com/category/sobre-irontec/la-empresa/">La empresa</a>
+</li>
+	<li class="cat-item cat-item-16"><a href="https://blog.irontec.com/category/sobre-irontec/nuestro-dia-a-dia/">Nuestro día a día</a>
+</li>
+</ul>
+</li>
+	<li class="cat-item cat-item-26"><a href="https://blog.irontec.com/category/we-love-free-software/">Software libre</a>
+<ul class="children">
+	<li class="cat-item cat-item-74"><a href="https://blog.irontec.com/category/we-love-free-software/gimp-bilbao/">GIMP</a>
+</li>
+</ul>
+</li>
+	<li class="cat-item cat-item-18"><a href="https://blog.irontec.com/category/txoko-tecnologico/">Txoko tecnológico</a>
+<ul class="children">
+	<li class="cat-item cat-item-32"><a href="https://blog.irontec.com/category/txoko-tecnologico/comunicaciones-y-telefonia-ip/">Comunicaciones y Telefonía IP</a>
+</li>
+	<li class="cat-item cat-item-94"><a href="https://blog.irontec.com/category/txoko-tecnologico/desarrollo-movil/">Desarrollo móvil</a>
+</li>
+	<li class="cat-item cat-item-117"><a href="https://blog.irontec.com/category/txoko-tecnologico/desarrollo/">Desarrollo Web</a>
+</li>
+	<li class="cat-item cat-item-25"><a href="https://blog.irontec.com/category/txoko-tecnologico/marketing-tecnologico/">Marketing tecnológico</a>
+</li>
+	<li class="cat-item cat-item-67"><a href="https://blog.irontec.com/category/txoko-tecnologico/seguridad-internet/">Seguridad Internet</a>
+</li>
+	<li class="cat-item cat-item-22"><a href="https://blog.irontec.com/category/txoko-tecnologico/sistemas-linux/">Sistemas Linux</a>
+</li>
+</ul>
+</li>
+		</ul>
+</div><hr class="small">    <div class="tagcloud">
+                    <a href="https://blog.irontec.com/tag/seguridad" title="seguridad">seguridad</a>
+                        <a href="https://blog.irontec.com/tag/tunneling" title="tunneling">tunneling</a>
+                        <a href="https://blog.irontec.com/tag/voip" title="VoIP">VoIP</a>
+                        <a href="https://blog.irontec.com/tag/lectura" title="lectura">lectura</a>
+                        <a href="https://blog.irontec.com/tag/libros" title="libros">libros</a>
+                        <a href="https://blog.irontec.com/tag/libros-sobre-tecnologia" title="libros sobre tecnología">libros sobre tecnología</a>
+                        <a href="https://blog.irontec.com/tag/libros-tecnicos" title="libros técnicos">libros técnicos</a>
+                        <a href="https://blog.irontec.com/tag/verano" title="verano">verano</a>
+                        <a href="https://blog.irontec.com/tag/openldap" title="openLDAP">openLDAP</a>
+                        <a href="https://blog.irontec.com/tag/otp" title="OTP">OTP</a>
+                        <a href="https://blog.irontec.com/tag/passwords-temporales" title="passwords temporales">passwords temporales</a>
+                        <a href="https://blog.irontec.com/tag/css" title="css">css</a>
+                        <a href="https://blog.irontec.com/tag/desarrollo" title="desarrollo">desarrollo</a>
+                        <a href="https://blog.irontec.com/tag/google" title="google">google</a>
+                        <a href="https://blog.irontec.com/tag/gutenberg" title="gutenberg">gutenberg</a>
+                        <a href="https://blog.irontec.com/tag/networking" title="networking">networking</a>
+                        <a href="https://blog.irontec.com/tag/wcirun2018" title="wcirun2018">wcirun2018</a>
+                        <a href="https://blog.irontec.com/tag/wordpress" title="wordpress">wordpress</a>
+                        <a href="https://blog.irontec.com/tag/wp-cli" title="wp-cli">wp-cli</a>
+                        <a href="https://blog.irontec.com/tag/eventos" title="eventos">eventos</a>
+                </div>
+
+    <hr class="small">
+
+    <div class="widget widget_sp_image" id="widget_sp_image-2"><a href="https://www.irontec.com/proyectos?utm_source=Blog&amp;utm_medium=Banner&amp;utm_campaign=Sidebar&amp;utm_content=Si%20te%20gusta%201" target="_blank" class="widget_sp_image-image-link"><img alt="Irontec, empresa de software libre de Bilbao" class="attachment-full" style="max-width: 100%;" srcset="https://blog.irontec.com/wp-content/uploads/2015/09/irontec-empresa-de-software-libre-de-bilbao-banner.jpg 400w, https://blog.irontec.com/wp-content/uploads/2015/09/irontec-empresa-de-software-libre-de-bilbao-banner-300x291.jpg 300w, https://blog.irontec.com/wp-content/uploads/2015/09/irontec-empresa-de-software-libre-de-bilbao-banner-50x50.jpg 50w" sizes="(max-width: 400px) 100vw, 400px" src="Buenas%20pr%C3%A1cticas%20en%20AngularJS_archivos/irontec-empresa-de-software-libre-de-bilbao-banner.jpg" width="400" height="388"></a></div><hr class="small">		<div class="widget widget_recent_entries" id="recent-posts-2">		<h5 class="sr_w_title">Entradas recientes</h5>		<ul>
+											<li>
+					<a href="https://blog.irontec.com/ip-tunneling-over-sip/">IP tunneling over SIP</a>
+											<span class="post-date">7 septiembre, 2018</span>
+									</li>
+											<li>
+					<a href="https://blog.irontec.com/libros-tecnicos-autoaprendizaje-recomendados-verano/">11 lecturas técnicas recomendadas para este verano</a>
+											<span class="post-date">30 julio, 2018</span>
+									</li>
+											<li>
+					<a href="https://blog.irontec.com/openldap-y-passwords-temporales-otp/">OpenLDAP y passwords temporales (OTP)</a>
+											<span class="post-date">12 julio, 2018</span>
+									</li>
+											<li>
+					<a href="https://blog.irontec.com/claves-wordpress-wordcamp-irun-2018/">9 claves sobre WordPress que nos llevamos de WordCamp Irun 2018</a>
+											<span class="post-date">20 junio, 2018</span>
+									</li>
+											<li>
+					<a href="https://blog.irontec.com/openexpo-2018-sector-software-libre/">OpenExpo 2018, tomando el pulso al sector del Software Libre</a>
+											<span class="post-date">14 junio, 2018</span>
+									</li>
+					</ul>
+		</div><hr class="small"><div class="widget widget_recent_comments" id="recent-comments-2"><h5 class="sr_w_title">Comentarios recientes</h5><ul id="recentcomments"><li class="recentcomments"><span class="comment-author-link">fernando</span> en <a href="https://blog.irontec.com/voz-ip-alta-disponibilidad-para-entornos-criticos-sin-perdida-de-llamadas/#comment-6052">Voz IP: Alta disponibilidad para entornos críticos sin pérdida de llamadas</a></li><li class="recentcomments"><span class="comment-author-link">mmfilesi</span> en <a href="https://blog.irontec.com/angular-changedetector-ngzone-y-asyncpipe/#comment-6008">Angular: changeDetector, ngZone y asyncPipe</a></li><li class="recentcomments"><span class="comment-author-link">harry izquierdo</span> en <a href="https://blog.irontec.com/tutorial-como-utilizar-apache-solr/#comment-6007">Introducción a Apache SOLR, paso a paso (2 de 2)</a></li><li class="recentcomments"><span class="comment-author-link">Kevin Castañeda</span> en <a href="https://blog.irontec.com/8-trucos-de-console/#comment-6000">8 trucos de la consola de tu navegador para front-end developers</a></li><li class="recentcomments"><span class="comment-author-link"><a href="https://blog.irontec.com/opensips-summit-amsterdam-2018/" rel="external nofollow" class="url">OpenSIPS Summit Amsterdam 2018 - Blog Irontec</a></span> en <a href="https://blog.irontec.com/sems-en-edgerouters-como-sbc/#comment-5980">SEMS en EdgeRouter’s como SBC</a></li></ul></div><hr class="small"><div class="widget widget_archive" id="archives-2"><h5 class="sr_w_title">Archivos</h5>		<ul>
+			<li><a href="https://blog.irontec.com/2018/09/">septiembre 2018</a></li>
+	<li><a href="https://blog.irontec.com/2018/07/">julio 2018</a></li>
+	<li><a href="https://blog.irontec.com/2018/06/">junio 2018</a></li>
+	<li><a href="https://blog.irontec.com/2018/05/">mayo 2018</a></li>
+	<li><a href="https://blog.irontec.com/2018/04/">abril 2018</a></li>
+	<li><a href="https://blog.irontec.com/2018/03/">marzo 2018</a></li>
+	<li><a href="https://blog.irontec.com/2018/02/">febrero 2018</a></li>
+	<li><a href="https://blog.irontec.com/2018/01/">enero 2018</a></li>
+	<li><a href="https://blog.irontec.com/2017/11/">noviembre 2017</a></li>
+	<li><a href="https://blog.irontec.com/2017/10/">octubre 2017</a></li>
+	<li><a href="https://blog.irontec.com/2017/09/">septiembre 2017</a></li>
+	<li><a href="https://blog.irontec.com/2017/08/">agosto 2017</a></li>
+	<li><a href="https://blog.irontec.com/2017/07/">julio 2017</a></li>
+	<li><a href="https://blog.irontec.com/2017/05/">mayo 2017</a></li>
+	<li><a href="https://blog.irontec.com/2017/04/">abril 2017</a></li>
+	<li><a href="https://blog.irontec.com/2017/03/">marzo 2017</a></li>
+	<li><a href="https://blog.irontec.com/2017/02/">febrero 2017</a></li>
+	<li><a href="https://blog.irontec.com/2017/01/">enero 2017</a></li>
+	<li><a href="https://blog.irontec.com/2016/12/">diciembre 2016</a></li>
+	<li><a href="https://blog.irontec.com/2016/11/">noviembre 2016</a></li>
+	<li><a href="https://blog.irontec.com/2016/10/">octubre 2016</a></li>
+	<li><a href="https://blog.irontec.com/2016/09/">septiembre 2016</a></li>
+	<li><a href="https://blog.irontec.com/2016/08/">agosto 2016</a></li>
+	<li><a href="https://blog.irontec.com/2016/07/">julio 2016</a></li>
+	<li><a href="https://blog.irontec.com/2016/06/">junio 2016</a></li>
+	<li><a href="https://blog.irontec.com/2016/05/">mayo 2016</a></li>
+	<li><a href="https://blog.irontec.com/2016/04/">abril 2016</a></li>
+	<li><a href="https://blog.irontec.com/2016/03/">marzo 2016</a></li>
+	<li><a href="https://blog.irontec.com/2016/02/">febrero 2016</a></li>
+	<li><a href="https://blog.irontec.com/2016/01/">enero 2016</a></li>
+	<li><a href="https://blog.irontec.com/2015/12/">diciembre 2015</a></li>
+	<li><a href="https://blog.irontec.com/2015/11/">noviembre 2015</a></li>
+	<li><a href="https://blog.irontec.com/2015/10/">octubre 2015</a></li>
+	<li><a href="https://blog.irontec.com/2015/09/">septiembre 2015</a></li>
+	<li><a href="https://blog.irontec.com/2015/08/">agosto 2015</a></li>
+	<li><a href="https://blog.irontec.com/2015/07/">julio 2015</a></li>
+	<li><a href="https://blog.irontec.com/2015/06/">junio 2015</a></li>
+	<li><a href="https://blog.irontec.com/2015/05/">mayo 2015</a></li>
+	<li><a href="https://blog.irontec.com/2015/04/">abril 2015</a></li>
+	<li><a href="https://blog.irontec.com/2015/03/">marzo 2015</a></li>
+	<li><a href="https://blog.irontec.com/2015/02/">febrero 2015</a></li>
+		</ul>
+		</div><hr class="small"><div class="widget widget_text" id="text-4">			<div class="textwidget"></div>
+		</div><hr class="small">				
+            </aside>
+        </div>
+        <!-- /END RIGHT SIDEBAR -->
+	
+
+    </div>
+</div> <!-- end of .container-fluid -->
+
+<!-- =========================
+     FOOTER SECTION
+============================== -->
+<footer class="irontec-footer">
+
+    <section class="bg-negro light footer">
+        <div class="container text-center">
+
+            <img class="logo-footer clearfix" alt="Logo Irontec blanco." src="Buenas%20pr%C3%A1cticas%20en%20AngularJS_archivos/irontec_white.png">
+
+            <div class="clearfix footer-contact">
+                <a href="mailto:info@irontec.com">info@irontec.com</a>
+                <a href="tel:+34944048182">T. +34 944 048 182</a>
+                <a href="sip:contacto@irontec.com">Sip. contacto@irontec.com</a>
+            </div>
+
+            <div class="mbottom">
+                <ul class="link-group">
+                    <li>
+                        <a href="http://www.irontec.com/contacto" title="Contacto">Contacto</a>
+                    </li>
+                    <li>
+                        <a href="http://www.irontec.com/prensa" title="Sala de Prensa">Sala de Prensa</a>
+                    </li>
+                    <li>
+                        <a href="http://www.irontec.com/empleo" title="Trabaja con nosotros">Trabaja con nosotros</a>
+                    </li>
+                    <li>
+                        <a href="http://www.irontec.com/colaboraciones" title="Buscamos Partners">Buscamos Partners</a>
+                    </li>
+                </ul>
+            </div>
+
+            <ul class="social-links list-unstyled list-inline mbottom">
+                <li>
+                    <a href="https://twitter.com/irontec" title="Twitter">
+                        <i class="fa fa-twitter fa-lg"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="http://www.linkedin.com/company/irontec-internet-y-sistemas-sobre-gnu-linux/" title="LinkedIn">
+                        <i class="fa fa-linkedin fa-lg"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="http://es.slideshare.net/irontec/" title="Slideshare">
+                        <i class="fa fa-slideshare fa-lg"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.facebook.com/irontecsl" title="Facebook">
+                        <i class="fa fa-facebook fa-lg"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://plus.google.com/+Irontecsl" title="Google +">
+                        <i class="fa fa-google-plus fa-lg"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://github.com/irontec/" title="Github">
+                        <i class="fa fa-github fa-lg"></i>
+                    </a>
+                </li>
+            </ul>
+
+            <span class="clearfix">
+                <ul id="avisos" class="list-unstyled list-inline">
+                    <li>
+                        <a href="http://www.irontec.com/aviso-legal" title="Política de privacidad">Política de privacidad</a>
+                    </li>
+                    <li>
+                        <a href="http://www.irontec.com/info-cookies" title="Cookies">Cookies</a>
+                    </li>
+                </ul>
+            </span>
+        </div>
+    </section>
+
+</footer>
+
+<!-- /END FOOTER SECTION -->
+
+<!-- ANALYTICS -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-1595976-5', 'auto');
+  ga('send', 'pageview');
+
+</script><script type="text/javascript">
+</script>
+<script type="text/javascript" src="Buenas%20pr%C3%A1cticas%20en%20AngularJS_archivos/core.js"></script>
+<script type="text/javascript" src="Buenas%20pr%C3%A1cticas%20en%20AngularJS_archivos/widget.js"></script>
+<script type="text/javascript" src="Buenas%20pr%C3%A1cticas%20en%20AngularJS_archivos/accordion.js"></script>
+<script type="text/javascript" src="Buenas%20pr%C3%A1cticas%20en%20AngularJS_archivos/tabs.js"></script>
+<script type="text/javascript" src="Buenas%20pr%C3%A1cticas%20en%20AngularJS_archivos/stag-shortcode-scripts.js"></script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var ajaxurl = "https:\/\/blog.irontec.com\/wp-admin\/admin-ajax.php";
+var styleblogjs = "grid";
+/* ]]> */
+</script>
+<script type="text/javascript" src="Buenas%20pr%C3%A1cticas%20en%20AngularJS_archivos/bootstrap.js"></script>
+<script type="text/javascript" src="Buenas%20pr%C3%A1cticas%20en%20AngularJS_archivos/mediaelement-and-player.js"></script>
+<script type="text/javascript" src="Buenas%20pr%C3%A1cticas%20en%20AngularJS_archivos/tweetie.js"></script>
+<script type="text/javascript" src="Buenas%20pr%C3%A1cticas%20en%20AngularJS_archivos/jquery.js"></script>
+<script type="text/javascript" src="Buenas%20pr%C3%A1cticas%20en%20AngularJS_archivos/jquery_003.js"></script>
+<script type="text/javascript" src="Buenas%20pr%C3%A1cticas%20en%20AngularJS_archivos/custom.js"></script>
+<script type="text/javascript" src="Buenas%20pr%C3%A1cticas%20en%20AngularJS_archivos/wp-embed.js"></script>
+<script type="text/javascript" src="Buenas%20pr%C3%A1cticas%20en%20AngularJS_archivos/comment-reply.js"></script>
+<script async="async" type="text/javascript" src="Buenas%20pr%C3%A1cticas%20en%20AngularJS_archivos/form.js"></script>
+
+
+</body></html>

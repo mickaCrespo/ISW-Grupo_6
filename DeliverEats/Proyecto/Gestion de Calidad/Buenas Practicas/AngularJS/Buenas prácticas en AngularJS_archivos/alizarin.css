@@ -1,0 +1,50 @@
+/* GLOBALS */
+/** irontec **/
+/** color orginal #e74c3c **/
+
+a {
+  color: #b0232a;
+}
+.blog-style-one .blog-item blockquote,
+.comments blockquote {
+	border-left: 4px solid #b0232a;
+}
+/* BUTTON */
+.btn-prime,.sticky_label {
+  background: #b0232a;
+}
+/* ICONS */
+.social-icons ul li .fa:hover {
+  background: #b0232a;
+}
+/* CONTENT PROGRESSBAR */
+.progress .progress-bar,.navigate-page .page-links-title ~span{
+  background-color: #b0232a;
+}
+/* NAVIGATION */
+.header .navbar .main-navigation > ul > li a:hover {
+  color: #b0232a;
+}
+.header .navbar .main-navigation > ul > li > .dropdown-menu li a:hover {
+  background: #b0232a;
+}
+.header .navbar .main-navigation .navbar-nav .open > a {
+  color: #b0232a;
+}
+/* BLOG SECTION */
+.blog-item h2.title a:hover {
+  color: #b0232a;
+}
+/* BLOG COMMENT AREA */
+.comments-area .comments > ul li p a.author:hover,
+.comments-area .comments > ul li p a.reply:hover {
+  color: #b0232a;
+}
+.comments-area .comment-form .btn-prime:hover {
+  background: #b0232a;
+}
+/* PAGINATION */
+.navigate-page li:hover,
+.navigate-page li.active {
+  background: #b0232a;
+}
