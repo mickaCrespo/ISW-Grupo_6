@@ -23,7 +23,7 @@ public class ArticuloController {
      * @param  id  id del articulo a buscar
      * @return      articulo correspondiente a la id
      */
-    public ArticuloModel find(long id) {
+    public ArticuloModel find(int id) {
         T_ARTICULO a = articuloEJB.find(id);
         return convertirArticulo(a);
 

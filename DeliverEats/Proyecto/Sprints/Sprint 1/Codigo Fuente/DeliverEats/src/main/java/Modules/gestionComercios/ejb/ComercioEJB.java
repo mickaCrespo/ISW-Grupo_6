@@ -21,9 +21,9 @@ public class ComercioEJB {
      * @param  id  id del comercio a buscar
      * @return comercio o null si no existe.
      */
-    public T_COMERCIO find(long id) {
+    public T_COMERCIO find(int id) {
         TypedQuery<T_COMERCIO> q = (TypedQuery) entityManager.createQuery("SELECT c FROM T_COMERCIO c WHERE c.idComercio = :id")
-                .setParameter("id",id);
+                .setParameter("id",1);
         return q.getSingleResult();
     }
 }

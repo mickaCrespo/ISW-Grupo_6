@@ -15,9 +15,10 @@ public class ArticuloService {
     @Path("/{id}")
     @Consumes("application/json")
     @Produces("application/json")
-    public Gson getArticulos(@PathParam("id") int id){
+    public String getArticulos(@PathParam("id") int id){
         Gson gson = new Gson();
-        gson.toJson(articuloController.findAll(id));
-        return gson;
+        String json = gson.toJson(articuloController.findAll(id));
+        return json;
     }
+
 }

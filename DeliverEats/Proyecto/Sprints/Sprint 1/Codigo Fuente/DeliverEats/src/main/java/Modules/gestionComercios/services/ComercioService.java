@@ -12,12 +12,14 @@ public class ComercioService {
     ComercioController comercioController;
 
     @GET
-    @Path("/{id}")
+    //@Path("/{id}")
     @Consumes("application/json")
     @Produces("application/json")
-    public Gson get(@PathParam("id") int id){
+    public String get(){
         Gson gson = new Gson();
-        gson.toJson(comercioController.find(id));
-        return gson;
+        String json = gson.toJson(comercioController.find(1));
+        return json;
     }
+
+    //@PathParam("id") int id
 }

@@ -21,10 +21,8 @@ public class ArticuloEJB {
      * @param  id  id del pedido a buscar
      * @return producto correspondiente a la id o null si no existe.
      */
-    public T_ARTICULO find(long id) {
-        TypedQuery<T_ARTICULO> q = (TypedQuery) entityManager.createQuery("SELECT a FROM T_ARTICULO a WHERE a.idArticulo = :id")
-        .setParameter("id",id);
-        return q.getSingleResult();
+    public T_ARTICULO find(int id) {
+        return entityManager.find(T_ARTICULO.class, id);
     }
 
     /**
@@ -35,7 +33,7 @@ public class ArticuloEJB {
      * @param idComercio id del comercio
      * @return lista de productos
      */
-    public List<T_ARTICULO> findAll(long idComercio) {
+    public List<T_ARTICULO> findAll(int idComercio) {
         Query q = entityManager.createQuery("SELECT a FROM T_ARTICULO a WHERE a.idComercio = :idComercio")
                 .setParameter("idComercio", idComercio);
         return q.getResultList();

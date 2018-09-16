@@ -23,7 +23,7 @@ public class ComercioController {
      * @param  id  id del comercio a buscar
      * @return      comercio correspondiente a la id
      */
-    public ComercioModel find(long id) {
+    public ComercioModel find(int id) {
         T_COMERCIO c = comercioEJB.find(id);
         return convertirComercio(c);
     }
