@@ -52,7 +52,6 @@ public class PedidoEJB {
         return 1;
     }
 
-
     public void update(long id) {
         //entra como parametro la dbEntity correspondiente al pedido y lo actualiza
 

@@ -11,6 +11,14 @@ public class PedidoController {
     @Inject
     PedidoEJB pedidoEJB;
 
+    /**
+     *Este metodo retorna el pedido cuya id se pasa por parametro.
+     * Si lo encuentra lo retorna y si no lo encuentra retorna null.
+     * Transforma la entidad de base de datos a una entidad de modelo.
+     *
+     * @param  id  id del pedido a buscar
+     * @return      pedido correspondiente a la id
+     */
     public void find(long id) {
         //buscar un pedido por id
 
