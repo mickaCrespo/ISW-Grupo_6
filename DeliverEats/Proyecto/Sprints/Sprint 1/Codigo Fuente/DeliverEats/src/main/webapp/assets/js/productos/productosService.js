@@ -8,7 +8,6 @@
             });*/
 
             var response = { "id": 1, "nombre": "El club de la milanesa" };
-
             callback(response);
 
         }

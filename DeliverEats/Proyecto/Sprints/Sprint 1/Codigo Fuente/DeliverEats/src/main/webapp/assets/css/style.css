@@ -64,10 +64,6 @@ body {
 
 
 
-@media (min-width: 768px) {
-  .container-fluid {
-    width: 95%; } }
-
 @media (min-width: 1200px) {
   .container-fluid {
     width: 95%; }
@@ -107,117 +103,186 @@ h1, h2, h3, h4, h5, h6,
 @media (min-width: 992px) {
     .page-header {
         padding: 100px 0 92px;
-
     }
 
 
-@media (min-width: 992px) {
-  .page-content {
-    margin-top: -56px; }
-  .page-body > div {
-    position: relative; }
-  .page-sidebar,
-  .page-content {
-    float: left;
-    position: absolute;
-    min-height: 1px;
-    padding-right: 6px;
-    padding-left: 6px; }
-  .page-sidebar {
-    width: 20%; }
-  .page-content {
-    width: 80%;
-    left: 20%;
-    padding-bottom: 30px; }
+    @media (min-width: 992px) {
+        .page-content {
+            margin-top: -56px;
+        }
 
-@media (min-width: 1400px) {
-  .page-sidebar {
-    width: 15%; }
-  .page-content {
-    width: 85%;
-    left: 15%; }
-  .page-content.full-width {
-    width: 100%;
-    left: 0; } }
+        .page-body > div {
+            position: relative;
+        }
 
-@media (max-width: 991px) {
-  .page-sidebar {
-    position: fixed;
-    left: 0;
-    top: 0;
-    width: 250px;
-    height: 100%;
-    background: #fff;
-    z-index: 99;
-    -webkit-box-shadow: 0px 0px 20px 0px rgba(100, 100, 100, 0.55);
-    -moz-box-shadow: 0px 0px 20px 0px rgba(100, 100, 100, 0.55);
-    box-shadow: 0px 0px 20px 0px rgba(100, 100, 100, 0.55);
-    -webkit-transition: all 0.2s ease;
-    -moz-transition: all 0.2s ease;
-    -o-transition: all 0.2s ease;
-    transition: all 0.2s ease; }
-  .page-sidebar.toggled {
-    margin-left: -250px; } }
+        .page-sidebar,
+        .page-content {
+            float: left;
+            position: absolute;
+            min-height: 1px;
+            padding-right: 6px;
+            padding-left: 6px;
+        }
 
+        .page-sidebar {
+            width: 20%;
+        }
 
+        .page-content {
+            width: 80%;
+            left: 20%;
+            padding-bottom: 30px;
+        }
 
+        @media (min-width: 1400px) {
+            .page-sidebar {
+                width: 15%;
+            }
 
-.widget {
-  background: #fff;
-  margin: 0 0 40px;
-  position: relative;
-  z-index: 1;
-  border: none;
-  border-radius: 0; }
-  .widget > .card-heading {
-    padding: 26px;
-    border: 0;
-    background: #fff; }
-    .widget > .card-heading .card-title {
-      font-weight: 500;
-      color: #203A45; }
-    .widget > .card-heading .form-control {
-      margin: -5px 0; }
-  .widget > .card-body {
-    padding: 0 26px 26px 26px;
-    -webkit-box-shadow: 0px 16px 20px 0px rgba(219, 219, 219, 0.55);
-    -moz-box-shadow: 0px 16px 20px 0px rgba(219, 219, 219, 0.55);
-    box-shadow: 0px 16px 20px 0px rgba(219, 219, 219, 0.55); }
-    .widget > .card-body.padding-10 {
-      padding: 10px; }
+            .page-content {
+                width: 85%;
+                left: 15%;
+            }
+
+                .page-content.full-width {
+                    width: 100%;
+                    left: 0;
+                }
+        }
+
+        @media (max-width: 991px) {
+            .page-sidebar {
+                position: fixed;
+                left: 0;
+                top: 0;
+                width: 250px;
+                height: 100%;
+                background: #fff;
+                z-index: 99;
+                -webkit-box-shadow: 0px 0px 20px 0px rgba(100, 100, 100, 0.55);
+                -moz-box-shadow: 0px 0px 20px 0px rgba(100, 100, 100, 0.55);
+                box-shadow: 0px 0px 20px 0px rgba(100, 100, 100, 0.55);
+                -webkit-transition: all 0.2s ease;
+                -moz-transition: all 0.2s ease;
+                -o-transition: all 0.2s ease;
+                transition: all 0.2s ease;
+            }
+
+                .page-sidebar.toggled {
+                    margin-left: -250px;
+                }
+        }
 
 
-.principal {
-    margin-left: -15em;
-}
-.wrapper {
-    background-image: url('../img/image.png');
-}
-header {
-    height: 20em;
-}
 
-    .page-title-wrapper {
-        padding-left: 50px;
-    }
-    .card-text {
-        font-weight: 100;
-        font-size: 12px;
-        color: gray;
-    }
 
-    .mini {
-        width: 230px;
-        float: left;
-        margin-right: 40px;
-        margin-top: 10px;
-    }
+        .widget {
+            background: #fff;
+            margin: 0 0 40px;
+            position: relative;
+            z-index: 1;
+            border: none;
+            border-radius: 0;
+        }
 
-    .precio {
-        font-weight: 200;
-        font-size: 14px;
-    }
+            .widget > .card-heading {
+                padding: 26px;
+                border: 0;
+                background: #fff;
+            }
 
-    .card-body {
-        box-shadow: 5px rgba(0,0,0,.125);
-    }
+                .widget > .card-heading .card-title {
+                    font-weight: 500;
+                    color: #203A45;
+                }
+
+                .widget > .card-heading .form-control {
+                    margin: -5px 0;
+                }
+
+            .widget > .card-body {
+                padding: 0 26px 26px 26px;
+                -webkit-box-shadow: 0px 16px 20px 0px rgba(219, 219, 219, 0.55);
+                -moz-box-shadow: 0px 16px 20px 0px rgba(219, 219, 219, 0.55);
+                box-shadow: 0px 16px 20px 0px rgba(219, 219, 219, 0.55);
+            }
+
+                .widget > .card-body.padding-10 {
+                    padding: 10px;
+                }
+
+
+        .principal {
+            margin-left: -18em;
+        }
+
+        .wrapper {
+            background-image: url('../img/image.png');
+        }
+
+        header {
+            height: 20em;
+        }
+
+        .page-title-wrapper {
+            padding-left: 50px;
+        }
+
+        .card-text {
+            font-weight: 100;
+            font-size: 12px;
+            color: gray;
+        }
+
+        .mini {
+            width: 230px;
+            float: left;
+            margin-right: 40px;
+            margin-top: 10px;
+        }
+
+        .precio {
+            font-weight: 200;
+            font-size: 14px;
+        }
+
+        .card-body {
+            box-shadow: 5px rgba(0,0,0,.125);
+        }
+
+        .confirmPedido {
+        }
+
+        .modal {
+            display: block;
+            padding-right: 35%;
+            padding-top: 2em;
+            background: #171302e8;
+        }
+
+        form {
+            padding: 0;
+        }
+
+        .modal-body {
+            padding: 0px -80px 0 0;
+        }
+
+        .modal-content {
+            width: 70em;
+            position: center;
+        }
+
+        label {
+            margin-top: 20px;
+        }
+
+        .left {
+            margin-left: -20px;
+            margin-right: 100px;
+        }
+
+        .right {
+            margin-right: -80px;
+        }
+

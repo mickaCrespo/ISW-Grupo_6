@@ -3,5 +3,19 @@
 app.controller("deliverEatController", function ($scope, $http) {
 
     $scope.title = "probando...";
+    $scope.accion = "catalogo";
+
+    $scope.continuarPedido = function () {
+        $scope.accion = "confirmPedido";
+        var pedido = {};
+        pedido.paraCuando = '0';
+        $scope.p = pedido;
+    }
+
+    $scope.cancelarConfirmPedido = function () {
+        $scope.accion = "catalogo";
+       
+    }
 
 });
+
