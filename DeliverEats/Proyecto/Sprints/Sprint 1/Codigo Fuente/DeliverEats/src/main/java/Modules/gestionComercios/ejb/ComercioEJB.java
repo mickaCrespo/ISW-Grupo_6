@@ -1,10 +1,18 @@
 package Modules.gestionComercios.ejb;
 
 
+import Modules.gestionComercios.dbEntities.T_COMERCIO;
+
 import javax.ejb.Stateless;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+import javax.persistence.TypedQuery;
 
 @Stateless
 public class ComercioEJB {
+    @PersistenceContext(name = "deliveryEatPersistenceUnit")
+    EntityManager entityManager;
+
     /**
      * Este metodo busca un comercio en la base de datos y lo retorna.
      * Busca en la base de datos el producto cuyo id sea el id que se pasa por parametro,
@@ -13,8 +21,10 @@ public class ComercioEJB {
      * @param  id  id del comercio a buscar
      * @return comercio o null si no existe.
      */
-    public void find(long id) {
-
+    public T_COMERCIO find(long id) {
+        TypedQuery<T_COMERCIO> q = (TypedQuery) entityManager.createQuery("SELECT c FROM T_COMERCIO c WHERE c.idComercio = :id")
+                .setParameter("id",id);
+        return q.getSingleResult();
     }
 }
 

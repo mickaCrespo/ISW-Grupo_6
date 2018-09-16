@@ -1,23 +1,23 @@
 package Modules.gestionComercios.services;
 
-import Modules.gestionComercios.controllers.ComercioController;
+import Modules.gestionComercios.controllers.ArticuloController;
 import com.google.gson.Gson;
 
 import javax.inject.Inject;
 import javax.ws.rs.*;
 
-@Path("/comercio")
-public class ComercioService {
+@Path("/articulo")
+public class ArticuloService {
     @Inject
-    ComercioController comercioController;
+    ArticuloController articuloController;
 
     @GET
     @Path("/{id}")
     @Consumes("application/json")
     @Produces("application/json")
-    public Gson get(@PathParam("id") int id){
+    public Gson getArticulos(@PathParam("id") int id){
         Gson gson = new Gson();
-        gson.toJson(comercioController.find(id));
+        gson.toJson(articuloController.findAll(id));
         return gson;
     }
 }

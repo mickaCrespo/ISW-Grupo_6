@@ -1,10 +1,11 @@
-package Modules.gestionPedidos.ejb;
+package Modules.gestionComercios.ejb;
 import Modules.gestionComercios.dbEntities.T_ARTICULO;
 
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
+import javax.persistence.TypedQuery;
 import java.util.List;
 
 @Stateless
@@ -20,8 +21,10 @@ public class ArticuloEJB {
      * @param  id  id del pedido a buscar
      * @return producto correspondiente a la id o null si no existe.
      */
-    public void find(long id) {
-
+    public T_ARTICULO find(long id) {
+        TypedQuery<T_ARTICULO> q = (TypedQuery) entityManager.createQuery("SELECT a FROM T_ARTICULO a WHERE a.idArticulo = :id")
+        .setParameter("id",id);
+        return q.getSingleResult();
     }
 
     /**
@@ -29,12 +32,12 @@ public class ArticuloEJB {
      * Busca en la base de datos todos los pedidos y los retorna, si
      * no encuentra nignuno retorna null
      *
-     * @param comercioId id del comercio
+     * @param idComercio id del comercio
      * @return lista de productos
      */
-    public List<T_ARTICULO> findAll(long comercioId) {
-        Query q = entityManager.createQuery("SELECT id_articulo, id_comercio, nombre, descripcion, precio FROM T_ARTICULO a" +
-                "WHERE id_comercio = :idComercio").setParameter("idComercio", comercioId);
+    public List<T_ARTICULO> findAll(long idComercio) {
+        Query q = entityManager.createQuery("SELECT a FROM T_ARTICULO a WHERE a.idComercio = :idComercio")
+                .setParameter("idComercio", idComercio);
         return q.getResultList();
     }
 }

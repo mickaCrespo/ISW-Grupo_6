@@ -2,9 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="57339dc2-d53c-4ff8-90b7-52538f54a536" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/Modules/gestionComercios/controllers/ComercioController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Modules/gestionComercios/dbEntities/T_COMERCIO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Modules/gestionComercios/services/ArticuloService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Modules/gestionPedidos/controllers/PedidoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Modules/gestionPedidos/controllers/PedidoController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Modules/gestionPedidos/ejb/PedidoEJB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Modules/gestionPedidos/ejb/PedidoEJB.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DeliverEats.iml" beforeDir="false" afterPath="$PROJECT_DIR$/DeliverEats.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Modules/gestionComercios/controllers/ArticuloController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Modules/gestionComercios/controllers/ArticuloController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Modules/gestionComercios/ejb/ComercioEJB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Modules/gestionComercios/ejb/ComercioEJB.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Modules/gestionComercios/modelEntities/ComercioModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Modules/gestionComercios/modelEntities/ComercioModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Modules/gestionComercios/services/ComercioService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Modules/gestionComercios/services/ComercioService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Modules/gestionPedidos/ejb/ArticuloEJB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Modules/gestionComercios/ejb/ArticuloEJB.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -46,7 +53,7 @@
         <item name="DeliveryEat" type="feb32156:DbDataSourceImpl" />
         <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
         <item name="DeliveryEat: schema" type="c314c289:MysqlImplModel$Schema" />
-        <item name="T_DETALLE_PEDIDO: table" type="98d5ac3d:MysqlImplModel$Table" />
+        <item name="T_COMERCIO: table" type="98d5ac3d:MysqlImplModel$Table" />
       </path>
       <path>
         <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
@@ -69,28 +76,28 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="dummy" value="5" />
-          <entry key="java" value="2044" />
+          <entry key="java" value="2924" />
           <entry key="xml" value="26" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.spring.boot.run.usages" />
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="2044" />
+          <entry key="JAVA" value="2924" />
           <entry key="PLAIN_TEXT" value="5" />
           <entry key="XML" value="26" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="java" value="12" />
+          <entry key="java" value="40" />
           <entry key="sql" value="1" />
           <entry key="xml" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="JAVA" value="12" />
+          <entry key="JAVA" value="40" />
           <entry key="Scratch" value="1" />
           <entry key="XML" value="1" />
         </counts>
@@ -103,63 +110,22 @@
   <component name="FileEditorManager">
     <leaf>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/Modules/gestionPedidos/modelEntities/PedidoModel.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/Modules/gestionComercios/controllers/ComercioController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="6" column="22" selection-start-line="6" selection-start-column="22" selection-end-line="6" selection-end-column="22" />
+            <state relative-caret-position="471">
+              <caret line="36" column="7" lean-forward="true" selection-start-line="36" selection-start-column="7" selection-end-line="36" selection-end-column="7" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/Modules/gestionComercios/modelEntities/ComercioModel.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="8" column="42" selection-start-line="8" selection-start-column="42" selection-end-line="8" selection-end-column="42" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/Modules/gestionPedidos/modelEntities/DetallePedidoModel.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="45" selection-start-column="45" selection-end-column="45" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/Modules/gestionComercios/modelEntities/ArticuloModel.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="75">
-              <caret line="5" column="25" selection-start-line="5" selection-start-column="25" selection-end-line="5" selection-end-column="25" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/Modules/gestionPedidos/controllers/PedidoController.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/Modules/gestionComercios/services/ComercioService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="345">
-              <caret line="23" lean-forward="true" selection-start-line="23" selection-end-line="23" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#464#465#0" expanded="true" />
-                <element signature="e#490#491#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/Modules/gestionPedidos/services/PedidoService.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="12" column="26" lean-forward="true" selection-start-line="12" selection-start-column="26" selection-end-line="12" selection-end-column="26" />
+            <state relative-caret-position="285">
+              <caret line="19" column="43" selection-start-line="19" selection-start-column="43" selection-end-line="19" selection-end-column="43" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -168,10 +134,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/Modules/gestionPedidos/ejb/PedidoEJB.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/Modules/gestionComercios/controllers/ArticuloController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="114">
-              <caret line="17" selection-start-line="17" selection-end-line="24" selection-end-column="7" />
+            <state relative-caret-position="535">
+              <caret line="54" column="21" selection-start-line="54" selection-start-column="21" selection-end-line="54" selection-end-column="21" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -180,24 +146,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml">
+        <entry file="file://$PROJECT_DIR$/src/main/java/Modules/gestionComercios/services/ArticuloService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="45">
-              <caret line="3" column="54" lean-forward="true" selection-start-line="3" selection-start-column="28" selection-end-line="3" selection-end-column="54" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/c1c89e0a-4301-4a82-a3b4-85102cca82f4/console.sql">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/Modules/gestionPedidos/dbEntities/T_PEDIDO.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="132">
-              <caret line="9" column="32" selection-start-line="9" selection-start-column="32" selection-end-line="9" selection-end-column="32" />
+            <state relative-caret-position="135">
+              <caret line="9" column="30" lean-forward="true" selection-start-line="9" selection-start-column="30" selection-end-line="9" selection-end-column="30" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -224,7 +176,6 @@
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/java/Modules/gestionPedidos/services/PedidoService.java" />
         <option value="$PROJECT_DIR$/src/main/java/Modules/gestionComercios/modelEntities/ArticuloModel.java" />
-        <option value="$PROJECT_DIR$/src/main/java/Modules/gestionComercios/modelEntities/ComercioModel.java" />
         <option value="$PROJECT_DIR$/src/main/java/Modules/gestionPedidos/modelEntities/DetallePedidoModel.java" />
         <option value="$PROJECT_DIR$/src/main/java/Modules/gestionPedidos/modelEntities/MedioDePagoModel.java" />
         <option value="$PROJECT_DIR$/src/main/java/Modules/gestionPedidos/modelEntities/PedidoModel.java" />
@@ -232,6 +183,15 @@
         <option value="$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml" />
         <option value="$PROJECT_DIR$/src/main/java/Modules/gestionPedidos/ejb/PedidoEJB.java" />
         <option value="$PROJECT_DIR$/src/main/java/Modules/gestionPedidos/controllers/PedidoController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Modules/gestionPedidos/controllers/ArticuloController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Modules/gestionComercios/dbEntities/T_COMERCIO.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Modules/gestionComercios/ejb/ArticuloEJB.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Modules/gestionComercios/services/ArticuloService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Modules/gestionComercios/ejb/ComercioEJB.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Modules/gestionComercios/modelEntities/ComercioModel.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Modules/gestionComercios/services/ComercioService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Modules/gestionComercios/controllers/ComercioController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Modules/gestionComercios/controllers/ArticuloController.java" />
       </list>
     </option>
   </component>
@@ -318,6 +278,16 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="Modules" type="462c0819:PsiDirectoryNode" />
+              <item name="gestionComercios" type="462c0819:PsiDirectoryNode" />
+              <item name="services" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="DeliverEats" type="b2602c69:ProjectViewProjectNode" />
+              <item name="DeliverEats" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="Modules" type="462c0819:PsiDirectoryNode" />
               <item name="gestionPedidos" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -338,16 +308,6 @@
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="Modules" type="462c0819:PsiDirectoryNode" />
               <item name="gestionPedidos" type="462c0819:PsiDirectoryNode" />
-              <item name="dbEntities" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="DeliverEats" type="b2602c69:ProjectViewProjectNode" />
-              <item name="DeliverEats" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="Modules" type="462c0819:PsiDirectoryNode" />
-              <item name="gestionPedidos" type="462c0819:PsiDirectoryNode" />
               <item name="ejb" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -358,7 +318,7 @@
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="Modules" type="462c0819:PsiDirectoryNode" />
               <item name="gestionPedidos" type="462c0819:PsiDirectoryNode" />
-              <item name="services" type="462c0819:PsiDirectoryNode" />
+              <item name="modelEntities" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="DeliverEats" type="b2602c69:ProjectViewProjectNode" />
@@ -387,7 +347,7 @@
     <property name="DatabaseDriversLRU" value="mysql" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1537112164720" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1537130801934" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="project.structure.last.edited" value="Modules" />
@@ -416,12 +376,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1537102739105</updated>
-      <workItem from="1537102756128" duration="9083000" />
+      <workItem from="1537102756128" duration="13443000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="9083000" />
+    <option name="totallyTimeSpent" value="13443000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1280" height="800" extended-state="0" />
@@ -453,7 +413,7 @@
       <window_info anchor="right" id="Capture Analysis" />
       <window_info anchor="right" id="CDI" />
       <window_info anchor="right" id="Maven Projects" />
-      <window_info anchor="right" id="Database" visible="true" weight="0.15508886" />
+      <window_info anchor="right" id="Database" visible="true" weight="0.17770597" />
       <window_info anchor="right" id="Palette&#9;" />
       <window_info anchor="right" id="Theme Preview" />
       <window_info anchor="right" id="Bean Validation" />
@@ -486,20 +446,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Modules/gestionComercios/modelEntities/ArticuloModel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="25" selection-start-line="5" selection-start-column="25" selection-end-line="5" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Modules/gestionComercios/modelEntities/ComercioModel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="42" selection-start-line="8" selection-start-column="42" selection-end-line="8" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Modules/gestionPedidos/modelEntities/DetallePedidoModel.java">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -524,13 +470,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/c1c89e0a-4301-4a82-a3b4-85102cca82f4/console.sql">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Modules/gestionComercios/ejb/ComercioEJB.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/Modules/gestionPedidos/services/PedidoService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+        <state relative-caret-position="180">
+          <caret line="12" column="26" lean-forward="true" selection-start-line="12" selection-start-column="26" selection-end-line="12" selection-end-column="26" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -540,6 +486,9 @@
           <caret line="3" column="54" lean-forward="true" selection-start-line="3" selection-start-column="28" selection-end-line="3" selection-end-column="54" />
         </state>
       </provider>
+    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/c1c89e0a-4301-4a82-a3b4-85102cca82f4/console.sql">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Modules/gestionPedidos/dbEntities/T_PEDIDO.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -551,34 +500,107 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Modules/gestionPedidos/services/PedidoService.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/Modules/gestionComercios/dbEntities/T_ARTICULO.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="12" column="26" lean-forward="true" selection-start-line="12" selection-start-column="26" selection-end-line="12" selection-end-column="26" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="75">
+          <caret line="5" column="64" selection-start-line="5" selection-start-column="64" selection-end-line="5" selection-end-column="64" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Modules/gestionPedidos/ejb/PedidoEJB.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/Modules/gestionComercios/modelEntities/ArticuloModel.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="114">
-          <caret line="17" selection-start-line="17" selection-end-line="24" selection-end-column="7" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="30">
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Modules/gestionPedidos/controllers/PedidoController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="23" lean-forward="true" selection-start-line="23" selection-end-line="23" />
+        <state relative-caret-position="195">
+          <caret line="13" selection-start-line="13" selection-end-line="20" selection-end-column="7" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#464#465#0" expanded="true" />
-            <element signature="e#490#491#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Modules/gestionComercios/dbEntities/T_COMERCIO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="480">
+          <caret line="32" column="22" selection-start-line="32" selection-start-column="22" selection-end-line="32" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Modules/gestionPedidos/ejb/PedidoEJB.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="69">
+          <caret line="14" selection-start-line="14" selection-end-line="15" selection-end-column="32" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Modules/gestionComercios/modelEntities/ComercioModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="20" selection-start-line="5" selection-start-column="19" selection-end-line="5" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Modules/gestionComercios/ejb/ComercioEJB.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="25" column="16" selection-start-line="25" selection-start-column="16" selection-end-line="25" selection-end-column="16" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Modules/gestionComercios/ejb/ArticuloEJB.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="450">
+          <caret line="37" column="27" lean-forward="true" selection-start-line="37" selection-start-column="11" selection-end-line="37" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Modules/gestionComercios/controllers/ComercioController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="471">
+          <caret line="36" column="7" lean-forward="true" selection-start-line="36" selection-start-column="7" selection-end-line="36" selection-end-column="7" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Modules/gestionComercios/controllers/ArticuloController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="535">
+          <caret line="54" column="21" selection-start-line="54" selection-start-column="21" selection-end-line="54" selection-end-column="21" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Modules/gestionComercios/services/ArticuloService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" column="30" lean-forward="true" selection-start-line="9" selection-start-column="30" selection-end-line="9" selection-end-column="30" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Modules/gestionComercios/services/ComercioService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="19" column="43" selection-start-line="19" selection-start-column="43" selection-end-line="19" selection-end-column="43" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
