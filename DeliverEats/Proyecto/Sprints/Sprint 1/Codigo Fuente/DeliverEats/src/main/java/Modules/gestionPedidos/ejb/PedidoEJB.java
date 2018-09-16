@@ -1,5 +1,7 @@
 package Modules.gestionPedidos.ejb;
 
+import Modules.gestionPedidos.dbEntities.T_PEDIDO;
+
 import javax.ejb.Stateless;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
@@ -10,8 +12,8 @@ import java.util.List;
 
 @Stateless
 public class PedidoEJB {
-    //@PersistenceContext(name = "beFruitPersistenceUnit")
-    //EntityManager entityManager;
+    @PersistenceContext(name = "deliveryEatPersistenceUnit")
+    EntityManager entityManager;
 
     /**
      *Este metodo busca un pedido en la base de datos y lo retorna.
@@ -21,8 +23,9 @@ public class PedidoEJB {
      * @param  id  id del pedido a buscar
      * @return      pedido correspondiente a la id
      */
-    public void find(long id) {
-
+    public T_PEDIDO find(long id) {
+        TypedQuery<T_PEDIDO> q = (TypedQuery) entityManager.createQuery("SELECT p FROM T_PEDIDO p WHERE p.numero_pedido = :id").setParameter("id",id);
+        return q.getSingleResult();
     }
 
     /**
@@ -32,9 +35,9 @@ public class PedidoEJB {
      *
      * @return      lista de pedidos
      */
-    public void findAll() {
-        //Query q = entityManager.createQuery("SELECT e FROM Empleado e");
-        //return q.getResultList();
+    public List<T_PEDIDO> findAll() {
+        Query q = entityManager.createQuery("SELECT p FROM T_PEDIDO p");
+        return q.getResultList();
     }
 
     /**
@@ -44,7 +47,7 @@ public class PedidoEJB {
      * @param  p  pedido a registrar
      * @return      id del pedido registrado
      */
-    public long create() {
+    public long create(T_PEDIDO p) {
         //entra como parametro la dbEntity correspondiente al pedido y lo agrega a la bd retorna el id del pedido
         return 1;
     }
