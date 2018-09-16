@@ -13,7 +13,7 @@ DROP TABLE IF EXISTS T_ARTICULO ;
 CREATE TABLE T_ARTICULO(
 	id_articulo int NOT NULL,
 	id_comercio int,
-	descripcion varchar(40),
+	descripcion varchar(200),
 	nombre varchar(40),
 	precio float(5,5),
 	CONSTRAINT pk_articulo PRIMARY KEY (id_articulo),
