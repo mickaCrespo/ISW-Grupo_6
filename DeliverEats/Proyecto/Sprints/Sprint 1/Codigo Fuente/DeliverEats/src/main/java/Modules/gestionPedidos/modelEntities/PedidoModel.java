@@ -1,6 +1,7 @@
 package Modules.gestionPedidos.modelEntities;
 
 import java.util.Date;
+import java.util.List;
 
 public class PedidoModel {
     private Float conCuantoPaga;
@@ -9,5 +10,6 @@ public class PedidoModel {
     private Date fechaHora;
     private String FormaDePago;
     private Integer numeroPedido;
+    private List<DetallePedidoModel> detalles;
 
 }
