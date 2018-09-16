@@ -34,6 +34,8 @@ DROP TABLE IF EXISTS T_DETALLE_PEDIDO ;
 CREATE TABLE T_DETALLE_PEDIDO(
 	numero_pedido int NOT NULL,
 	id_articulo int NOT NULL,
+	cantidad int,
+	precio float(5,5),
 	CONSTRAINT pk_detalle_pedido PRIMARY KEY (numero_pedido, id_articulo),
 	CONSTRAINT fk_pedido FOREIGN KEY (numero_pedido) REFERENCES T_PEDIDO(numero_pedido),
 	CONSTRAINT fk_articulo FOREIGN KEY (id_articulo) REFERENCES T_ARTICULO(id_articulo)
