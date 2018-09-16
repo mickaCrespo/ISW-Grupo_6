@@ -41,7 +41,6 @@ CREATE TABLE T_DETALLE_PEDIDO(
 	CONSTRAINT fk_articulo FOREIGN KEY (id_articulo) REFERENCES T_ARTICULO(id_articulo)
 );
 
-
 INSERT INTO T_COMERCIO (id_comercio, nombre, descripcion, direccion) VALUES ();
 
 INSERT INTO T_PEDIDO (numero_pedido, fecha_hora, domicilio, entrega_deseada, forma_pago) VALUES ();
