@@ -1,3 +1,18 @@
-﻿.vs/
+
+# Compiled class file
+*.class
+
+# Log file
+*.log
+
+# BlueJ files
+*.ctxt
+
+# IntelliJ files
+*.iml
 .idea/
+target/
+
+
+.vs/
 **/.DS_Store
