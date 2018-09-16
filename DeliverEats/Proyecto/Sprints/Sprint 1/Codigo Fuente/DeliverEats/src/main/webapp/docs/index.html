@@ -34,63 +34,20 @@
                     <div class="page-content">
                         <div class="row principal">
                             <div class="col-md-9 col-sm-8">
-                                <div class="card card-default widget">
+                                <div class="card card-default widget" ng-controller="productosController">
                                     <div class="card-heading">
 
                                         <h3>El club de la milanesa</h3>
                                     </div>
                                     <div class="card-body">
-                                        <div class="mini card">
-                                            <img class="card-img-top style=" width: 12rem;"" src="../assets/img/1.jpg" alt="Card image cap">
+                                        <div class="mini card" ng-repeat="p in productos">
+                                            <img class="card-img-top style=" width: 12rem;"" ng-src="../assets/img/{{p.id}}.jpg" alt="Card image cap">
                                             <div class="card-body">
-                                                <h6 class="card-title">Milanesa patagónica con guarnición</h6>
-                                                <p class="card-text">Muzzarella, fiambre con hierbas ahumado, tomates cherry confitados y rúcula.</p>
-                                                <a href="#" class="btn btn-primary">Agregar $269</a>
+                                                <h6 class="card-title">{{p.nombre}}</h6>
+                                                <p class="card-text">{{p.descripcion}}</p>
+                                                <a href="#" class="btn btn-primary">Agregar ${{p.precio}}</a>
                                             </div>
                                         </div>
-                                        <div class="mini card">
-                                            <img class="card-img-top style=" width: 12rem;"" src="../assets/img/2.jpg" alt="Card image cap">
-                                            <div class="card-body">
-                                                <h6 class="card-title">Milanesa de la casa con guarnición</h6>
-                                                <p class="card-text">Muzzarella, jamón cocido, rodajas de tomate fresco, huevo frito y perejil.</p>
-                                                <a href="#" class="btn btn-primary">Agregar $247</a>
-                                            </div>
-                                        </div>
-                                        <div class="mini card">
-                                            <img class="card-img-top style=" width: 12rem;"" src="../assets/img/3.jpg" alt="Card image cap">
-                                            <div class="card-body">
-                                                <h6 class="card-title">Milanesa La Gringa con guarnición</h6>
-                                                <p class="card-text">Salsa Barbacoa, queso cheddar, panceta crocante, huevo frito y perejíl.</p>
-                                                <a href="#" class="btn btn-primary">Agregar $250</a>
-                                            </div>
-                                        </div>
-                                        <div class="mini card">
-                                            <img class="card-img-top style=" width: 12rem;"" src="../assets/img/4.jpg" alt="Card image cap">
-                                            <div class="card-body">
-                                                <h6 class="card-title">Sándwich de bondiola barbacue con papas rústicas</h6>
-                                                <p class="card-text">Bondiola, barbacoa y cebolla caramelizada.</p>
-                                                <a href="#" class="btn btn-primary">Agregar $190</a>
-                                            </div>
-                                        </div>
-                                        <div class="mini card">
-                                            <img class="card-img-top style=" width: 12rem;"" src="../assets/img/5.jpg" alt="Card image cap">
-                                            <div class="card-body">
-                                                <h6 class="card-title">Rabas</h6>
-                                                <p class="card-text">Aros de calamar rebozados, con cazuela de BBQ y alioli.</p>
-                                                <a href="#" class="btn btn-primary">Agregar $180</a>
-                                            </div>
-                                        </div>
-                                        <div class="mini card">
-                                            <img class="card-img-top style=" width: 12rem;"" src="../assets/img/6.jpg" alt="Card image cap">
-                                            <div class="card-body">
-                                                <h6 class="card-title">Tacos de pollo</h6>
-                                                <p class="card-text">2 tortillas de trigo rellenas con mix de vegetales y pollo, con cazuela de guacamole y mayonesa casera.</p>
-                                                <a href="#" class="btn btn-primary">Agregar $165</a>
-                                            </div>
-                                        </div>
-
-
-
                                     </div>
                                 </div>
                             </div>
@@ -125,8 +82,16 @@
         </div>
     </div>
 
+    <!-- angularjs -->
     <script src="../node_modules/angular/angular.min.js"></script>
+
+    <!-- app -->
     <script src="../assets/js/app.js"></script>
+
+    <!-- productos -->
+    <script src="../assets/js/productos/productosService.js"></script>
+    <script src="../assets/js/productos/productosController.js"></script>
+
 
 </body>
 </html>
