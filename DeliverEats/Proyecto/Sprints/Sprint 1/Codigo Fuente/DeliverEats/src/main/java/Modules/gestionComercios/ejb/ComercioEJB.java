@@ -1,4 +1,4 @@
-package Modules.gestionPedidos.ejb;
+package Modules.gestionComercios.ejb;
 
 
 import javax.ejb.Stateless;
