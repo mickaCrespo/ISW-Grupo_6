@@ -95,26 +95,35 @@
                                 </div>
                             </div>
 
-                            <div class="col-md-3 col-sm-4">
+                            <div class="col-md-3 col-sm-5">
                                 <div class="panel card-default widget">
-                                    <div class="card-heading">
+                                    <div class="card-heading" style="height: 520px;padding: 0px; border-left: 1px solid gray;">
                                         <h3 class="card-title" style="text-align: center">{{title}}</h3>
                                         <table class="table">
                                             <thead>
                                                 <tr>
                                                     <th>CANTIDAD</th>
                                                     <th>PRODUCTO</th>
+                                                    <th>PRECIO</th>
                                                     <th>$$$</th>
                                                 </tr>
                                             </thead>
 
-                                            <tbody></tbody>
+                                            <tbody>
+                                                <tr ng-repeat="a in articulos">
+                                                    <td>x{{a.cantidad}}</td>
+                                                    <td>{{a.nombre}}</td>
+                                                    <td>{{a.precio}}</td>
+                                                    <td>{{a.total}}</td>
+                                                    <td><span class="oi oi-trash"></span></td>
+                                                    
+                                                </tr>
+                                            </tbody>
                                         </table>
-                                    </div>
-                                    <div class="card-body" style="height: 400px;">
 
                                     </div>
 
+                                    <button type="button" class="btn btn-success">CONFIRMAR</button>
 
                                 </div>
                             </div>
