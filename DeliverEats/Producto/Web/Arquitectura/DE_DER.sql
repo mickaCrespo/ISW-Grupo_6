@@ -27,6 +27,7 @@ CREATE TABLE T_PEDIDO(
 	domicilio varchar(40),
 	entrega_deseada varchar(40),
 	forma_pago varchar(40),
+	con_cuanto_paga float(5,5),
 	CONSTRAINT pk_pedido PRIMARY KEY (numero_pedido)
 );
 
@@ -46,7 +47,7 @@ CREATE TABLE T_DETALLE_PEDIDO(
 
 INSERT INTO T_COMERCIO (id_comercio, nombre, descripcion, direccion) VALUES (1, "El Club de la Milanesa", "Comercio Adherido", "Bv. Chacabuco 895, Nueva Córdoba");
 
-/*INSERT INTO T_PEDIDO (numero_pedido, fecha_hora, domicilio, entrega_deseada, forma_pago) VALUES ();*/
+/*INSERT INTO T_PEDIDO (numero_pedido, fecha_hora, domicilio, entrega_deseada, forma_pago, con_cuanto_paga) VALUES ();*/
 
 /*INSERT INTO T_DETALLE_PEDIDO (numero_pedido, id_articulo, cantidad, precio) VALUES ();*/
 
