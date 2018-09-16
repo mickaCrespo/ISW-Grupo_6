@@ -13,16 +13,37 @@ public class PedidoEJB {
     //@PersistenceContext(name = "beFruitPersistenceUnit")
     //EntityManager entityManager;
 
+    /**
+     *Este metodo busca un pedido en la base de datos y lo retorna.
+     * Busca en la base de datos el pedido cuyo id sea el id que se pasa por parametro,
+     * si lo encunetra lo retorna y si no lo encuentra retorna null.
+     *
+     * @param  id  id del pedido a buscar
+     * @return      pedido correspondiente a la id
+     */
     public void find(long id) {
-        //TypedQuery<Empleado> q = (TypedQuery) entityManager.createQuery("SELECT e FROM Empleado e WHERE e.idEmpleado = :id").setParameter("id",id);
-        //return q.getSingleResult();
+
     }
 
+    /**
+     *Este metodo busca todos los pedidos en la base de datos
+     * Busca en la base de datos todos los pedidos y los retorna, si
+     * no encuentra nignuno retorna null
+     *
+     * @return      lista de pedidos
+     */
     public void findAll() {
         //Query q = entityManager.createQuery("SELECT e FROM Empleado e");
         //return q.getResultList();
     }
 
+    /**
+     *Este metodo registra el pedido en la base de datos
+     * y retorna el id del pedido insertad, si no se puedo insertar retorna -1
+     *
+     * @param  p  pedido a registrar
+     * @return      id del pedido registrado
+     */
     public long create() {
         //entra como parametro la dbEntity correspondiente al pedido y lo agrega a la bd retorna el id del pedido
         return 1;
