@@ -1,5 +1,7 @@
 package Modules.gestionComercios.modelEntities;
 
+import Modules.gestionPedidos.modelEntities.ArticuloModel;
+
 import java.util.List;
 
 public class ComercioModel {
