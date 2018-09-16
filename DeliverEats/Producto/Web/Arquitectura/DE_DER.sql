@@ -45,6 +45,6 @@ INSERT INTO T_COMERCIO (id_comercio, nombre, descripcion, direccion) VALUES ();
 
 INSERT INTO T_PEDIDO (numero_pedido, fecha_hora, domicilio, entrega_deseada, forma_pago) VALUES ();
 
-INSERT INTO T_DETALLE_PEDIDO (numero_pedido, id_articulo) VALUES ();
+INSERT INTO T_DETALLE_PEDIDO (numero_pedido, id_articulo, cantidad, precio) VALUES ();
 
 INSERT INTO T_ARTICULO (id_articulo, id_comercio, descripcion, nombre, precio) VALUES ();
