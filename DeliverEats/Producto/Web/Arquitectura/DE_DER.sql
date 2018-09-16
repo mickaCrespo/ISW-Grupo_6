@@ -1,5 +1,6 @@
 CREATE DATABASE DeliveryEat;
 
+DROP TABLE IF EXISTS T_COMERCIO ;
 CREATE TABLE T_COMERCIO(
 	id_comercio int NOT NULL,
 	nombre varchar(40),
@@ -8,6 +9,7 @@ CREATE TABLE T_COMERCIO(
 	CONSTRAINT pk_comercio PRIMARY KEY (id_comercio)
 );
 
+DROP TABLE IF EXISTS T_ARTICULO ;
 CREATE TABLE T_ARTICULO(
 	id_articulo int NOT NULL,
 	id_comercio int,
@@ -18,6 +20,7 @@ CREATE TABLE T_ARTICULO(
 	CONSTRAINT fk_comercio FOREIGN KEY (id_comercio) REFERENCES T_COMERCIO(id_comercio)
 );
 
+DROP TABLE IF EXISTS T_PEDIDO ;
 CREATE TABLE T_PEDIDO(
 	numero_pedido int NOT NULL,
 	fecha_hora TIMESTAMP,
@@ -27,6 +30,7 @@ CREATE TABLE T_PEDIDO(
 	CONSTRAINT pk_pedido PRIMARY KEY (numero_pedido)
 );
 
+DROP TABLE IF EXISTS T_DETALLE_PEDIDO ;
 CREATE TABLE T_DETALLE_PEDIDO(
 	numero_pedido int NOT NULL,
 	id_articulo int NOT NULL,
