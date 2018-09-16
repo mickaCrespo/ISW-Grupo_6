@@ -1,20 +1,27 @@
-package Modules.gestionComercios.modelEntities;
+package Modules.gestionComercios.dbEntities;
 
-public class ArticuloModel {
-    private int id;
+import javax.persistence.*;
+
+@Entity
+@Table(name = "T_ARTICULO", schema = "DeliveryEat", catalog = "")
+public class T_ARTICULO {
+    private int idArticulo;
     private int idComercio;
     private String nombre;
     private String descripcion;
     private Double precio;
 
-    public int getId() {
-        return id;
+    @Id
+    @Column(name="id_articulo")
+    public int getIdArticulo() {
+        return idArticulo;
+    }
+    public void setIdArticulo(int idArticulo) {
+        this.idArticulo = idArticulo;
     }
 
-    public void setId(int id) {
-        this.id = id;
-    }
-
+    @Basic
+    @Column(name="id_comercio")
     public int getIdComercio() {
         return idComercio;
     }
@@ -23,6 +30,8 @@ public class ArticuloModel {
         this.idComercio = idComercio;
     }
 
+    @Basic
+    @Column(name="nombre")
     public String getNombre() {
         return nombre;
     }
@@ -31,6 +40,8 @@ public class ArticuloModel {
         this.nombre = nombre;
     }
 
+    @Basic
+    @Column(name="descripcion")
     public String getDescripcion() {
         return descripcion;
     }
@@ -39,6 +50,8 @@ public class ArticuloModel {
         this.descripcion = descripcion;
     }
 
+    @Basic
+    @Column(name="precio")
     public Double getPrecio() {
         return precio;
     }

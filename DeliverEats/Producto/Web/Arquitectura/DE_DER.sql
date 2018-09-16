@@ -41,10 +41,31 @@ CREATE TABLE T_DETALLE_PEDIDO(
 	CONSTRAINT fk_articulo FOREIGN KEY (id_articulo) REFERENCES T_ARTICULO(id_articulo)
 );
 
-INSERT INTO T_COMERCIO (id_comercio, nombre, descripcion, direccion) VALUES ();
 
-INSERT INTO T_PEDIDO (numero_pedido, fecha_hora, domicilio, entrega_deseada, forma_pago) VALUES ();
+/*INSERT INTO T_COMERCIO (id_comercio, nombre, descripcion, direccion) VALUES ();*/
 
-INSERT INTO T_DETALLE_PEDIDO (numero_pedido, id_articulo, cantidad, precio) VALUES ();
+INSERT INTO T_COMERCIO (id_comercio, nombre, descripcion, direccion) VALUES (1, "El Club de la Milanesa", "Comercio Adherido", "Bv. Chacabuco 895, Nueva Córdoba");
 
-INSERT INTO T_ARTICULO (id_articulo, id_comercio, descripcion, nombre, precio) VALUES ();
+/*INSERT INTO T_PEDIDO (numero_pedido, fecha_hora, domicilio, entrega_deseada, forma_pago) VALUES ();*/
+
+/*INSERT INTO T_DETALLE_PEDIDO (numero_pedido, id_articulo, cantidad, precio) VALUES ();*/
+
+/*INSERT INTO T_ARTICULO (id_articulo, id_comercio, descripcion, nombre, precio) VALUES ();*/
+
+INSERT INTO T_ARTICULO (id_articulo, id_comercio, descripcion, nombre, precio)
+VALUES (1, 1, "Muzzarella, fiambre con hierbas ahumado, tomates cherry confitados y rúcula.", "Milanesa patagónica con guarnición", 269);
+
+INSERT INTO T_ARTICULO (id_articulo, id_comercio, descripcion, nombre, precio)
+VALUES (2, 1, "Muzzarella, jamón cocido, rodajas de tomate fresco, huevo frito y perejil.", "Milanesa de la casa con guarnición", 247);
+
+INSERT INTO T_ARTICULO (id_articulo, id_comercio, descripcion, nombre, precio)
+VALUES (3, 1, "Salsa Barbacoa, queso cheddar, panceta crocante, huevo frito y perejíl.", "Milanesa La Gringa con guarnición", 250);
+
+INSERT INTO T_ARTICULO (id_articulo, id_comercio, descripcion, nombre, precio)
+VALUES (4, 1, "Bondiola, barbacoa y cebolla caramelizada.", "Sándwich de bondiola barbacue con papas rústicas", 190);
+
+INSERT INTO T_ARTICULO (id_articulo, id_comercio, descripcion, nombre, precio)
+VALUES (5, 1, "Anillos de calamar rebozados.", "Rabas", 180);
+
+INSERT INTO T_ARTICULO (id_articulo, id_comercio, descripcion, nombre, precio)
+VALUES (6, 1, "2 tortillas de trigo rellenas con mix de vegetales y pollo, con cazuela de guacamole y mayonesa casera.", "Tacos de pollo", 165);
