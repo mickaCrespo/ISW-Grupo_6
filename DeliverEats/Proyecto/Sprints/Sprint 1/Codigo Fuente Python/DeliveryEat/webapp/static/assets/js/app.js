@@ -53,12 +53,8 @@ app.controller("deliverEatController", function ($scope, $http) {
     };
 
     $scope.addNvoArtPedido=function(producto){
-        var nombre = producto.nombre;
-        var precio = producto.precio;
-
         $scope.nvoArtPedido = producto;
-        $scope.nvoArtPedido.cant = 1;
-        $scope.nvoArtPedido.total = $scope.nvoArtPedido.cant * $scope.nvoArtPedido.precio;
+
         $scope.total = $scope.total + $scope.nvoArtPedido.total;
 
         // Valida si ya existe y aumenta la cantidad.
@@ -67,12 +63,14 @@ app.controller("deliverEatController", function ($scope, $http) {
         })[0];
 
         if (item73 != null) {
-            item73.cant = item73.cant + $scope.nvoArtPedido.cant;
-            item73.total = item73.total + $scope.nvoArtPedido.total;
+            item73.cant = item73.cant + 1;
+            item73.total = item73.total + parseFloat($scope.nvoArtPedido.precio);
             $scope.nvoArtPedido={};
         }
         else
         {
+            $scope.nvoArtPedido.cant = 1;
+            $scope.nvoArtPedido.total = parseFloat($scope.nvoArtPedido.precio);
             $scope.carrito.push($scope.nvoArtPedido);
             $scope.nvoArtPedido={};
         }
