@@ -220,7 +220,7 @@
                                             <div class="card-body">
                                                 <h6 class="card-title">{{p.nombre}}</h6>
                                                 <p class="card-text">{{p.descripcion}}</p>
-                                                <a href="#" class="btn btn-primary">Agregar ${{p.precio}}</a>
+                                                <a href="#" class="btn btn-primary" ng-click="addNvoArtPedido(p.nombre,p.precio)">Agregar ${{p.precio}}</a>
                                             </div>
                                         </div>
                                     </div>
@@ -237,12 +237,23 @@
                                                     <th>CANTIDAD</th>
                                                     <th>PRODUCTO</th>
                                                     <th>$$$</th>
+                                                    <th>---</th>
                                                 </tr>
                                             </thead>
 
-                                            <tbody></tbody>
+                                            <tbody>
+                                                <tr ng-repeat="a in carrito">
+                                                    <td>{{a.cant}}</td>
+                                                    <td>{{a.nombre}}</td>
+                                                    <td>{{a.total}}</td>
+                                                    <td><button type="button" class="btn btn-danger" ng-click="eliminarArt($index,a)">X</button></td>
+                                                </tr>
+                                            </tbody>
                                         </table>
                                     </div>
+                                    <div class="col" id="barra-pedido"><input disabled type="text"
+                                                                                     ng-model="'TOTAL: $' + total"
+                                                                                     readonly style="color: black;text-align: right; font-size: 18px ;position: relative;top:-21%; font-weight: bold"></div>
                                     <div class="card-body">
                                         <button type="button" class="btn btn-success" ng-click="continuarPedido()">Continuar</button>
                                     </div>
