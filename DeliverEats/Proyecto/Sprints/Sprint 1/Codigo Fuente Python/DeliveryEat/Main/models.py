@@ -13,7 +13,7 @@ class Articulo(models.Model):
 
 
 class Pedido(models.Model):
-    numero = models.IntegerField(primary_key=True)
+    numero = models.AutoField(primary_key=True)
     fecha = models.DateTimeField()
     direccion = models.CharField(max_length=256)
     entrega_deseada = models.CharField(max_length=256)

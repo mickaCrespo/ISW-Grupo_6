@@ -13,19 +13,23 @@ class ArticuloSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 class DetallePedidoSerializer(serializers.ModelSerializer):
+    pedido = serializers.IntegerField(read_only=True)
+
     class Meta:
         model = DetallePedido
-        fields = ['pedido_id', 'articulo_id', 'cantidad', 'precio']
+        fields = ['pedido', 'articulo', 'cantidad', 'precio']
 
 class PedidoSerializer(serializers.ModelSerializer):
-    detalles = DetallePedidoSerializer(many=True)
+    numero = serializers.IntegerField(read_only=True)
+    detalles = DetallePedidoSerializer(many=True, write_only=True)
 
     class Meta:
         model = Pedido
         fields = '__all__'
-    #
-    # def create(self, validated_data):
-    #     detalles = validated_data.pop('profile')
-    #     user = User.objects.create(**validated_data)
-    #     Profile.objects.create(user=user, **profile_data)
-    #     return user
+
+    def create(self, validated_data):
+        detalles = validated_data.pop('detalles')
+        pedido = Pedido.objects.create(**validated_data)
+        for detalle in detalles:
+            DetallePedido.objects.create(pedido=pedido, **detalle)
+        return pedido
