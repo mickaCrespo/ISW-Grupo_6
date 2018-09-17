@@ -15,7 +15,7 @@ class ArticuloSerializer(serializers.ModelSerializer):
 class DetallePedidoSerializer(serializers.ModelSerializer):
     class Meta:
         model = DetallePedido
-        fields = '__all__'
+        fields = ['pedido_id', 'articulo_id', 'cantidad', 'precio']
 
 class PedidoSerializer(serializers.ModelSerializer):
     detalles = DetallePedidoSerializer(many=True)
@@ -23,3 +23,9 @@ class PedidoSerializer(serializers.ModelSerializer):
     class Meta:
         model = Pedido
         fields = '__all__'
+
+    def create(self, validated_data):
+        detalles = validated_data.pop('profile')
+        user = User.objects.create(**validated_data)
+        Profile.objects.create(user=user, **profile_data)
+        return user

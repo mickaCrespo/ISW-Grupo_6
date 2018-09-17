@@ -33,5 +33,34 @@ app.controller("deliverEatController", function ($scope, $http) {
         console.log(e);
     });
     */
+    //EJEMPLO DE POST PEDIDO
+    var pedido ={
+            "fecha" : "2018-01-01T00:00",
+            "direccion" : "Hola",
+            "entrega_deseada" : "Ahi",
+            "forma_pago" : "Asi",
+            "detalles" : [{
+                "articulo_id" : 1,
+                "cantidad" : 1,
+                "precio" : 10
+            },
+            {
+                "articulo_id" : 2,
+                "cantidad" : 1,
+                "precio" : 10
+            }
+            ]
+        }
+    ;
+    $http.post('/api/pedidos/', pedido, {
+        headers: {
+            'Content-Type' : 'application/json'
+        },
+    }).then(function (response) {
+        alert(response);
+    }, function error(e) {
+        console.log(e);
+    });
+    //*/
 });
 
