@@ -1,4 +1,4 @@
-1. COMO INSTALAR DJANGO EN WINDOWS
+﻿1. COMO INSTALAR DJANGO EN WINDOWS
 
 Nota: Proyecto creado con Django 1.11 y Python 3.4.3
 
@@ -8,17 +8,19 @@ a. Debe estar instalado Python 3 y agregado a la variable PATH (es una casilla c
 
 b. A partir de Python 3.4 pip (gestor de paquete de python) ya debe venir incluido por lo que instalarlo no será necesario.
 
+c. Desde una consola ejecutar: > pip install django==1.11
+
+d. > pip install djangorestframework
+
 
 2. TRABAJANDO CON DJANGO
 Django viene con un manager que nos permitira realizar varias tareas, lo principal que querremos hacer es levantar el
 servidor de desarrollo integrado:
 
-a. Para activar el entorno virtual hay que llegar con una consola al directorio de trabajo (Codigo Fuente Python) y ejecutar
-"workon DeliveryEatEnv", luego de esto el prompt indicara que estamos en el entorno virtual.
-
-b. Nos desplazamos a la carpeta DeliveryEat "cd DeliveryEat" donde se encuentra el archivo manage.py
+a. Nos desplazamos a la carpeta DeliveryEat "cd DeliveryEat" donde se encuentra el archivo manage.py
 
 c. Iniciamos el servidor con el comando "python manage.py runserver"
+	Nota: Asegurarse que python --version devuelve 3.4 o mayor.
 
 d. Verificamos que el servidor se haya iniciado ingresando desde un navegador web a localhost:8000
 
