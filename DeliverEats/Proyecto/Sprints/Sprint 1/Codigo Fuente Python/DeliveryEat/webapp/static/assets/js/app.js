@@ -33,7 +33,7 @@ app.controller("deliverEatController", function ($scope, $http) {
         console.log(e);
     });
     */
-    //EJEMPLO DE POST PEDIDO
+    /*//EJEMPLO DE POST PEDIDO
     var pedido ={
             "fecha" : "2018-01-01T00:00",
             "direccion" : "Hola",
