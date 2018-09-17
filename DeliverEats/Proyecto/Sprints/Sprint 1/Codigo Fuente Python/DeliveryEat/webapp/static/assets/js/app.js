@@ -54,8 +54,7 @@ app.controller("deliverEatController", function ($scope, $http) {
 
     $scope.addNvoArtPedido=function(producto){
         $scope.nvoArtPedido = producto;
-
-        $scope.total = $scope.total + $scope.nvoArtPedido.total;
+        $scope.total = $scope.total + parseFloat($scope.nvoArtPedido.precio);
 
         // Valida si ya existe y aumenta la cantidad.
         var item73 = $scope.carrito.filter(function (item) {
