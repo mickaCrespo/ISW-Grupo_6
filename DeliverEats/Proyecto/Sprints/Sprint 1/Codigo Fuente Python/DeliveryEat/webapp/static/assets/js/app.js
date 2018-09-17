@@ -15,5 +15,23 @@ app.controller("deliverEatController", function ($scope, $http) {
     $scope.cancelarConfirmPedido = function () {
         $scope.accion = "catalogo";
     }
+
+    /* EJEMPLO DE POST
+    var comercio ={
+            "nombre" : "Jaime",
+            "descripcion" : "Hola",
+            "direccion" : "Ahi"
+        }
+    ;
+    $http.post('/api/comercios/', comercio, {
+        headers: {
+            'Content-Type' : 'application/json'
+        },
+    }).then(function (response) {
+        alert(response);
+    }, function error(e) {
+        console.log(e);
+    });
+    */
 });
 

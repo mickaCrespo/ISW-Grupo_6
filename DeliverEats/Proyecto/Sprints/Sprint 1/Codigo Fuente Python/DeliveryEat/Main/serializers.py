@@ -12,12 +12,14 @@ class ArticuloSerializer(serializers.ModelSerializer):
         model = Articulo
         fields = '__all__'
 
-class PedidoSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Pedido
-        fields = '__all__'
-
 class DetallePedidoSerializer(serializers.ModelSerializer):
     class Meta:
         model = DetallePedido
+        fields = '__all__'
+
+class PedidoSerializer(serializers.ModelSerializer):
+    detalles = DetallePedidoSerializer(many=True)
+
+    class Meta:
+        model = Pedido
         fields = '__all__'
