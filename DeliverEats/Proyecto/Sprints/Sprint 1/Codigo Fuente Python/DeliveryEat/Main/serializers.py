@@ -14,6 +14,7 @@ class ArticuloSerializer(serializers.ModelSerializer):
 
 class DetallePedidoSerializer(serializers.ModelSerializer):
     pedido = serializers.IntegerField(read_only=True)
+    precio = serializers.DecimalField(max_digits=10, decimal_places=2, read_only=True)
 
     class Meta:
         model = DetallePedido
@@ -21,6 +22,7 @@ class DetallePedidoSerializer(serializers.ModelSerializer):
 
 class PedidoSerializer(serializers.ModelSerializer):
     numero = serializers.IntegerField(read_only=True)
+    fecha = serializers.DateTimeField(read_only=True)
     detalles = DetallePedidoSerializer(many=True, write_only=True)
 
     class Meta:

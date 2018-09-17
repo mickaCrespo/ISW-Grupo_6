@@ -40,13 +40,16 @@
                                         <div class="modal-body">
 
                                             <div class="row">
+                                                <div class="col-md-12" ng-show="error">
+                                                    <p>{{error}}</p>
+                                                </div>
                                                 <div class="col-md-6">
                                                     <form action="#" data-parsley-validate="" novalidate="">
                                                         <div class="form-group">
                                                             <label>Dirección</label>
                                                             <div class="form-row">
                                                                 <div class="col-7">
-                                                                    <input type="text" class="form-control" placeholder="Dirección">
+                                                                    <input type="text" class="form-control" ng-model="p.direccion" placeholder="Dirección">
                                                                 </div>
                                                                 <div class="col">
                                                                     <input type="text" class="form-control" placeholder="Piso">
@@ -108,7 +111,7 @@
                                                             <div class="form-row">
 
                                                                 <div class="col-5">
-                                                                    <input type="number" class="form-control" placeholder="$">
+                                                                    <input type="number" class="form-control" placeholder="$" ng-model="p.efectivo">
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -204,7 +207,7 @@
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-danger" ng-click="cancelarConfirmPedido()">Cancelar</button>
-                                            <button type="button" class="btn btn-success">Realizar pedido</button>
+                                            <button type="button" class="btn btn-success" ng-click="confirmarPedido()">Realizar pedido</button>
                                         </div>
                                     </div>
                                 </div>
@@ -220,7 +223,7 @@
                                             <div class="card-body">
                                                 <h6 class="card-title">{{p.nombre}}</h6>
                                                 <p class="card-text">{{p.descripcion}}</p>
-                                                <a href="#" class="btn btn-primary" ng-click="addNvoArtPedido(p.nombre,p.precio)">Agregar ${{p.precio}}</a>
+                                                <a href="#" class="btn btn-primary" ng-click="addNvoArtPedido(p)">Agregar ${{p.precio}}</a>
                                             </div>
                                         </div>
                                     </div>

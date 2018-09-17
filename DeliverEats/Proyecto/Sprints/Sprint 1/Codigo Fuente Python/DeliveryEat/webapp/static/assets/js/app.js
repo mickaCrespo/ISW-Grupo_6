@@ -18,7 +18,33 @@ app.controller("deliverEatController", function ($scope, $http) {
         }
     };
     $scope.confirmarPedido=function(i){
-        //VER
+        // Correr Validaciones
+        if($scope.validarDatosForm($scope.p)){
+            var form = $scope.p;
+            //EJEMPLO DE POST PEDIDO
+            var pedido ={
+                    "direccion" : form.direccion,
+                    "entrega_deseada" : form.paraCuando,
+                    "forma_pago" : form.formaPago == 0 ? "Efectivo" : "Tarjeta",
+                    "detalles" : []
+            };
+            $scope.carrito.forEach(function(articulo, index) {
+                pedido.detalles.push({
+                    "articulo" : articulo.id,
+                    "cantidad" : articulo.cant,
+                });
+            });
+            $http.post('/api/pedidos/', pedido, {
+                headers: {
+                    'Content-Type' : 'application/json'
+                },
+            }).then(function (response) {
+                alert("Su pedido fue realizado exitosamente.");
+            }, function error(e) {
+                alert("Ocurrio un error al realizar su pedido.");
+                console.log(e);
+            });
+        }
     };
 
     $scope.cancelVenta=function(){
@@ -26,16 +52,18 @@ app.controller("deliverEatController", function ($scope, $http) {
         $scope.carrito=[];
     };
 
-    $scope.addNvoArtPedido=function( nombre, precio){
-        $scope.nvoArtPedido.nombre=nombre;
-        $scope.nvoArtPedido.cant = 1;
-        $scope.nvoArtPedido.precio = precio;
+    $scope.addNvoArtPedido=function(producto){
+        var nombre = producto.nombre;
+        var precio = producto.precio;
 
+        $scope.nvoArtPedido = producto;
+        $scope.nvoArtPedido.cant = 1;
         $scope.nvoArtPedido.total = $scope.nvoArtPedido.cant * $scope.nvoArtPedido.precio;
         $scope.total = $scope.total + $scope.nvoArtPedido.total;
 
+        // Valida si ya existe y aumenta la cantidad.
         var item73 = $scope.carrito.filter(function (item) {
-            return item.nombre === $scope.nvoArtPedido.nombre;
+            return item.id === $scope.nvoArtPedido.id;
         })[0];
 
         if (item73 != null) {
@@ -48,7 +76,6 @@ app.controller("deliverEatController", function ($scope, $http) {
             $scope.carrito.push($scope.nvoArtPedido);
             $scope.nvoArtPedido={};
         }
-
     }
     
     //Botones...
@@ -82,7 +109,7 @@ app.controller("deliverEatController", function ($scope, $http) {
     $scope.validarfechaEntrega = function (p) {
         if (p.paraCuando == '1') {
             if ((p.fecha == undefined) || (p.hora == undefined)) {
-                $scope.error = "Faltan completar datos...";
+                $scope.error = "Debe definir una fecha de entrega.";
                 return false;
             }
             else {
@@ -119,7 +146,7 @@ app.controller("deliverEatController", function ($scope, $http) {
         else {
             
             if (p.efectivo < p.total) {
-                $scope.error = "El monto a pagar debe ser igual o menor al total...";
+                $scope.error = "El monto a pagar debe ser igual o mayor al total...";
                 return false;
             }
             else {
@@ -157,6 +184,7 @@ app.controller("deliverEatController", function ($scope, $http) {
 
 
     $scope.validarDatosForm = function (p) {
+        $scope.error = null;
         //Si los campos obligatorios estan completos...
         if ($scope.validarCamposObligatorios(p) == true) {
             //Si la entrega es programada...
@@ -164,18 +192,21 @@ app.controller("deliverEatController", function ($scope, $http) {
                 //Validaciones para pago en efectivo
                 if (p.formaPago == 0) {
                     if ($scope.validarpagoEfectivo(p) == true) {
-                        alert("pedido listo para ser realizado...");
+                        return true;
+                        //alert("pedido listo para ser realizado...");
                     }
 
                 }
                 else {
                     if ($scope.validarpagoTarjeta(p) == true) {
-                        alert("pedido listo para ser realizado...");
+                        return true;
+                        //alert("pedido listo para ser realizado...");
                     }
 
                 }
             }
         }
+        return false;
     }
 
 });
