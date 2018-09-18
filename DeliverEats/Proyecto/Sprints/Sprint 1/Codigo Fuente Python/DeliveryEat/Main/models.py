@@ -13,12 +13,19 @@ class Articulo(models.Model):
 
 
 class Pedido(models.Model):
+    EFECTIVO = 0
+    VISA = 1
+    FORMAS_PAGO = (
+        (EFECTIVO, "Efectivo"),
+        (VISA, "Tarjeta Visa")
+    )
+
     numero = models.AutoField(primary_key=True)
     # La fecha se define automaticamente cuando se crea el pedido.
     fecha = models.DateTimeField(auto_now_add=True)
     direccion = models.CharField(max_length=256)
     entrega_deseada = models.CharField(max_length=256)
-    forma_pago = models.CharField(max_length=256)
+    forma_pago = models.IntegerField(choices=FORMAS_PAGO)
 
 class DetallePedido(models.Model):
     pedido = models.ForeignKey('Pedido', on_delete=models.CASCADE)
