@@ -79,10 +79,16 @@ app.controller("deliverEatController", function ($scope, $http) {
                     'Content-Type' : 'application/json'
                 },
             }).then(function (response) {
-                alert("Su pedido fue realizado exitosamente.");
+                alert("Su pedido fue realizado correctamente.")
+                $scope.cancelVenta();
+                $scope.cancelarConfirmPedido();
             }, function error(e) {
-                alert("Ocurrio un error al realizar su pedido.");
                 console.log(e);
+                var message = [];
+                angular.forEach(e.data, function(value, key){
+                    message.push("Error en " + key + ": " + value);
+                });
+                $scope.error = message.join(" | ");
             });
         }
     };
@@ -136,6 +142,7 @@ app.controller("deliverEatController", function ($scope, $http) {
         $scope.p.tarjeta_year_expiracion = null;
         $scope.p.tarjeta_pin = null;
         $scope.p.paraCuando = 0;
+        $scope.error = null;
     }
     
     //Validaciones...
