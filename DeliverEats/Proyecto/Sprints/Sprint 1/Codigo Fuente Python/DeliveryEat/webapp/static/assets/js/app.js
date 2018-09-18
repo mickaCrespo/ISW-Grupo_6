@@ -2,7 +2,7 @@
 
 app.controller("deliverEatController", function ($scope, $http) {
 
-    $scope.title = "Hace tu pedido";
+    $scope.title = "Tu pedido";
     $scope.accion = "catalogo";
     $scope.carrito=[];
     $scope.nvoArtPedido={};
