@@ -28,6 +28,7 @@ class Pedido(models.Model):
     direccion = models.CharField(max_length=256)
     entrega_deseada = models.DateTimeField(blank=True, null=True)
     forma_pago = models.IntegerField(choices=FORMAS_PAGO)
+    monto_pago_efectivo = models.DecimalField(blank=True, null=True, max_digits=10, decimal_places=2)
 
 class DetallePedido(models.Model):
     pedido = models.ForeignKey('Pedido', on_delete=models.CASCADE)

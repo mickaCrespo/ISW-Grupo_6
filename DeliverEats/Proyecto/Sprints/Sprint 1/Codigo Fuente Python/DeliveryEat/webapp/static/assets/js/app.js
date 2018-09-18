@@ -62,6 +62,8 @@ app.controller("deliverEatController", function ($scope, $http) {
                     "year_expiracion" : form.tarjeta_year_expiracion,
                     "pin" : form.tarjeta_pin
                 }
+            } else if (form.formaPago == 0){
+                pedido.monto_pago_efectivo = form.efectivo;
             };
             // Datos de articulos
             $scope.carrito.forEach(function(articulo, index) {

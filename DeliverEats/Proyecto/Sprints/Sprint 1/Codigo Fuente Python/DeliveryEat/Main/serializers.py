@@ -27,6 +27,7 @@ class PedidoSerializer(serializers.ModelSerializer):
     detalles = DetallePedidoSerializer(many=True, write_only=True)
     tarjeta = serializers.DictField(write_only=True, required=False, allow_null=True)
     fecha_entrega = serializers.DateTimeField(required=False, allow_null=True)
+    monto_pago_efectivo = serializers.DecimalField(required=False, allow_null=True, max_digits=10, decimal_places=2)
 
     class Meta:
         model = Pedido
