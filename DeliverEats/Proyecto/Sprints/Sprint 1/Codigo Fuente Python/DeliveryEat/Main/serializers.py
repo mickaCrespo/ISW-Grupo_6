@@ -43,7 +43,8 @@ class PedidoSerializer(serializers.ModelSerializer):
         # Validar volumen
         volumen_total = 0
         for detalle in validated_data.get("detalles"):
-            volumen_total += detalle.articulo.volumen
+            volumen_total += detalle['cantidad'] * detalle['articulo'].volumen
+        print("Volumen total:", volumen_total)
         if volumen_total > VOLUMEN_MAXIMO:
             raise serializers.ValidationError("El volumen supera el maximo de la mochila.")
 
