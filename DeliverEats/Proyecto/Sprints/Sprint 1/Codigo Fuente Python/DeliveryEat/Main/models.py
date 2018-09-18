@@ -10,6 +10,8 @@ class Articulo(models.Model):
     nombre = models.CharField(max_length=256)
     descripcion = models.CharField(max_length=256)
     precio = models.DecimalField(max_digits=10, decimal_places=2)
+    # El volumen estara en centimetros (cm)
+    volumen = models.PositiveIntegerField()
 
 
 class Pedido(models.Model):

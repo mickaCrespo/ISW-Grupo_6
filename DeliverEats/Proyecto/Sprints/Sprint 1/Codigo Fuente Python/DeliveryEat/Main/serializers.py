@@ -1,5 +1,6 @@
 from .models import Comercio, Articulo, Pedido, DetallePedido
 from rest_framework import serializers
+from django.db import transaction
 
 class ComercioSerializer(serializers.ModelSerializer):
     class Meta:
@@ -32,10 +33,21 @@ class PedidoSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
     def validate(self, data):
+        VOLUMEN_MAXIMO = 125;
         tarjeta = data.pop("tarjeta", None)
         if tarjeta:
             self.validate_tarjeta(tarjeta)
-        return super().validate(data)
+
+        validated_data = super().validate(data)
+
+        # Validar volumen
+        volumen_total = 0
+        for detalle in validated_data.get("detalles"):
+            volumen_total += detalle.articulo.volumen
+        if volumen_total > VOLUMEN_MAXIMO:
+            raise serializers.ValidationError("El volumen supera el maximo de la mochila.")
+
+        return validated_data
 
     def validate_tarjeta(self, tarjeta):
         """
@@ -49,6 +61,7 @@ class PedidoSerializer(serializers.ModelSerializer):
             raise serializers.ValidationError("Los datos de la tarjeta son inválidos.")
 
 
+    @transaction.atomic
     def create(self, validated_data):
         detalles = validated_data.pop('detalles')
         pedido = Pedido.objects.create(**validated_data)
