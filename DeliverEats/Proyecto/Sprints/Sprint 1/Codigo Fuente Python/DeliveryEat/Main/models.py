@@ -24,7 +24,7 @@ class Pedido(models.Model):
     # La fecha se define automaticamente cuando se crea el pedido.
     fecha = models.DateTimeField(auto_now_add=True)
     direccion = models.CharField(max_length=256)
-    entrega_deseada = models.CharField(max_length=256)
+    entrega_deseada = models.DateTimeField(blank=True, null=True)
     forma_pago = models.IntegerField(choices=FORMAS_PAGO)
 
 class DetallePedido(models.Model):

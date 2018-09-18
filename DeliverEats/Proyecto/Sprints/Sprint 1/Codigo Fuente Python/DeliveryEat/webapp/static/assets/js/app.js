@@ -20,6 +20,23 @@ app.controller("deliverEatController", function ($scope, $http) {
             $scope.carrito.splice(i, 1);
         }
     };
+
+    function formatDate(date) {
+        var d = new Date(date),
+            month = '' + (d.getMonth() + 1),
+            day = '' + d.getDate(),
+            year = d.getFullYear();
+
+        if (month.length < 2) month = '0' + month;
+        if (day.length < 2) day = '0' + day;
+
+        return [year, month, day].join('-');
+    }
+
+    function formatTime(time){
+        return [time.getHours(), time.getMinutes()].join(':');
+    }
+
     $scope.confirmarPedido=function(i){
         // Correr Validaciones
         if($scope.validarDatosForm($scope.p)){
@@ -27,11 +44,15 @@ app.controller("deliverEatController", function ($scope, $http) {
             // Datos del pedido
             var pedido ={
                     "direccion" : form.direccion,
-                    "entrega_deseada" : form.paraCuando,
+                    "entrega_deseada" : null,
                     "forma_pago" : form.formaPago,
                     "detalles" : [],
                     "tarjeta" : null
             };
+            // Fecha y Hora de entrega
+            if(form.paraCuando == 1){
+                pedido.entrega_deseada = formatDate(form.fecha_entrega) + "T" + formatTime(form.hora_entrega);
+            }
             // Datos de tarjeta
             if(form.formaPago == 1){
                 pedido.tarjeta = {
@@ -108,8 +129,13 @@ app.controller("deliverEatController", function ($scope, $http) {
         $scope.accion = "catalogo";
         // Reiniciar campos
         $scope.p.direccion = null;
-
-
+        $scope.p.formaPago = 0;
+        $scope.p.tarjeta_numero = null;
+        $scope.p.tarjeta_titular = null;
+        $scope.p.tarjeta_mes_expiracion = null;
+        $scope.p.tarjeta_year_expiracion = null;
+        $scope.p.tarjeta_pin = null;
+        $scope.p.paraCuando = 0;
     }
     
     //Validaciones...
@@ -127,34 +153,21 @@ app.controller("deliverEatController", function ($scope, $http) {
 
     $scope.validarfechaEntrega = function (p) {
         if (p.paraCuando == '1') {
-            if ((p.fecha == undefined) || (p.hora == undefined)) {
+            if ((p.fecha_entrega == undefined) || (p.hora_entrega == undefined)) {
                 $scope.error = "Debe definir una fecha de entrega.";
                 return false;
             }
             else {
                 //Valida que la fecha y hora de entrega sean posteriores a la actual
                 var today = new Date();
-                var fecha = new Date();
-                fecha.setHours(p.hora.getHours(), p.hora.getMinutes(), 0, 0);
-                if (p.fecha < today) {
-                    $scope.error = "Fecha de entrega incorrecta...";
+                if (p.fecha_entrega < today) {
+                    $scope.error = "La fecha y hora de entrega deben ser futuras.";
                     return false;
-                }
-                else {
-                    if (fecha < today) {
-                        $scope.error = "Hora de entrega incorrecta...";
-                        return false;
-                    }
-                    else {
-                        $scope.error = "";
-                        return true;
-                    }
+                    // TODO: Validar hora.
                 }
             }
         }
-        else {
-            return true;
-        }
+        return true;
     }
 
     $scope.validarpagoEfectivo = function (p) {
