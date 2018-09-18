@@ -63,7 +63,7 @@
                                                             <label>¿Para cuándo lo desea?</label>
                                                             <div class="form-row">
                                                                 <div class="col-5">
-                                                                    <select ng-model="p.paraCuando" class="custom-select mr-sm-2" id="inlineFormCustomSelect">
+                                                                    <select ng-model="p.paraCuando" class="custom-select mr-sm-2">
                                                                         <option value='0'>Lo antes posible</option>
                                                                         <option value='1'>Elegir fecha y hora</option>
                                                                     </select>
@@ -82,12 +82,9 @@
                                                         </div>
 
                                                     </form>
-
                                                 </div>
 
-
                                                 <div class="col-md-6">
-
                                                     <form action="#" data-parsley-validate="" novalidate="">
                                                         <div class="form-group">
                                                             <label>Forma de pago:</label>
@@ -141,7 +138,7 @@
 
                                                                         <div class="col-6">
 
-                                                                            <select name="month" class="custom-select mr-sm-2" id="inlineFormCustomSelect">
+                                                                            <select name="month" class="custom-select mr-sm-2">
                                                                                 <option value="01" selected="">01</option>
                                                                                 <option value="02">02</option>
                                                                                 <option value="03">03</option>
@@ -157,7 +154,7 @@
                                                                             </select>
                                                                         </div>
                                                                         <div class="col-6">
-                                                                            <select name="year" class="custom-select mr-sm-2" id="inlineFormCustomSelect">
+                                                                            <select name="year" class="custom-select mr-sm-2">
                                                                                 <option value="2018" selected="">2018</option>
                                                                                 <option value="2019">2019</option>
                                                                                 <option value="2020">2020</option>
@@ -194,18 +191,11 @@
                                                             </div>
 
                                                         </div>
-
-                                                       
-
-
                                                     </form>
-
                                                 </div>
-
                                             </div>
-
                                         </div>
-                                        <div class="modal-footer">
+                                        <div class="modal-footer pt-1">
                                             <button type="button" class="btn btn-danger" ng-click="cancelarConfirmPedido()">Cancelar</button>
                                             <button type="button" class="btn btn-success" ng-click="confirmarPedido()">Realizar pedido</button>
                                         </div>
