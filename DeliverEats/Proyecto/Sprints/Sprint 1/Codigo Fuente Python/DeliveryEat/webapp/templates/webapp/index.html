@@ -118,19 +118,15 @@
                                                                 <div class="form-row">
 
                                                                     <div class="col">
-                                                                        <input type="number" class="form-control" placeholder="Número">
+                                                                        <input type="number" class="form-control" placeholder="Número" ng-model="p.tarjeta_numero">
                                                                     </div>
                                                                     <div class="col">
-                                                                        <input type="text" class="form-control" placeholder="Nombre">
+                                                                        <input type="text" class="form-control" placeholder="Nombre" ng-model="p.tarjeta_titular">
                                                                     </div>
                                                                 </div>
                                                             </div>
-
-
                                                         </div>
-
                                                         <div class="form-row">
-
                                                             <div class="form-group col-6" ng-show="p.formaPago == 1">
                                                                 <label>Fecha expiración</label>
                                                                 <div class="form-group">
@@ -138,7 +134,7 @@
 
                                                                         <div class="col-6">
 
-                                                                            <select name="month" class="custom-select mr-sm-2">
+                                                                            <select name="month" class="custom-select mr-sm-2" ng-model="p.tarjeta_mes_expiracion">
                                                                                 <option value="01" selected="">01</option>
                                                                                 <option value="02">02</option>
                                                                                 <option value="03">03</option>
@@ -154,7 +150,7 @@
                                                                             </select>
                                                                         </div>
                                                                         <div class="col-6">
-                                                                            <select name="year" class="custom-select mr-sm-2">
+                                                                            <select name="year" class="custom-select mr-sm-2" ng-model="p.tarjeta_year_expiracion">
                                                                                 <option value="2018" selected="">2018</option>
                                                                                 <option value="2019">2019</option>
                                                                                 <option value="2020">2020</option>
@@ -182,7 +178,7 @@
                                                                     <div class="form-row">
 
                                                                         <div class="col-6">
-                                                                            <input type="number" maxlength="4" class="form-control" placeholder="">
+                                                                            <input type="number" maxlength="4" class="form-control" placeholder="" ng-model="p.tarjeta_pin">
 
                                                                         </div>
                                            

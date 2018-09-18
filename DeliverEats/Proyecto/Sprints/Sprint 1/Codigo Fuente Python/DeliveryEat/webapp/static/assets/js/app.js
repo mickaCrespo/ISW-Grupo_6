@@ -7,6 +7,9 @@ app.controller("deliverEatController", function ($scope, $http) {
     $scope.carrito=[];
     $scope.nvoArtPedido={};
     $scope.total = 0;
+    $scope.p = {
+        "tarjeta" : null
+    }
     
     //Ventas...
     $scope.eliminarArt=function(i,a){
@@ -21,19 +24,35 @@ app.controller("deliverEatController", function ($scope, $http) {
         // Correr Validaciones
         if($scope.validarDatosForm($scope.p)){
             var form = $scope.p;
-            //EJEMPLO DE POST PEDIDO
+            // Datos del pedido
             var pedido ={
                     "direccion" : form.direccion,
                     "entrega_deseada" : form.paraCuando,
-                    "forma_pago" : form.formaPago == 0 ? "Efectivo" : "Tarjeta",
-                    "detalles" : []
+                    "forma_pago" : form.formaPago,
+                    "detalles" : [],
+                    "tarjeta" : null
             };
+            // Datos de tarjeta
+            if(form.formaPago == 1){
+                pedido.tarjeta = {
+                    "numero" : form.tarjeta_numero,
+                    "titular" : form.tarjeta_titular,
+                    "mes_expiracion" : form.tarjeta_mes_expiracion,
+                    "year_expiracion" : form.tarjeta_year_expiracion,
+                    "pin" : form.tarjeta_pin
+                }
+            };
+            // Datos de articulos
             $scope.carrito.forEach(function(articulo, index) {
                 pedido.detalles.push({
                     "articulo" : articulo.id,
                     "cantidad" : articulo.cant,
                 });
             });
+            console.log("Realizando pedido");
+            console.dir(pedido);
+
+            // POST
             $http.post('/api/pedidos/', pedido, {
                 headers: {
                     'Content-Type' : 'application/json'
@@ -87,6 +106,9 @@ app.controller("deliverEatController", function ($scope, $http) {
 
     $scope.cancelarConfirmPedido = function () {
         $scope.accion = "catalogo";
+        // Reiniciar campos
+        $scope.p.direccion = null;
+
 
     }
     
@@ -156,27 +178,12 @@ app.controller("deliverEatController", function ($scope, $http) {
 
     $scope.validarpagoTarjeta = function (p) {
         //Valida datos completos de la tarjeta
-        if ((p.nroTarjeta == null) || (p.nombreTarjeta === undefined) || (p.expiracionMes === undefined) || (p.expiracionAnio === undefined) || (p.codTarjeta === undefined)) {
-            alert(p.nroTarjeta);
-            $scope.error = "Faltan completar datos de la tarjeta...";
-            return false;
+        var valida = true;
+        if ((p.tarjeta_numero == null) || (p.tarjeta_titular == null) || (p.tarjeta_mes_expiracion == null) || (p.tarjeta_year_expiracion == null) || (p.tarjeta_pin == null)) {
+            $scope.error = "Todos los datos de la tarjeta son obligatorios.";
+            valida = false;
         }
-        else {
-            //Valida que la fecha de expiración no haya pasado
-            var today = new Date();
-            var fecha = new Date();
-            fecha.setUTCFullYear(p.expiracionAnio, p.expiracionMes, null);
-            if (fecha < today) {
-                $scope.error = "Fecha de expiración incorrecta...";
-                return false;
-            }
-            else {
-                $scope.error = "";
-                return true;
-
-            }
-
-        }
+        return valida;
     }
 
 
