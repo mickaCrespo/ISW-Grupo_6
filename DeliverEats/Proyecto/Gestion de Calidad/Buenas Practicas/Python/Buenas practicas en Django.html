@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html><head>
+  <meta http-equiv="Content-Security-Policy" content="default-src chrome:; img-src *; media-src *">
+  <meta content="text/html; charset=UTF-8" http-equiv="content-type">
+  <meta name="viewport" content="width=device-width; user-scalable=0">
+  <link rel="stylesheet" href="Buenas%20practicas%20en%20Django_archivos/aboutReader.css" type="text/css">
+  <script type="text/javascript" src="Buenas%20practicas%20en%20Django_archivos/aboutReader.js"></script>
+<link rel="stylesheet" href="Buenas%20practicas%20en%20Django_archivos/narrate.css"><title>Buenas practicas en Django | Marco Islas</title></head>
+
+<body class="light sans-serif loaded">
+  <div class="container font-size5 content-width3">
+    <div class="header reader-header" style="display: block;">
+      <a class="domain reader-domain" href="https://islascruz.org/blog/2018/07/27/buenas-practicas-en-django/">islascruz.org</a>
+      <div class="domain-border"></div>
+      <h1 class="reader-title">Buenas practicas en Django | Marco Islas</h1>
+      <div class="credits reader-credits">marco</div>
+      <div class="meta-data">
+        <div class="reader-estimated-time">5-7 minutos</div>
+      </div>
+    </div>
+
+    <hr>
+
+    <div class="content">
+      <div class="moz-reader-content line-height4" style="display: block;"><div id="readability-page-1" class="page"><div>
+					<p>En un post anterior les comenté las buenas prácticas en <a href="https://islascruz.org/blog/tag/python-2/" data-slimstat="5">Python</a>, ahora toca hablar de Django, si bien Django esta hecho en el lenguaje <a href="https://islascruz.org/blog/tag/python-2/" data-slimstat="5">Python</a>
+ tiene sus propias convenciones como framework, y seguir estos 
+lineamientos permitirá que tengas proyectos organizados pero sobre todo,
+ que tus compañeros de trabajo (si todos siguen estas recomendaciones) y
+ tu funcionen mejor.</p>
+<h3>Estilo de código</h3>
+<p>Aquí&nbsp;no hay mucho que decir, estamos hablando de Python y por lo
+ tanto aplican las reglas de estilo de Código de Python, debes escribir 
+siguiendo la PEP8. Django también tiene sus propias convenciones para 
+escribir código, estas las puedes encontrar <a href="https://docs.djangoproject.com/en/2.1/internals/contributing/writing-code/coding-style/" target="_blank" rel="noopener" data-slimstat="5">aquí</a> , coteja con las de Python, verás que son complementarias.</p>
+<h3>Settings</h3>
+<p>settings.py es uno de los módulos principales en tu app, en el se 
+definen los parámetros con los que ha de funcionar tu aplicación, es 
+importante mantener limpio este módulo, e incluso, quitar lo que no es 
+básico para entender el funcionamiento de la aplicación o moverlo a otro
+ lado.</p>
+<p>Recordemos que estamos hablando de Python, podemos hacer nuestro 
+settings.py muy modular, e importar lo que se necesita en el momento. 
+Por ejemplo, las configuraciones de <code>logging</code>&nbsp;, o las configuraciones correspondientes al ambiente de desarrollo que son típicamente diferentes a las de producción.</p>
+<p>Rutas</p>
+<p>Nuestro ambiente de desarrollo esta en una ruta en el almacenamiento 
+diferente de la que estará en producción, es por ello que debemos evitar
+ usar rutas “duras”, en su lugar debemos referirnos a rutas relativas a 
+una que Python nos proporcionará.</p>
+<p>Es común ver en el settings.py la variable <code>BASE_DIR</code>&nbsp;y <code>STATIC_ROOT</code>&nbsp;que
+ son variables donde se define la ruta absoluta del proyecto en disco 
+duro, así como donde se guardan los archivos estáticos en disco duro. 
+Estas variables las podemos definir mejor así:</p>
+<pre><code><span>BASE_DIR</span> = os.path.dirname(__file__)
+<span>STATIC_ROOT</span> = os.path.join(BASE_DIR, <span>"static"</span>)</code></pre>
+<h3>urls</h3>
+<p>En nuestro proyecto veremos un archivo <code>urls.py</code>&nbsp;que 
+no es mas que un módulo que contiene la información de cada una e las 
+URLs dentro de nuestro proyecto. Me ha tocado ver urls.py tan largos 
+como la cuaresma, y no, no es nada bonito tener un módulo asi de grande,
+ sobre todo porque es confuso.</p>
+<p>Que podemos hacer entonces?. Bueno, en principio, tener un urls.py en cada <code>app</code>&nbsp;de
+ tu proyecto, de esta forma cada app será independiente, se reducirá el 
+tamaño del archivo principal y te será m as fácil ubicar las urls en 
+caso de agregar/editar/borrar. La otra, en el caso de que nuestra app 
+tenga muchas urls, es modularizar, puedes repartir las urls en mas 
+módulos dependiendo de cada sección dentro de tu app.</p>
+<h3>Plantillas</h3>
+<p>Las plantillas en Django están en básicamente en dos lugares, en el 
+directorio base de tu proyecto y en el de cada app, ahí deberá haber un 
+directorio llamado <em>templates.</em>&nbsp;Lo importante aquí es que 
+las plantillas de tu app deben estar en el directorio templates dentro 
+de tu app. Las plantillas “base” o genéricas podrían estar en tu 
+directorio templates en el directorio base.</p>
+<pre><code>BASE_DIR/
+        <span>/myproject/</span>
+                  /settings.py
+                  /urls.py
+        <span>/templates/</span>
+                  /base.html
+                  /header.html
+                  /footer.html
+        <span>/my_app/</span>
+               /models.py
+               /views.py
+               /urls.py
+               /admin.py
+</code></pre>
+<h3>Contenido estatico</h3>
+<p>Lo mismo que con las plantillas. Cada app debe mantener su contenido 
+estático para cada una de ellas, con esto mantienes la independencia de 
+la app y permites que pueda ser usada en otros proyectos.</p>
+<p>El contenido estático pueden ser:</p>
+<ul>
+<li>imágenes</li>
+<li>JavaScript</li>
+<li>CSS</li>
+</ul>
+<p>Ojo, no se debe confundir el contenido estático con el contenido que 
+sube el usuario final, este contenido que sube el usuario va al 
+directorio “Media”</p>
+<h3>Otras convenciones que aplico yo</h3>
+<p>Estas no están dentro de las convenciones de las buenas prácticas en Django, pero las he usado y me han servido muy bien:</p>
+<h4>Convertir views.py /forms.py en un paquete</h4>
+<p>Con esto puedo seccionar las partes de mi app, así tengo Views para 
+cada sección y son generalmente archivos pequeños. Con esto evito tener 
+un “views” de mas de 1000 lineas.</p>
+<pre><code>BASE_DIR/
+        <span>/myproject/</span>
+        <span>/my_app/</span>
+               /models.py
+               /urls.py
+               /admin.py
+               <span>/views/</span>
+                     /customers.py
+                     /products.py
+                     /reports.py
+
+</code></pre>
+<h4>Usar siempre Class Views</h4>
+<p>Django desde hace buen tiempo ya cuenta con las Class Views. Antes 
+estábamos acostumbrados a que cada vista era una función, pero los Class
+ Views tienen muchas ventajas sobre las funciones.</p>
+<p>Lo que mas me gusta es que puedo crear una clase base y solo extender
+ su uso dependiendo de la sección, por ejemplo, tengo la sección 
+Customers, entonces creo una vista básica de “customers”:</p>
+<pre><code><span><span>class</span> <span>CustomerBasicView</span>(<span>LoginRequiredMixin</span> ,<span>TemplateView</span>):</span>
+    template_name = <span>"blank.html"</span>
+    
+    customer = None
+
+    <span><span>def</span> <span>get_context_data</span><span>(<span>self</span>, *args, **kwargs)</span></span>:
+        
+
+    <span><span>def</span> <span>get</span><span>(<span>self</span>, request, *args, **kwargs)</span></span>:
+        
+        
+        
+        
+        <span>return</span> <span>self</span>.render_to_response(<span>self</span>.context)</code></pre>
+<p>Y las demás clases solo necesitan heredar de <code>CustomerBasicView</code></p>
+<pre><code><span><span>class</span> <span>Dashboard</span><span>(CustomerBasicView)</span>:</span>
+    template_name=<span>"customers/dashboard.html"</span>
+
+<span><span>class</span> <span>View</span><span>(CustomerBasicVIew)</span>:</span>
+    template_name=<span>"customers/view.html"</span>
+
+<span><span>class</span> <span>Edit</span><span>(CusotmerBasicView)</span>:</span>
+    template_name=<span>"customers/edit.html"</span></code></pre>
+<p>Como ven?. Dejaré una explicación mas detallada de esto que hago para otro post. Tal vez mañana.</p>
+<hr>
+<p>Si te gustó el articulo, compartelo en tus redes sociales, si tienes 
+algo que agregar con toda confianza hazlo en los comentarios.</p>
+<p data-element-id="5449"><i></i> 1,411&nbsp;total views, 2&nbsp;views today</p>
+
+				</div></div></div>
+    </div>
+
+    <div>
+      <div class="reader-message" style="display: none;"></div>
+    </div>
+  </div>
+
+  <ul class="toolbar reader-toolbar">
+    <li><button class="button close-button" title="Cerrar vista de lector"></button></li>
+    <ul class="dropdown style-dropdown">
+      <li><button class="dropdown-toggle button style-button" title="Controles de tipo"></button></li>
+      <li class="dropdown-popup">
+        <div class="font-type-buttons"><button class="sans-serif-button selected"><div class="name">Aa</div><div class="description">Sans-serif</div></button><button class="serif-button"><div class="name">Aa</div><div class="description">Serif</div></button></div>
+        <hr>
+        <div class="font-size-buttons">
+          <button class="minus-button">
+          </button><button class="font-size-sample">Aa</button><button class="plus-button">
+        </button></div>
+        <hr>
+        <div class="content-width-buttons">
+          <button class="content-width-minus-button">
+          </button><button class="content-width-plus-button">
+        </button></div>
+        <hr>
+        <div class="line-height-buttons">
+          <button class="line-height-minus-button">
+          </button><button class="line-height-plus-button">
+        </button></div>
+        <hr>
+        <div class="color-scheme-buttons"><button class="light-button selected"><div class="name">Claro</div></button><button class="dark-button"><div class="name">Oscuro</div></button><button class="sepia-button"><div class="name">Sepia</div></button></div>
+        <div class="dropdown-arrow">
+      </div></li>
+    </ul>
+  <ul class="dropdown narrate-dropdown"><li>
+       <button class="dropdown-toggle button narrate-toggle" title="Narrar" hidden="">
+         <svg xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" width="24" height="24" viewBox="0 0 24 24">
+          <style>
+            @keyframes grow {
+              0%   { transform: scaleY(1);   }
+              15%  { transform: scaleY(1.5); }
+              15%  { transform: scaleY(1.5); }
+              30%  { transform: scaleY(1);   }
+              100% { transform: scaleY(1);   }
+            }
+
+            .waveform &gt; rect {
+              fill: #808080;
+            }
+
+            .speaking .waveform &gt; rect {
+              fill: #58bf43;
+              transform-box: fill-box;
+              transform-origin: 50% 50%;
+              animation-name: grow;
+              animation-duration: 1750ms;
+              animation-iteration-count: infinite;
+              animation-timing-function: linear;
+            }
+
+            .waveform &gt; rect:nth-child(2) { animation-delay: 250ms; }
+            .waveform &gt; rect:nth-child(3) { animation-delay: 500ms; }
+            .waveform &gt; rect:nth-child(4) { animation-delay: 750ms; }
+            .waveform &gt; rect:nth-child(5) { animation-delay: 1000ms; }
+            .waveform &gt; rect:nth-child(6) { animation-delay: 1250ms; }
+            .waveform &gt; rect:nth-child(7) { animation-delay: 1500ms; }
+
+          </style>
+          <g class="waveform">
+            <rect x="1" y="8" width="2" height="8" rx=".5" ry=".5"></rect>
+            <rect x="4" y="5" width="2" height="14" rx=".5" ry=".5"></rect>
+            <rect x="7" y="8" width="2" height="8" rx=".5" ry=".5"></rect>
+            <rect x="10" y="4" width="2" height="16" rx=".5" ry=".5"></rect>
+            <rect x="13" y="2" width="2" height="20" rx=".5" ry=".5"></rect>
+            <rect x="16" y="4" width="2" height="16" rx=".5" ry=".5"></rect>
+            <rect x="19" y="7" width="2" height="10" rx=".5" ry=".5"></rect>
+          </g>
+         </svg>
+        </button>
+    </li>
+    <li class="dropdown-popup">
+      <div class="narrate-row narrate-control">
+        <button disabled="disabled" class="narrate-skip-previous" title="Atrás"></button>
+        <button class="narrate-start-stop" title="Inicio"></button>
+        <button disabled="disabled" class="narrate-skip-next" title="Adelante"></button>
+      </div>
+      <div class="narrate-row narrate-rate">
+        <input class="narrate-rate-input" value="0" title="Velocidad" step="5" max="100" min="-100" type="range">
+      </div>
+      <div class="narrate-row narrate-voices"><div class="voiceselect voice-select"><button class="select-toggle" aria-controls="voice-options">
+      <span class="label">Voz:</span> <span class="current-voice"></span>
+    </button>
+    <div class="options" id="voice-options" role="listbox"></div></div></div>
+      <div class="dropdown-arrow"></div>
+    </li></ul><button data-buttonid="pocket-button" class="button pocket-button" style="background-image: url(&quot;chrome://pocket/content/panels/img/pocket.svg#pocket-mark&quot;);" title="Save to Pocket"></button></ul>
+
+
+
+
+</body></html>
