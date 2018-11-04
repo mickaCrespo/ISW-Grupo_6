@@ -1,0 +1,13 @@
+Deben investigar cómo se escribe un reporte técnico, (paper) para obtener los lineamientos de cómo debe ser el formato y estructura del mismo.
+
+Extensión del reporte técnico: 10 páginas.
+Presentación en papel para su corrección, luego de su aprobación y con las observaciones incluidas en el trabajo, lo subiran al repositorio correspondiente en GitHub, respetando las reglas de nombrado definidas.
+
+Temas posibles a elegir:
+	Conceptos generales sobre calidad.
+	Importancia de trabajar para y con Calidad. Ventajas y Desventajas.
+	Actividades relacionadas con el Aseguramiento de la Calidad del Software.
+	Principales Modelos de Calidad existentes (CMMI – SPICE – ISO) y sus métodos de evaluación.
+	Lineamientos para la implementación de modelos de calidad en las organizaciones.
+	Diferentes tipos de Auditorías: Auditorías de Proyecto y Auditorías al Grupo de Calidad.
+	Proceso de Auditorías: Responsabilidades. Preparación y ejecución. Reporte y seguimiento.
